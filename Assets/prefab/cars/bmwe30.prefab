@@ -9,6 +9,7 @@
         "__type": "Meteor.VehicleTool.Vehicle.VehicleComponent",
         "__guid": "3ed14df1-f321-4fd7-a5df-a79683d088b2",
         "AssistMultiplier": 0.8,
+        "AssistStartSpeed": 5,
         "Body": {
           "_type": "component",
           "component_id": "7e2f3a50-dc85-4664-9904-5614bfae554d",
