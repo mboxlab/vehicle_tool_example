@@ -41,7 +41,7 @@ public partial class WheelCollider : Component
 	}
 	[Group( "Properties" ), Property, ReadOnly] public float Inertia;
 
-	[Group( "Components" ), Property] VehicleComponent Controller { get; set; }
+	[Group( "Components" ), Property] VehicleController Controller { get; set; }
 
 	private Rigidbody CarBody => Controller.Body;
 
@@ -88,6 +88,6 @@ public partial class WheelCollider : Component
 	}
 	protected override void OnAwake()
 	{
-		Controller ??= Components.Get<VehicleComponent>( FindMode.InAncestors );
+		Controller ??= Components.Get<VehicleController>( FindMode.InAncestors );
 	}
 }
