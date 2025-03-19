@@ -1,0 +1,20 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "Dev",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "dev",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "IsStandaloneOnly": false,
+      "Metadata": {
+        "SingleAssetSource": "maps/dev.vmap"
+      }
+    }
+  }
+}

@@ -1,0 +1,775 @@
+{
+  "RootObject": {
+    "__guid": "2857c469-73ce-418a-9679-1f38546de088",
+    "Flags": 0,
+    "Name": "6x6",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Meteor.VehicleTool.Vehicle.VehicleComponent",
+        "__guid": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
+        "AssistMultiplier": 0.8,
+        "AssistStartSpeed": 5,
+        "Body": {
+          "_type": "component",
+          "component_id": "02fcf0b9-cdec-49a7-85ba-375908eda9e3",
+          "go": "2857c469-73ce-418a-9679-1f38546de088",
+          "component_type": "Rigidbody"
+        },
+        "BodyHeight": 100,
+        "CameraOffset": "400,0,24",
+        "CombinedLoad": 0,
+        "EyeDistanceFromTop": 8,
+        "EyePosition": "32,16,86",
+        "HandBrakePower": 10000,
+        "HandBrakeWheels": [
+          {
+            "_type": "component",
+            "component_id": "e7db4772-1b4e-4a77-b305-50aa66163e51",
+            "go": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
+            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+            "component_type": "WheelCollider"
+          }
+        ],
+        "LookSensitivity": 1,
+        "MaxPitch": 75,
+        "MaxPower": 400,
+        "MaxSpeed": 150,
+        "MaxSpeedForMinAngleMultiplier": 100,
+        "MaxSteerAngle": 45,
+        "MaxSteerAngleMultiplier": 1,
+        "MinPitch": 25,
+        "MinSteerAngleMultiplier": 0.05,
+        "MotorWheels": [
+          {
+            "_type": "component",
+            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
+            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
+            "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
+            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "e7db4772-1b4e-4a77-b305-50aa66163e51",
+            "go": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
+            "component_type": "WheelCollider"
+          }
+        ],
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "ShowRigidbodyComponent": true,
+        "SteeringWheels": [
+          {
+            "_type": "component",
+            "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
+            "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
+            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
+            "component_type": "WheelCollider"
+          }
+        ],
+        "ThirdPerson": true,
+        "ToggleCameraModeButton": "view",
+        "UseAssist": true,
+        "UseCameraControls": true,
+        "UseInputControls": true,
+        "UseLookControls": true,
+        "UsePowertrain": true,
+        "UseSteerAngleMultiplier": true,
+        "UseSteering": true,
+        "Wheels": [
+          {
+            "_type": "component",
+            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
+            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
+            "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
+            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "e7db4772-1b4e-4a77-b305-50aa66163e51",
+            "go": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
+            "component_type": "WheelCollider"
+          }
+        ]
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "02fcf0b9-cdec-49a7-85ba-375908eda9e3",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {
+          "X": false,
+          "Y": false,
+          "Z": false,
+          "Pitch": false,
+          "Yaw": false,
+          "Roll": false
+        },
+        "MassCenterOverride": "25,0,54",
+        "MassOverride": 4000,
+        "MotionEnabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Sandbox.RespawnComponent",
+        "__guid": "aa6c2e12-b2d8-461f-9408-b81cb577c30a",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "afa99efc-b9b7-4e62-b5bc-6560f3015e6f",
+        "Flags": 0,
+        "Name": "Body",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "19a333c4-f16d-4e09-b544-d75893da8103",
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "example/6x6/6x6.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.ModelCollider",
+            "__guid": "c08fd7db-ee32-4cc0-929e-fbbff197a95a",
+            "Friction": null,
+            "IsTrigger": false,
+            "Model": "example/6x6/6x6.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnObjectTriggerEnter": null,
+            "OnObjectTriggerExit": null,
+            "OnTriggerEnter": null,
+            "OnTriggerExit": null,
+            "Static": false,
+            "Surface": null,
+            "SurfaceVelocity": "0,0,0"
+          }
+        ]
+      },
+      {
+        "__guid": "2954078f-cf37-4a58-a66b-14bb06d60f38",
+        "Flags": 0,
+        "Name": "Wheels",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "864d0620-1f20-4a78-9394-05bc5584f267",
+            "Flags": 0,
+            "Name": "W1 L",
+            "Position": "110.3534,43,19.72134",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "6fa900de-8ed0-4444-815e-dad3ff315384",
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
+                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                  "component_type": "VehicleComponent"
+                },
+                "Inertia": 7.0967603,
+                "LoadContribution": 0.25,
+                "LoadRating": 8000,
+                "Mass": 55,
+                "MaxSuspensionLength": 6,
+                "MinSuspensionLength": 6,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 20,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "0d4d8a91-0b37-4484-8e3f-55250d1b957f"
+                },
+                "RollingResistanceTorque": 130,
+                "SteerAngle": 0,
+                "SuspensionDamping": 5540,
+                "SuspensionStiffness": 53000,
+                "UseVisual": true,
+                "Width": 12
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "0d4d8a91-0b37-4484-8e3f-55250d1b957f",
+                "Flags": 0,
+                "Name": "Object",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6cf999df-9f58-497d-a20b-e5ec7757a6ad",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "example/6x6/6x6 - wheel.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
+            "Flags": 0,
+            "Name": "W1 R",
+            "Position": "110.3534,-43,19.72134",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
+                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                  "component_type": "VehicleComponent"
+                },
+                "Inertia": 7.0967603,
+                "LoadContribution": 0.25,
+                "LoadRating": 8000,
+                "Mass": 55,
+                "MaxSuspensionLength": 6,
+                "MinSuspensionLength": 6,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 20,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "edd03fc0-491e-408f-93a5-6da288cc578f"
+                },
+                "RollingResistanceTorque": 130,
+                "SteerAngle": 0,
+                "SuspensionDamping": 5540,
+                "SuspensionStiffness": 53000,
+                "UseVisual": true,
+                "Width": 12
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "edd03fc0-491e-408f-93a5-6da288cc578f",
+                "Flags": 0,
+                "Name": "Object",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "b15434d0-629a-4987-90da-9cb60065b396",
+                    "Flags": 0,
+                    "Name": "Object",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.ModelRenderer",
+                        "__guid": "8846e31d-8f8a-4392-b981-dab681340a38",
+                        "BodyGroups": 18446744073709551615,
+                        "CreateAttachments": false,
+                        "MaterialGroup": null,
+                        "MaterialOverride": null,
+                        "Model": "example/6x6/6x6 - wheel.vmdl",
+                        "OnComponentDestroy": null,
+                        "OnComponentDisabled": null,
+                        "OnComponentEnabled": null,
+                        "OnComponentFixedUpdate": null,
+                        "OnComponentStart": null,
+                        "OnComponentUpdate": null,
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": false,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderType": "On",
+                        "Tint": "1,1,1,1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+            "Flags": 0,
+            "Name": "W2 L",
+            "Position": "-30.53288,43,19.72134",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
+                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                  "component_type": "VehicleComponent"
+                },
+                "Inertia": 7.0967603,
+                "LoadContribution": 0.25,
+                "LoadRating": 8000,
+                "Mass": 55,
+                "MaxSuspensionLength": 6,
+                "MinSuspensionLength": 6,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 20,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "59fb7cec-d6b1-4f54-a129-35107904469d"
+                },
+                "RollingResistanceTorque": 130,
+                "SteerAngle": 0,
+                "SuspensionDamping": 5540,
+                "SuspensionStiffness": 43000,
+                "UseVisual": true,
+                "Width": 12
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "59fb7cec-d6b1-4f54-a129-35107904469d",
+                "Flags": 0,
+                "Name": "Object",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "7de127f3-fc6f-406e-815f-9625f0b20eeb",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "example/6x6/6x6 - wheel.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "566441bc-63ea-427c-9379-e7552c7b3641",
+            "Flags": 0,
+            "Name": "W2 R",
+            "Position": "-30.53288,-43,19.72134",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
+                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                  "component_type": "VehicleComponent"
+                },
+                "Inertia": 7.0967603,
+                "LoadContribution": 0.25,
+                "LoadRating": 8000,
+                "Mass": 55,
+                "MaxSuspensionLength": 6,
+                "MinSuspensionLength": 6,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 20,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "209c3662-1323-4658-8813-b5c24c0b8788"
+                },
+                "RollingResistanceTorque": 130,
+                "SteerAngle": 0,
+                "SuspensionDamping": 5540,
+                "SuspensionStiffness": 43000,
+                "UseVisual": true,
+                "Width": 12
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "209c3662-1323-4658-8813-b5c24c0b8788",
+                "Flags": 0,
+                "Name": "Object",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "711c7f7b-7da7-40b4-a753-f9e2a7fa9cf7",
+                    "Flags": 0,
+                    "Name": "Object",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.ModelRenderer",
+                        "__guid": "2e5bd3e1-3738-4a78-a535-ca86cc0a3524",
+                        "BodyGroups": 18446744073709551615,
+                        "CreateAttachments": false,
+                        "MaterialGroup": null,
+                        "MaterialOverride": null,
+                        "Model": "example/6x6/6x6 - wheel.vmdl",
+                        "OnComponentDestroy": null,
+                        "OnComponentDisabled": null,
+                        "OnComponentEnabled": null,
+                        "OnComponentFixedUpdate": null,
+                        "OnComponentStart": null,
+                        "OnComponentUpdate": null,
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": false,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderType": "On",
+                        "Tint": "1,1,1,1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
+            "Flags": 0,
+            "Name": "W3 L",
+            "Position": "-75.30272,43,19.72134",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "de76d44a-a059-427a-861b-f689d957556f",
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
+                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                  "component_type": "VehicleComponent"
+                },
+                "Inertia": 7.0967603,
+                "LoadContribution": 0.25,
+                "LoadRating": 8000,
+                "Mass": 55,
+                "MaxSuspensionLength": 6,
+                "MinSuspensionLength": 6,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 20,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "1c14fa4f-04d3-42ea-bdaf-67a3fd7cf1ab"
+                },
+                "RollingResistanceTorque": 130,
+                "SteerAngle": 0,
+                "SuspensionDamping": 5540,
+                "SuspensionStiffness": 43000,
+                "UseVisual": true,
+                "Width": 12
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "1c14fa4f-04d3-42ea-bdaf-67a3fd7cf1ab",
+                "Flags": 0,
+                "Name": "Object",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "cd6061db-ca5b-46d3-8253-fe25c7f1db6d",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "example/6x6/6x6 - wheel.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
+            "Flags": 0,
+            "Name": "W3 R",
+            "Position": "-75.30272,-43,19.72134",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "e7db4772-1b4e-4a77-b305-50aa66163e51",
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
+                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                  "component_type": "VehicleComponent"
+                },
+                "Inertia": 7.0967603,
+                "LoadContribution": 0.25,
+                "LoadRating": 8000,
+                "Mass": 55,
+                "MaxSuspensionLength": 6,
+                "MinSuspensionLength": 6,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 20,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "451152aa-db7f-4e9c-8f39-7bcbd2931cb8"
+                },
+                "RollingResistanceTorque": 130,
+                "SteerAngle": 0,
+                "SuspensionDamping": 5540,
+                "SuspensionStiffness": 43000,
+                "UseVisual": true,
+                "Width": 12
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "451152aa-db7f-4e9c-8f39-7bcbd2931cb8",
+                "Flags": 0,
+                "Name": "Object",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "872af2df-56fc-48e6-803d-19ad1b1c1c63",
+                    "Flags": 0,
+                    "Name": "Object",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.ModelRenderer",
+                        "__guid": "83ea77ab-d6e6-4fae-9a8a-c4a20117fa8f",
+                        "BodyGroups": 18446744073709551615,
+                        "CreateAttachments": false,
+                        "MaterialGroup": null,
+                        "MaterialOverride": null,
+                        "Model": "example/6x6/6x6 - wheel.vmdl",
+                        "OnComponentDestroy": null,
+                        "OnComponentDisabled": null,
+                        "OnComponentEnabled": null,
+                        "OnComponentFixedUpdate": null,
+                        "OnComponentStart": null,
+                        "OnComponentUpdate": null,
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": false,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderType": "On",
+                        "Tint": "1,1,1,1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

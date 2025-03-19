@@ -1,0 +1,13 @@
+{
+  "Title": "Vehicle Tool",
+  "Type": "library",
+  "Org": "meteorlab",
+  "Ident": "vehicletool",
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "IsStandaloneOnly": false,
+  "Metadata": {}
+}
