@@ -1,0 +1,51 @@
+VehicleEditor {
+    &.hidden {
+        opacity: 0;
+    }
+
+    position: absolute;
+    pointer-events: all;
+    width: 100%;
+    height: 100%;
+    transition: all 0.1s ease;
+    padding: 24px;
+    font-weight: bold;
+    flex-direction: column;
+    display: flex;
+    gap: 16px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .label {
+        font-size: 25px;
+        font-family: Poppins;
+        color: #fff;
+    }
+
+    .title {
+        text-align: center;
+        left: 0;
+        right: 75%;
+        font-size: 64px;
+        color: #fff;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+
+    > .container {
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 16px;
+        margin: 8px;
+        border-radius: 16px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 35%;
+
+        > .SliderControl {
+            width: 100%;
+        }
+
+    }
+}

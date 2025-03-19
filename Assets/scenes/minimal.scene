@@ -701,7 +701,7 @@
               "Scale": 0.07,
               "TextAlignment": "Center",
               "TextScope": {
-                "Text": "Spawn Sedan",
+                "Text": "Spawn car 1",
                 "TextColor": "1,1,1,1",
                 "FontName": "Poppins",
                 "FontSize": 118.31,

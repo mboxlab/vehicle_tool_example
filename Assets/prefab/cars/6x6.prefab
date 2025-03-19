@@ -6,8 +6,8 @@
     "Enabled": true,
     "Components": [
       {
-        "__type": "Meteor.VehicleTool.Vehicle.VehicleComponent",
-        "__guid": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
+        "__type": "Meteor.VehicleTool.Vehicle.VehicleController",
+        "__guid": "677a40f2-2d56-4301-a67d-c3aa69585417",
         "AssistMultiplier": 0.8,
         "AssistStartSpeed": 5,
         "Body": {
@@ -16,64 +16,52 @@
           "go": "2857c469-73ce-418a-9679-1f38546de088",
           "component_type": "Rigidbody"
         },
-        "BodyHeight": 100,
-        "CameraOffset": "400,0,24",
+        "BodyHeight": 72,
+        "CameraOffset": "450,0,12",
         "CombinedLoad": 0,
         "EyeDistanceFromTop": 8,
-        "EyePosition": "32,16,86",
+        "EyePosition": "0,0,0",
         "HandBrakePower": 10000,
         "HandBrakeWheels": [
+          {
+            "_type": "component",
+            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
+            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
+            "component_type": "WheelCollider"
+          },
           {
             "_type": "component",
             "component_id": "e7db4772-1b4e-4a77-b305-50aa66163e51",
             "go": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
             "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
-            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
-            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
-            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
-            "component_type": "WheelCollider"
           }
         ],
         "LookSensitivity": 1,
-        "MaxPitch": 75,
+        "MaxPitch": 90,
         "MaxPower": 400,
-        "MaxSpeed": 150,
+        "MaxSpeed": 100,
         "MaxSpeedForMinAngleMultiplier": 100,
-        "MaxSteerAngle": 45,
+        "MaxSteerAngle": 35,
         "MaxSteerAngleMultiplier": 1,
-        "MinPitch": 25,
+        "MinPitch": 90,
         "MinSteerAngleMultiplier": 0.05,
         "MotorWheels": [
           {
             "_type": "component",
-            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
-            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
-            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
-            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
+            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
             "component_type": "WheelCollider"
           },
           {
@@ -84,8 +72,20 @@
           },
           {
             "_type": "component",
-            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
-            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
+            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
+            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
             "component_type": "WheelCollider"
           },
           {
@@ -101,7 +101,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "ShowRigidbodyComponent": true,
+        "ShowRigidbodyComponent": false,
         "SteeringWheels": [
           {
             "_type": "component",
@@ -125,44 +125,7 @@
         "UsePowertrain": true,
         "UseSteerAngleMultiplier": true,
         "UseSteering": true,
-        "Wheels": [
-          {
-            "_type": "component",
-            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
-            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
-            "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
-            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
-            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
-            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "e7db4772-1b4e-4a77-b305-50aa66163e51",
-            "go": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
-            "component_type": "WheelCollider"
-          }
-        ]
+        "Wheels": []
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -200,6 +163,38 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.VehicleEditor",
+        "__guid": "4cc698e2-430d-4d6d-a3b3-540965ac63fe",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "vehicleComponent": {
+          "_type": "component",
+          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+          "go": "2857c469-73ce-418a-9679-1f38546de088",
+          "component_type": "VehicleController"
+        }
+      },
+      {
+        "__type": "Sandbox.ScreenPanel",
+        "__guid": "4d37a66f-5b0a-42cd-b820-77fddc141cfb",
+        "AutoScreenScale": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Opacity": 1,
+        "Scale": 1,
+        "ScaleStrategy": "ConsistentHeight",
+        "TargetCamera": null,
+        "ZIndex": 100
       }
     ],
     "Children": [
@@ -270,12 +265,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "6fa900de-8ed0-4444-815e-dad3ff315384",
-                "Controller": {
-                  "_type": "component",
-                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
-                  "go": "2857c469-73ce-418a-9679-1f38546de088",
-                  "component_type": "VehicleComponent"
-                },
+                "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadContribution": 0.25,
                 "LoadRating": 8000,
@@ -296,7 +286,7 @@
                 "RollingResistanceTorque": 130,
                 "SteerAngle": 0,
                 "SuspensionDamping": 5540,
-                "SuspensionStiffness": 53000,
+                "SuspensionStiffness": 43000,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -345,12 +335,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
-                "Controller": {
-                  "_type": "component",
-                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
-                  "go": "2857c469-73ce-418a-9679-1f38546de088",
-                  "component_type": "VehicleComponent"
-                },
+                "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadContribution": 0.25,
                 "LoadRating": 8000,
@@ -371,7 +356,7 @@
                 "RollingResistanceTorque": 130,
                 "SteerAngle": 0,
                 "SuspensionDamping": 5540,
-                "SuspensionStiffness": 53000,
+                "SuspensionStiffness": 43000,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -429,12 +414,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
-                "Controller": {
-                  "_type": "component",
-                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
-                  "go": "2857c469-73ce-418a-9679-1f38546de088",
-                  "component_type": "VehicleComponent"
-                },
+                "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadContribution": 0.25,
                 "LoadRating": 8000,
@@ -504,12 +484,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
-                "Controller": {
-                  "_type": "component",
-                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
-                  "go": "2857c469-73ce-418a-9679-1f38546de088",
-                  "component_type": "VehicleComponent"
-                },
+                "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadContribution": 0.25,
                 "LoadRating": 8000,
@@ -588,12 +563,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "de76d44a-a059-427a-861b-f689d957556f",
-                "Controller": {
-                  "_type": "component",
-                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
-                  "go": "2857c469-73ce-418a-9679-1f38546de088",
-                  "component_type": "VehicleComponent"
-                },
+                "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadContribution": 0.25,
                 "LoadRating": 8000,
@@ -663,12 +633,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "e7db4772-1b4e-4a77-b305-50aa66163e51",
-                "Controller": {
-                  "_type": "component",
-                  "component_id": "a12c3779-b6eb-4d30-b433-f2dfd538e01c",
-                  "go": "2857c469-73ce-418a-9679-1f38546de088",
-                  "component_type": "VehicleComponent"
-                },
+                "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadContribution": 0.25,
                 "LoadRating": 8000,

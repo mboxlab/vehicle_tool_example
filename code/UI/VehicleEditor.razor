@@ -1,0 +1,222 @@
+@using Meteor.VehicleTool.Vehicle
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root class="@(Visible ? "" : "hidden")">
+
+	<div class="container">
+		<title>Suspension</title>
+		<SliderControl Min=@(0) Max=@(32) Value:bind="@MinSuspensionLength">Min Length</SliderControl>
+		<SliderControl Min=@(0) Max=@(64) Value:bind="@MaxSuspensionLength">Max Length</SliderControl>
+		<SliderControl Min=@(0) Max=@(320000) Value:bind="@SuspensionStiffness">Stiffness</SliderControl>
+		<SliderControl Min=@(0) Max=@(10000) Value:bind="@SuspensionDamping">Damping</SliderControl>
+	</div>
+
+	<div class="container">
+		<title>Wheel</title>
+		<SliderControl Min=@(1) Max=@(32) Value:bind="@Radius">Radius</SliderControl>
+		<SliderControl Min=@(1) Max=@(32) Value:bind="@Width">Width</SliderControl>
+		<SliderControl Min=@(1) Max=@(320) Value:bind="@Mass">Mass</SliderControl>
+		<SliderControl Min=@(0) Max=@(100000) Value:bind="@LoadRating">Friction</SliderControl>
+		<SliderControl Min=@(0) Max=@(500) Value:bind="@RollingResistanceTorque">Rolling Resistance Torque</SliderControl>
+	</div>
+
+	<div class="container">
+		<title>Engine</title>
+		<SliderControl Min=@(0) Max=@(3000) Value:bind="@vehicleComponent.MaxPower">Max Power</SliderControl>
+		<SliderControl Min=@(1) Max=@(320) Value:bind="@vehicleComponent.MaxSpeed">Max Speed</SliderControl>
+		<SliderControl Min=@(0) Max=@(32000) Value:bind="@vehicleComponent.HandBrakePower">Hand Brake Power</SliderControl>
+	</div>
+
+	<div class="container">
+		<title>Steering</title>
+		<SliderControl Min=@(0) Max=@(90) Value:bind="@vehicleComponent.MaxSteerAngle">Max Angle</SliderControl>
+		<SliderControl Step="@(0.1f)" Min=@(0) Max=@(1) Value:bind="@vehicleComponent.AssistMultiplier">Assist Multiplier</SliderControl>
+		<SliderControl Min=@(0) Max=@(320) Value:bind="@vehicleComponent.AssistStartSpeed">Assist Start Speed</SliderControl>
+	</div>
+
+</root>
+@code
+{
+
+	public bool Visible => Input.Down("Score");
+	[Property] public VehicleController vehicleComponent;
+
+	private float initRadius;
+	private float initWidth;
+
+	protected override void OnStart()
+	{
+		var wheel = vehicleComponent.Wheels[0];
+		initRadius = wheel.Radius;
+		initWidth = wheel.Width;
+		minSuspensionLength = wheel.MinSuspensionLength;
+		maxSuspensionLength = wheel.MaxSuspensionLength;
+		suspensionStiffness = wheel.SuspensionStiffness;
+		suspensionDamping = wheel.SuspensionDamping;
+
+		radius = wheel.Radius;
+		width = wheel.Width;
+		mass = wheel.Mass;
+		loadRating = wheel.LoadRating;
+		rollingResistanceTorque = wheel.RollingResistanceTorque;
+	}
+
+	private float minSuspensionLength;
+	private float MinSuspensionLength
+	{
+		get => minSuspensionLength; set
+		{
+			minSuspensionLength = value;
+			SetMinSuspensionLength(value);
+		}
+	}
+
+	void SetMinSuspensionLength(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.MinSuspensionLength = value;
+	}
+
+	private float maxSuspensionLength;
+	private float MaxSuspensionLength
+	{
+		get => maxSuspensionLength; set
+		{
+			maxSuspensionLength = value;
+			SetMaxSuspensionLength(value);
+		}
+	}
+
+	void SetMaxSuspensionLength(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.MaxSuspensionLength = value;
+	}
+
+	private float suspensionStiffness;
+	private float SuspensionStiffness
+	{
+		get => suspensionStiffness; set
+		{
+			suspensionStiffness = value;
+			SetSuspensionStiffness(value);
+		}
+	}
+
+	void SetSuspensionStiffness(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.SuspensionStiffness = value;
+	}
+
+	private float suspensionDamping;
+	private float SuspensionDamping
+	{
+		get => suspensionDamping; set
+		{
+			suspensionDamping = value;
+			SetSuspensionDamping(value);
+		}
+	}
+
+	void SetSuspensionDamping(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.SuspensionDamping = value;
+	}
+
+
+	private float radius;
+	private float Radius
+	{
+		get => radius; set
+		{
+			radius = value;
+			SetRadius(value);
+		}
+	}
+
+	void SetRadius(float radius = 16f)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+		{
+			item.Radius = radius;
+			var scale = radius / initRadius;
+			item.LocalScale = item.LocalScale.WithX(scale).WithZ(scale);
+		}
+	}
+
+	private float width;
+	private float Width
+
+	{
+		get => width; set
+		{
+			width = value;
+			SetWidth(value);
+		}
+	}
+
+	void SetWidth(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+		{
+			item.Width = value;
+			var scale = value / initWidth;
+			item.LocalScale = item.LocalScale.WithY(scale);
+		}
+	}
+	private float mass;
+	private float Mass
+	{
+		get => mass; set
+		{
+			mass = value;
+			SetWheelMass(value);
+		}
+	}
+
+	void SetWheelMass(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.Mass = value;
+
+	}
+
+	private float loadRating;
+	private float LoadRating
+	{
+		get => loadRating; set
+		{
+			loadRating = value;
+			SetLoadRating(value);
+		}
+	}
+
+	void SetLoadRating(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.LoadRating = value;
+	}
+
+	private float rollingResistanceTorque;
+	private float RollingResistanceTorque
+	{
+		get => rollingResistanceTorque; set
+		{
+			rollingResistanceTorque = value;
+			SetRollingResistanceTorque(value);
+		}
+	}
+
+	void SetRollingResistanceTorque(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.RollingResistanceTorque = value;
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(Visible);
+}

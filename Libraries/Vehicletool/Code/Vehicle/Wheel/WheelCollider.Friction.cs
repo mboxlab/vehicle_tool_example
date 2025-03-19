@@ -15,7 +15,7 @@ public partial class WheelCollider
 	/// <summary>
 	/// The percentage this wheel is contributing to the total vehicle load bearing.
 	/// </summary>
-	[Property, ReadOnly] public float LoadContribution { get; set; } = 0.25f;
+	public float LoadContribution { get; set; } = 0.25f;
 
 	/// <summary>
 	/// Maximum load the tire is rated for in [N]. 
@@ -140,7 +140,6 @@ public partial class WheelCollider
 		float camberFrictionCoeff = WorldRotation.Up.Dot( GroundHit.Normal );
 		camberFrictionCoeff = camberFrictionCoeff < 0f ? 0f : camberFrictionCoeff;
 
-
 		float peakForwardFrictionForce = FrictionPreset.PeakValue * forwardLoadFactor * ForwardFriction.Grip;
 		float absCombinedBrakeTorque = brakeTorque + RollingResistanceTorque;
 		absCombinedBrakeTorque = absCombinedBrakeTorque < 0 ? 0 : absCombinedBrakeTorque;
@@ -189,12 +188,11 @@ public partial class WheelCollider
 			if ( absMotorTorque <= absBrakeTorque && absWheelForceClampOverflow > absAngularVelocityCorrectionForce )
 			{
 				wheelIsBlocked = true;
-				AngularVelocity = AngularVelocity + ForwardFriction.Speed > 0 ? 1e-10f : -1e-10f;
+				AngularVelocity += ForwardFriction.Speed > 0 ? 1e-10f : -1e-10f;
 			}
 			else
 			{
 				AngularVelocity += angularVelocityCorrectionForce * Radius * invInertia * Time.Delta;
-
 			}
 		}
 		else
@@ -211,7 +209,6 @@ public partial class WheelCollider
 		CounterTorque = (signedCombinedBrakeForce - ForwardFriction.Force) * Radius;
 		float maxCounterTorque = inertia * absAngularVelocity;
 		CounterTorque = Math.Clamp( CounterTorque, -maxCounterTorque, maxCounterTorque );
-
 		ForwardFriction.Slip = (ForwardFriction.Speed - AngularVelocity * Radius) / clampedAbsForwardSpeed;
 		ForwardFriction.Slip *= slipLoadModifier;
 
@@ -275,7 +272,7 @@ public partial class WheelCollider
 		SidewayFriction.Force = SidewayFriction.Force > peakSideFrictionForce ? peakSideFrictionForce
 			: SidewayFriction.Force < -peakSideFrictionForce ? -peakSideFrictionForce : SidewayFriction.Force;
 
-		if ( 1f > 0 && (absForwardSpeed > 2f || absAngularVelocity > 4f) )
+		if ( absForwardSpeed > 2f || absAngularVelocity > 4f )
 		{
 			float forwardSlipPercent = ForwardFriction.Slip / FrictionPreset.PeakSlip;
 			float sideSlipPercent = SidewayFriction.Slip / FrictionPreset.PeakSlip;
