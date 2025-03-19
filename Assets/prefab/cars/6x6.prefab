@@ -125,7 +125,44 @@
         "UsePowertrain": true,
         "UseSteerAngleMultiplier": true,
         "UseSteering": true,
-        "Wheels": []
+        "Wheels": [
+          {
+            "_type": "component",
+            "component_id": "e7db4772-1b4e-4a77-b305-50aa66163e51",
+            "go": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
+            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
+            "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
+            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
+            "component_type": "WheelCollider"
+          }
+        ]
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -267,7 +304,6 @@
                 "__guid": "6fa900de-8ed0-4444-815e-dad3ff315384",
                 "Controller": null,
                 "Inertia": 7.0967603,
-                "LoadContribution": 0.25,
                 "LoadRating": 8000,
                 "Mass": 55,
                 "MaxSuspensionLength": 6,
@@ -337,7 +373,6 @@
                 "__guid": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
                 "Controller": null,
                 "Inertia": 7.0967603,
-                "LoadContribution": 0.25,
                 "LoadRating": 8000,
                 "Mass": 55,
                 "MaxSuspensionLength": 6,
@@ -416,7 +451,6 @@
                 "__guid": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
                 "Controller": null,
                 "Inertia": 7.0967603,
-                "LoadContribution": 0.25,
                 "LoadRating": 8000,
                 "Mass": 55,
                 "MaxSuspensionLength": 6,
@@ -486,7 +520,6 @@
                 "__guid": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
                 "Controller": null,
                 "Inertia": 7.0967603,
-                "LoadContribution": 0.25,
                 "LoadRating": 8000,
                 "Mass": 55,
                 "MaxSuspensionLength": 6,
@@ -565,7 +598,6 @@
                 "__guid": "de76d44a-a059-427a-861b-f689d957556f",
                 "Controller": null,
                 "Inertia": 7.0967603,
-                "LoadContribution": 0.25,
                 "LoadRating": 8000,
                 "Mass": 55,
                 "MaxSuspensionLength": 6,
@@ -635,7 +667,6 @@
                 "__guid": "e7db4772-1b4e-4a77-b305-50aa66163e51",
                 "Controller": null,
                 "Inertia": 7.0967603,
-                "LoadContribution": 0.25,
                 "LoadRating": 8000,
                 "Mass": 55,
                 "MaxSuspensionLength": 6,
