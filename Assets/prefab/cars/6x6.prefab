@@ -318,6 +318,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "6fa900de-8ed0-4444-815e-dad3ff315384",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadRating": 8000,
@@ -339,6 +340,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 5540,
                 "SuspensionStiffness": 43000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -387,6 +389,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadRating": 8000,
@@ -408,6 +411,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 5540,
                 "SuspensionStiffness": 43000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -465,6 +469,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadRating": 8000,
@@ -486,6 +491,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 5540,
                 "SuspensionStiffness": 43000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -534,6 +540,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadRating": 8000,
@@ -555,6 +562,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 5540,
                 "SuspensionStiffness": 43000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -612,6 +620,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "de76d44a-a059-427a-861b-f689d957556f",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadRating": 8000,
@@ -633,6 +642,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 5540,
                 "SuspensionStiffness": 43000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -681,6 +691,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "e7db4772-1b4e-4a77-b305-50aa66163e51",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 7.0967603,
                 "LoadRating": 8000,
@@ -702,6 +713,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 5540,
                 "SuspensionStiffness": 43000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }

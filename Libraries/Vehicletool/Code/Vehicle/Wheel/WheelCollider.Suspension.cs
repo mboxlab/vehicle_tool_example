@@ -31,7 +31,8 @@ public partial class WheelCollider
 
 		var localVel = worldVelocity.Dot( GroundHit.Normal ).InchToMeter();
 
-		var suspensionCompression = 1 - Easing.ExpoOut( GroundHit.Fraction );
+		var suspensionCompression = 1 - GroundHit.Fraction;
+
 		var dampingForce = -SuspensionDamping * localVel;
 		var springForce = SuspensionStiffness * suspensionCompression;
 

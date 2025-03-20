@@ -6,33 +6,6 @@
     "Enabled": true,
     "Components": [
       {
-        "__type": "Sandbox.Rigidbody",
-        "__guid": "7e2f3a50-dc85-4664-9904-5614bfae554d",
-        "AngularDamping": 0,
-        "Gravity": true,
-        "LinearDamping": 0,
-        "Locking": {
-          "X": false,
-          "Y": false,
-          "Z": false,
-          "Pitch": false,
-          "Yaw": false,
-          "Roll": false
-        },
-        "MassCenterOverride": "5,0,20",
-        "MassOverride": 1340,
-        "MotionEnabled": true,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "OverrideMassCenter": false,
-        "RigidbodyFlags": 0,
-        "StartAsleep": false
-      },
-      {
         "__type": "Meteor.VehicleTool.Vehicle.VehicleController",
         "__guid": "f8656763-8ba5-4b20-a502-c8124a183f6d",
         "AssistMultiplier": 0.8,
@@ -144,6 +117,33 @@
         ]
       },
       {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "7e2f3a50-dc85-4664-9904-5614bfae554d",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {
+          "X": false,
+          "Y": false,
+          "Z": false,
+          "Pitch": false,
+          "Yaw": false,
+          "Roll": false
+        },
+        "MassCenterOverride": "5,0,20",
+        "MassOverride": 1340,
+        "MotionEnabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
         "__type": "Sandbox.RespawnComponent",
         "__guid": "f330eea2-ff65-4bd1-ab82-5f79065c5309",
         "OnComponentDestroy": null,
@@ -204,6 +204,57 @@
     ],
     "Children": [
       {
+        "__guid": "b614d8f6-68f8-4580-a4e1-103b7a81d615",
+        "Flags": 0,
+        "Name": "Body",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "d0f3f668-2a85-4700-9217-54dfad347391",
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "example/bmwe30/bmwe30.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.ModelCollider",
+            "__guid": "e4592bae-b294-4a63-b0b0-25617beec027",
+            "Friction": null,
+            "IsTrigger": false,
+            "Model": "example/bmwe30/bmwe30.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnObjectTriggerEnter": null,
+            "OnObjectTriggerExit": null,
+            "OnTriggerEnter": null,
+            "OnTriggerExit": null,
+            "Static": false,
+            "Surface": null,
+            "SurfaceVelocity": "0,0,0"
+          }
+        ]
+      },
+      {
         "__guid": "c5b32c98-a65d-47dd-8696-3f67c8e83864",
         "Flags": 0,
         "Name": "Wheels",
@@ -219,6 +270,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "a9639a62-ce61-4105-8dba-bebe1c26c12c",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 1.2387072,
                 "LoadRating": 6400,
@@ -240,6 +292,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 3500,
                 "SuspensionStiffness": 25000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -297,6 +350,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "05fe1ca7-4e00-4af8-8774-3607f505f942",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 1.2387072,
                 "LoadRating": 6400,
@@ -318,6 +372,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 3500,
                 "SuspensionStiffness": 25000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -366,6 +421,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "a3542067-e3ab-4049-9269-697f7a211912",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 1.2387072,
                 "LoadRating": 6400,
@@ -387,6 +443,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 3500,
                 "SuspensionStiffness": 25000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -444,6 +501,7 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "6ed56fa6-c4ba-4f3c-b432-c67b608f721b",
+                "AutoSetFriction": true,
                 "Controller": null,
                 "Inertia": 1.2387072,
                 "LoadRating": 6400,
@@ -465,6 +523,7 @@
                 "SteerAngle": 0,
                 "SuspensionDamping": 3500,
                 "SuspensionStiffness": 25000,
+                "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 12
               }
@@ -502,57 +561,6 @@
                 ]
               }
             ]
-          }
-        ]
-      },
-      {
-        "__guid": "b614d8f6-68f8-4580-a4e1-103b7a81d615",
-        "Flags": 0,
-        "Name": "Body",
-        "Enabled": true,
-        "Components": [
-          {
-            "__type": "Sandbox.ModelRenderer",
-            "__guid": "d0f3f668-2a85-4700-9217-54dfad347391",
-            "BodyGroups": 18446744073709551615,
-            "CreateAttachments": false,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
-            "Model": "example/bmwe30/bmwe30.vmdl",
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
-              "BloomLayer": false,
-              "AfterUILayer": false
-            },
-            "RenderType": "On",
-            "Tint": "1,1,1,1"
-          },
-          {
-            "__type": "Sandbox.ModelCollider",
-            "__guid": "e4592bae-b294-4a63-b0b0-25617beec027",
-            "Friction": null,
-            "IsTrigger": false,
-            "Model": "example/bmwe30/bmwe30.vmdl",
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "OnObjectTriggerEnter": null,
-            "OnObjectTriggerExit": null,
-            "OnTriggerEnter": null,
-            "OnTriggerExit": null,
-            "Static": false,
-            "Surface": null,
-            "SurfaceVelocity": "0,0,0"
           }
         ]
       },
