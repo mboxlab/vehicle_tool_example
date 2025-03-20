@@ -26,3 +26,8 @@ code/Properties/*
 
 # Exported / standalone games
 Exports/
+
+*.obj
+*.mtl
+*.blend
+*.blend1
