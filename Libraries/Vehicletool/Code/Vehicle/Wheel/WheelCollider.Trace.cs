@@ -23,6 +23,8 @@ public partial class WheelCollider
 				.UseRenderMeshes( false )
 				.UseHitPosition( false )
 				.Run() );
+
+		DebugOverlay.Line( GroundHit.StartPosition, GroundHit.EndPosition, overlay: true );
 	}
 
 }

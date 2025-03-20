@@ -20,7 +20,7 @@ public partial class WheelCollider
 		=> suspensionTotalLength = maxSuspensionLength + minSuspensionLength;
 
 	public Vector3 GetCenter()
-		=> WorldTransform.PointToWorld( new Vector3( 0, 0, minSuspensionLength - GroundHit.Fraction * suspensionTotalLength ) );
+		=> GroundHit.EndPosition;
 
 	private void UpdateSuspension()
 	{
