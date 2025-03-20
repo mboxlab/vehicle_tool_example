@@ -21,6 +21,7 @@
 		<SliderControl Min=@(1) Max=@(320) Value:bind="@Mass">Mass</SliderControl>
 		<SliderControl Min=@(0) Max=@(100000) Value:bind="@LoadRating">Friction</SliderControl>
 		<SliderControl Min=@(0) Max=@(500) Value:bind="@RollingResistanceTorque">Rolling Resistance Torque</SliderControl>
+		<SwitchControl Value:bind="@AutoSetFriction">Auto Detect Ground Friction</SwitchControl>
 	</div>
 
 	<div class="container">
@@ -62,6 +63,7 @@
 		mass = wheel.Mass;
 		loadRating = wheel.LoadRating;
 		rollingResistanceTorque = wheel.RollingResistanceTorque;
+		autoSetFriction = wheel.AutoSetFriction;
 	}
 
 	private float minSuspensionLength;
@@ -217,6 +219,24 @@
 		foreach (var item in vehicleComponent.Wheels)
 			item.RollingResistanceTorque = value;
 	}
+
+	private bool autoSetFriction;
+	private bool AutoSetFriction
+	{
+		get => autoSetFriction; set
+		{
+			autoSetFriction = value;
+			SetAutoSetFriction(value);
+		}
+	}
+
+	void SetAutoSetFriction(bool value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.AutoSetFriction = value;
+	}
+
+
 
 	protected override int BuildHash() => System.HashCode.Combine(Visible);
 }

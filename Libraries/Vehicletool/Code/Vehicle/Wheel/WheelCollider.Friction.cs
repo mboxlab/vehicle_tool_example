@@ -33,6 +33,10 @@ public partial class WheelCollider
 	/// When there is wheel spin, the value will be less than the input torque.
 	/// </summary>
 	public float CounterTorque { get; private set; }
+
+	[Property] public bool AutoSetFriction { get; set; } = true;
+	[Property] public bool UseGroundVelocity { get; set; } = true;
+
 	public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Asphalt;
 	public float MotorTorque;
 	public float BrakeTorque;
@@ -99,8 +103,12 @@ public partial class WheelCollider
 	private Vector3 correctiveForce;
 	private void UpdateFriction()
 	{
-		UpdateFrictionPreset();
-		UpdateGroundVelocity();
+		if ( AutoSetFriction )
+			UpdateFrictionPreset();
+
+		if ( UseGroundVelocity )
+			UpdateGroundVelocity();
+
 		var motorTorque = MotorTorque;
 		var brakeTorque = BrakeTorque;
 
