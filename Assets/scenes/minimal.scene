@@ -32,7 +32,6 @@
       "Name": "Sun",
       "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
       "Tags": "light_directional,light",
-      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.DirectionalLight",
@@ -128,7 +127,7 @@
           "RenderTags": "",
           "TargetEye": "None",
           "Viewport": "0,0,1,1",
-          "ZFar": 10000,
+          "ZFar": 16896,
           "ZNear": 10
         },
         {
@@ -176,6 +175,25 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "Scale": 0.2
+        },
+        {
+          "__type": "Sandbox.CubemapFog",
+          "__guid": "03551d6b-70e0-4169-be2d-b98034c0c3b3",
+          "Blur": 0.5,
+          "EndDistance": 16384,
+          "FalloffExponent": 1,
+          "HeightExponent": 2,
+          "HeightStart": 2000,
+          "HeightWidth": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Sky": "materials/skybox/skybox_day_01.vmat",
+          "StartDistance": 4096,
+          "Tint": "1,1,1,1"
         }
       ]
     },
@@ -190,7 +208,7 @@
           "__guid": "40858745-1be7-49f1-b5b3-ee0f18ec284f",
           "__version": 1,
           "EnableCollision": true,
-          "MapName": "maps/dev.vmap",
+          "MapName": "maps/tracks/uk_streets/uk_streets.vmap",
           "NoOrigin": false,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -200,7 +218,7 @@
           "OnComponentUpdate": null,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
-          "UseMapFromLaunch": false
+          "UseMapFromLaunch": true
         }
       ],
       "Children": []
@@ -209,7 +227,7 @@
       "__guid": "80e57580-c44f-4284-b005-0f4002125042",
       "Flags": 0,
       "Name": "Network",
-      "Position": "-95.68157,-154.8476,1.402573",
+      "Position": "3468.369,-7047.77,228.0609",
       "Enabled": true,
       "Components": [
         {
@@ -234,7 +252,8 @@
       "__guid": "82337504-286a-4455-8d0f-e88861f8c131",
       "Flags": 0,
       "Name": "tests",
-      "Position": "-448,512,0",
+      "Position": "2284.575,-8566.766,210.4333",
+      "Rotation": "0,0,-0.5,0.8660254",
       "Enabled": true,
       "NetworkMode": 1,
       "Children": [
@@ -242,6 +261,7 @@
           "__guid": "2ff6a83f-1ef3-4cc0-8de3-e8b932a1998f",
           "Flags": 0,
           "Name": "Cube",
+          "Position": "-1.583863,-2.74333,-15.89414",
           "Scale": "8,8,0.1",
           "Enabled": true,
           "Components": [
@@ -306,7 +326,7 @@
           "__guid": "2ded6c8e-4b87-4d2e-8eaa-880415e99e0f",
           "Flags": 0,
           "Name": "Cube",
-          "Position": "0,-704,0",
+          "Position": "-0.5015869,-704.8688,-19.5777",
           "Scale": "8,8,0.1",
           "Enabled": true,
           "Components": [
@@ -371,7 +391,7 @@
           "__guid": "ca5111f5-35d6-446a-b8ab-ccddd25a258b",
           "Flags": 0,
           "Name": "Cube",
-          "Position": "0,768,0",
+          "Position": "2.294067,766.6755,-10.63606",
           "Scale": "8,8,0.1",
           "Enabled": true,
           "Components": [
@@ -437,7 +457,7 @@
           "__guid": "2d167b5f-7c7a-4139-9696-a3f1a8d9e63d",
           "Flags": 0,
           "Name": "Cube",
-          "Position": "-640,1216,0",
+          "Position": "-1382.414,-319.0807,-4.506042",
           "Scale": "8,8,0.1",
           "Enabled": true,
           "Components": [
@@ -571,7 +591,7 @@
       "__guid": "ea1ed834-51d2-4ab5-9d6b-b225e1a7671a",
       "Flags": 0,
       "Name": "Spawner Sedan",
-      "Position": "-1236.089,-267.0017,45",
+      "Position": "3531.769,-7056.735,239.4189",
       "Enabled": true,
       "Children": [
         {
@@ -714,7 +734,7 @@
       "__guid": "9948a03b-d6d0-4d08-bbbf-830b0a0d8259",
       "Flags": 0,
       "Name": "Spawner (1)",
-      "Position": "-1236.089,-192,45",
+      "Position": "3531.769,-6981.733,239.4189",
       "Enabled": true,
       "Children": [
         {
@@ -857,7 +877,7 @@
       "__guid": "18e5fac8-ce9c-4238-83f2-7d4a423aa872",
       "Flags": 0,
       "Name": "World",
-      "Position": "-1232,-230.7802,96",
+      "Position": "3535.858,-7020.513,290.4189",
       "Enabled": true,
       "Components": [
         {
@@ -912,6 +932,37 @@
               "Offset": "4,4"
             }
           }
+        }
+      ]
+    },
+    {
+      "__guid": "c6a48f54-aa2f-4d56-8adf-c4222e3cc4ca",
+      "Flags": 0,
+      "Name": "map",
+      "Position": "4000,5000,0",
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "eeaeb67f-51ad-42e5-9d35-2c19fc688ec9",
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "maps/tracks/uk_streets/map.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
         }
       ]
     }

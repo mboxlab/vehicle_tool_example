@@ -1,0 +1,117 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "road.vmat"
+								to = "maps/tracks/uk_streets/material/road.vmat"
+							},
+							{
+								from = "concrete.vmat"
+								to = "maps/tracks/uk_streets/material/concrete.vmat"
+							},
+							{
+								from = "grass.vmat"
+								to = "maps/tracks/uk_streets/material/grass.vmat"
+							},
+							{
+								from = "grasswild.vmat"
+								to = "maps/tracks/uk_streets/material/grass.vmat"
+							},
+							{
+								from = "kerb.vmat"
+								to = "maps/tracks/uk_streets/material/kerb.vmat"
+							},
+							{
+								from = "pavement1.vmat"
+								to = "maps/tracks/uk_streets/material/pavement1.vmat"
+							},
+							{
+								from = "pavement2.vmat"
+								to = "maps/tracks/uk_streets/material/pavement2.vmat"
+							},
+							{
+								from = "tarmac2.vmat"
+								to = "maps/tracks/uk_streets/material/d_concrete_01.vmat"
+							},
+							{
+								from = "drysoil.vmat"
+								to = "maps/tracks/uk_streets/material/drysoil.vmat"
+							},
+							{
+								from = "redpavement.vmat"
+								to = "maps/tracks/uk_streets/material/redpavement.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "maps/tracks/uk_streets/material/road.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "maps/tracks/uk_streets/map.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"road",
+								"concrete",
+								"grass",
+								"grassWild",
+								"kerb",
+								"pavement1",
+								"pavement2",
+								"tarmac2",
+								"drySoil",
+								"redPavement",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.3937
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

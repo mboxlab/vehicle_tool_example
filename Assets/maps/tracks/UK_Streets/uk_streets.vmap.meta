@@ -1,0 +1,21 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "Uk Streets",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "ukstreets",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "IsStandaloneOnly": false,
+      "Metadata": {
+        "SingleAssetSource": "maps/tracks/uk_streets/uk_streets.vmap",
+        "ParentPackage": "meteorlab.vehicle_tool_example"
+      }
+    }
+  }
+}
