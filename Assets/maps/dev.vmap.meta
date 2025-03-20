@@ -13,7 +13,8 @@
       "EditorReferences": [],
       "IsStandaloneOnly": false,
       "Metadata": {
-        "SingleAssetSource": "maps/dev.vmap"
+        "SingleAssetSource": "maps/dev.vmap",
+        "ParentPackage": "meteorlab.vehicle_tool_example"
       }
     }
   }

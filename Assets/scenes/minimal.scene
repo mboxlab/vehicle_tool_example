@@ -134,36 +134,8 @@
         {
           "__type": "Sandbox.Bloom",
           "__guid": "d73ef723-c888-41d4-802e-f797c79318be",
-          "BloomColor": {
-            "blend": "Linear",
-            "color": [
-              {
-                "t": 0,
-                "c": "1,1,1,1"
-              },
-              {
-                "t": 1,
-                "c": "1,1,1,1"
-              }
-            ],
-            "alpha": []
-          },
-          "BloomCurve": [
-            {
-              "x": 0,
-              "y": 0.5,
-              "in": 0,
-              "out": 0,
-              "mode": "Mirrored"
-            },
-            {
-              "x": 1,
-              "y": 1,
-              "in": 0,
-              "out": 0,
-              "mode": "Mirrored"
-            }
-          ],
+          "__version": 1,
+          "Gamma": 2.2,
           "Mode": "Additive",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -172,8 +144,8 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "Strength": 0.5,
-          "Threshold": 0.5,
-          "ThresholdWidth": 0.5
+          "Threshold": 1.25,
+          "Tint": "1,1,1,1"
         },
         {
           "__type": "Sandbox.Tonemapping",
