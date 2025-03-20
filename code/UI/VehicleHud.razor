@@ -1,0 +1,42 @@
+@using Meteor.VehicleTool.Vehicle
+@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="speedometer">
+		<div class="speed">
+			@{
+				var str = Math.Round(vehicleComponent.CurrentSpeed.MeterToInch() * VEL_TO_KMH).ToString("000");
+				var clr = "#333";
+				@for (int i = 0; i < 3; ++i)
+				{
+					var s = str[i];
+					if (s != '0')
+					{
+						clr = "#fff";
+					}
+					<label class="speedchar" style="color: @clr">@s</label>
+				}
+			}
+		</div>
+		<div class="throttle-container">
+			<div class="inner" style="width: @(Math.Abs(vehicleComponent.VerticalInput) * 100)%" />
+		</div>
+	</div>
+</root>
+
+@code
+{
+
+	private static float VEL_TO_KMH = 0.06858f;
+	[Property] public VehicleController vehicleComponent;
+
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(vehicleComponent.CurrentSpeed + vehicleComponent.VerticalInput);
+}

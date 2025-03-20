@@ -184,6 +184,22 @@
         "ScaleStrategy": "ConsistentHeight",
         "TargetCamera": null,
         "ZIndex": 100
+      },
+      {
+        "__type": "Sandbox.VehicleHud",
+        "__guid": "099d1f4d-1d24-4297-acea-0754f4c9df82",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "vehicleComponent": {
+          "_type": "component",
+          "component_id": "f8656763-8ba5-4b20-a502-c8124a183f6d",
+          "go": "44de0aeb-2863-4485-a5eb-1d0d21ae3d0a",
+          "component_type": "VehicleController"
+        }
       }
     ],
     "Children": [
