@@ -94,48 +94,7 @@ public partial class WheelCollider
 
 
 	}
-	/// <summary>
-	///     Amount of anti-squat geometry. 
-	///     -1 = There is no anti-squat and full squat torque is applied to the chassis.
-	///     0 = No squat torque is applied to the chassis.
-	///     1 = Anti-squat torque (inverse squat) is applied to the chassis.
-	///     Higher value will result in less vehicle squat/dive under acceleration/braking.
-	/// </summary>
-	[Property, Range( -1, 1 )]
-	public float AntiSquat;
 
-	void ApplySquatAndChassisTorque()
-	{
-		float squatMagnitude = ForwardFriction.Force * Radius * AntiSquat;
-
-		Vector3 right = TransformRotationSteer.Forward;
-		Vector3 squatTorque = squatMagnitude * right;
-
-		float chassisTorqueMag = ((prevAngularVelocity - AngularVelocity) * Inertia) / Time.Delta;
-		Vector3 chassisTorque = chassisTorqueMag * right;
-
-		CarBody.ApplyTorque( squatTorque + chassisTorque );
-	}
-
-	private void ApplyForceToHitBody()
-	{
-		if ( GroundHit.Collider == null )
-			return;
-
-		if ( GroundHit.Collider is Collider collider )
-		{
-			if ( !collider.Rigidbody.IsValid() )
-				return;
-
-			Vector3 force = -(FrictionForce + SuspensionForce);
-			force.x = force.x.InchToMeter();
-			force.y = force.y.InchToMeter();
-			force.z = force.z.InchToMeter();
-			collider.Rigidbody.ApplyImpulseAt( GroundHit.Point, force );
-		}
-	}
-
-	private float prevAngularVelocity;
 	private Vector3 lowSpeedReferencePosition;
 	private bool lowSpeedReferenceIsSet;
 	private Vector3 currentPosition;
@@ -158,10 +117,10 @@ public partial class WheelCollider
 		LoadContribution = allWheelLoadSum == 0 ? 1f : Load / allWheelLoadSum;
 
 
-		float Radius = this.Radius.InchToMeter();
+		float mRadius = Radius.InchToMeter();
 
 		float invDt = 1f / Time.Delta;
-		float invRadius = 1f / Radius;
+		float invRadius = 1f / mRadius;
 		float inertia = Inertia;
 		float invInertia = 1f / Inertia;
 
@@ -222,7 +181,7 @@ public partial class WheelCollider
 				combinedWheelForce = combinedWheelForce < -absWheelForceClamp ? -absWheelForceClamp :
 					combinedWheelForce > absWheelForceClamp ? absWheelForceClamp : combinedWheelForce;
 			}
-			AngularVelocity += combinedWheelForce * Radius * invInertia * Time.Delta;
+			AngularVelocity += combinedWheelForce * mRadius * invInertia * Time.Delta;
 
 			// Surface (corrective) force
 			float noSlipAngularVelocity = ForwardFriction.Speed * invRadius;
@@ -240,7 +199,7 @@ public partial class WheelCollider
 			}
 			else
 			{
-				AngularVelocity += angularVelocityCorrectionForce * Radius * invInertia * Time.Delta;
+				AngularVelocity += angularVelocityCorrectionForce * mRadius * invInertia * Time.Delta;
 			}
 		}
 		else
@@ -254,10 +213,10 @@ public partial class WheelCollider
 		}
 		float absAngularVelocity = AngularVelocity < 0 ? -AngularVelocity : AngularVelocity;
 
-		CounterTorque = (signedCombinedBrakeForce - ForwardFriction.Force) * Radius;
+		CounterTorque = (signedCombinedBrakeForce - ForwardFriction.Force) * mRadius;
 		float maxCounterTorque = inertia * absAngularVelocity;
 		CounterTorque = Math.Clamp( CounterTorque, -maxCounterTorque, maxCounterTorque );
-		ForwardFriction.Slip = (ForwardFriction.Speed - AngularVelocity * Radius) / clampedAbsForwardSpeed;
+		ForwardFriction.Slip = (ForwardFriction.Speed - AngularVelocity * mRadius) / clampedAbsForwardSpeed;
 		ForwardFriction.Slip *= slipLoadModifier;
 
 
@@ -273,7 +232,7 @@ public partial class WheelCollider
 
 		if ( IsGrounded && absForwardSpeed < 0.12f && absSideSpeed < 0.12f )
 		{
-			float verticalOffset = suspensionTotalLength.InchToMeter() + Radius;
+			float verticalOffset = suspensionTotalLength.InchToMeter() + mRadius;
 			var _transformPosition = WorldPosition;
 
 			var _transformUp = TransformRotationSteer.Up;

@@ -84,12 +84,9 @@ public partial class WheelCollider : Component
 		if ( UseVisual )
 			UpdateVisual();
 
-		prevAngularVelocity = AngularVelocity;
-
 		UpdateSteer();
 		UpdateHitVariables();
 		UpdateSuspension();
 		UpdateFriction();
-		ApplySquatAndChassisTorque();
 	}
 }
