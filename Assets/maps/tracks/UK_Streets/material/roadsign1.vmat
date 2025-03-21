@@ -1,0 +1,13 @@
+
+Layer0
+{
+	shader "shaders/complex.shader_c"
+
+	TextureColor "maps/tracks/uk_streets/texture/png/roadsign1.png"
+	TextureAmbientOcclusion "materials/default/default_ao.tga"
+	TextureNormal "materials/default/default_normal.tga"
+	TextureRoughness "materials/default/default_rough.tga"
+	F_TINT_MASK 1
+	TextureTintMask ""
+
+}

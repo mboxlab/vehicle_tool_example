@@ -225,31 +225,6 @@
       "Children": []
     },
     {
-      "__guid": "80e57580-c44f-4284-b005-0f4002125042",
-      "Flags": 0,
-      "Name": "Network",
-      "Position": "3468.369,-7047.77,228.0609",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.NetworkHelper",
-          "__guid": "64141f47-6a01-43f4-9e76-6724c3db4a98",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "PlayerPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefab/player.prefab"
-          },
-          "SpawnPoints": [],
-          "StartServer": true
-        }
-      ]
-    },
-    {
       "__guid": "82337504-286a-4455-8d0f-e88861f8c131",
       "Flags": 0,
       "Name": "tests",
@@ -589,10 +564,37 @@
       ]
     },
     {
+      "__guid": "80e57580-c44f-4284-b005-0f4002125042",
+      "Flags": 0,
+      "Name": "Network",
+      "Position": "-1549.793,-2699.089,253.0504",
+      "Rotation": "0,0,0.9659258,0.2588192",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.NetworkHelper",
+          "__guid": "64141f47-6a01-43f4-9e76-6724c3db4a98",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PlayerPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefab/player.prefab"
+          },
+          "SpawnPoints": [],
+          "StartServer": true
+        }
+      ]
+    },
+    {
       "__guid": "ea1ed834-51d2-4ab5-9d6b-b225e1a7671a",
       "Flags": 0,
       "Name": "Spawner Sedan",
-      "Position": "3531.769,-7056.735,239.4189",
+      "Position": "-1741.277,-2717.883,276.0342",
+      "Rotation": "0,0,-0.9659258,0.2588192",
       "Enabled": true,
       "Children": [
         {
@@ -735,7 +737,8 @@
       "__guid": "9948a03b-d6d0-4d08-bbbf-830b0a0d8259",
       "Flags": 0,
       "Name": "Spawner (1)",
-      "Position": "3531.769,-6981.733,239.4189",
+      "Position": "-1653.47,-2819.083,289.9838",
+      "Rotation": "0,0,0.9659259,-0.258819",
       "Enabled": true,
       "Children": [
         {
@@ -878,7 +881,8 @@
       "__guid": "18e5fac8-ce9c-4238-83f2-7d4a423aa872",
       "Flags": 0,
       "Name": "World",
-      "Position": "3535.858,-7020.513,290.4189",
+      "Position": "-1707.338,-2783.753,315.4084",
+      "Rotation": "0,0,-0.9659258,0.2588192",
       "Enabled": true,
       "Components": [
         {

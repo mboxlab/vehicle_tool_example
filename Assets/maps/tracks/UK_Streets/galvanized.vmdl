@@ -14,16 +14,60 @@
 						remaps = 
 						[
 							{
-								from = "galvanised.vmat"
-								to = "maps/tracks/uk_streets/material/galvanised.vmat"
-							},
-							{
 								from = "fences2.vmat"
 								to = "maps/tracks/uk_streets/material/fence.vmat"
 							},
 							{
 								from = "blackyellowstripe.vmat"
 								to = "maps/tracks/uk_streets/material/yellowblackstripe.vmat"
+							},
+							{
+								from = "blackplastic.vmat"
+								to = "maps/tracks/uk_streets/material/blackplastic.vmat"
+							},
+							{
+								from = "featherflag.vmat"
+								to = "maps/tracks/uk_streets/material/featherflag.vmat"
+							},
+							{
+								from = "white.vmat"
+								to = "materials/default/white.vmat"
+							},
+							{
+								from = "officefacade.vmat"
+								to = "maps/tracks/uk_streets/material/officefacade.vmat"
+							},
+							{
+								from = "yellowconcrete.vmat"
+								to = "maps/tracks/uk_streets/material/yellowconcrete.vmat"
+							},
+							{
+								from = "corrugatedroof.vmat"
+								to = "maps/tracks/uk_streets/material/corrugated.vmat"
+							},
+							{
+								from = "orange.vmat"
+								to = "maps/tracks/uk_streets/material/orange.vmat"
+							},
+							{
+								from = "greymetal.vmat"
+								to = "maps/tracks/uk_streets/material/greymetal.vmat"
+							},
+							{
+								from = "galvanized.vmat"
+								to = "maps/tracks/uk_streets/material/galvanised.vmat"
+							},
+							{
+								from = "galvanised.vmat"
+								to = "maps/tracks/uk_streets/material/galvanised.vmat"
+							},
+							{
+								from = "roadsign1.vmat"
+								to = "maps/tracks/uk_streets/material/roadsign1.vmat"
+							},
+							{
+								from = "metalblack.vmat"
+								to = "maps/tracks/uk_streets/material/tarmacdetailr.vmat"
 							},
 						]
 						use_global_default = false
@@ -50,9 +94,20 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"galvanised",
 								"fences2",
 								"blackYellowStripe",
+								"blackPlastic",
+								"featherFlag",
+								"white",
+								"officeFacade",
+								"yellowConcrete",
+								"corrugatedRoof",
+								"orange",
+								"greyMetal",
+								"galvanized",
+								"roadSign1",
+								"metalBlack",
+								"galvanised",
 							]
 						}
 					},
@@ -70,18 +125,6 @@
 						mirror_z = false
 						flip_bone_forward = false
 						swap_left_and_right_bones = false
-					},
-				]
-			},
-			{
-				_class = "PhysicsShapeList"
-				children = 
-				[
-					{
-						_class = "PhysicsMeshFromRender"
-						parent_bone = ""
-						surface_prop = "default"
-						collision_tags = "solid"
 					},
 				]
 			},

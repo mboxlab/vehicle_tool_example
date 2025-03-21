@@ -37,6 +37,22 @@
 								from = "roadsign2.vmat"
 								to = "maps/tracks/uk_streets/material/roadsign2.vmat"
 							},
+							{
+								from = "brick1.vmat"
+								to = "maps/tracks/uk_streets/material/brick1.vmat"
+							},
+							{
+								from = "galvanised.vmat"
+								to = "maps/tracks/uk_streets/material/galvanised.vmat"
+							},
+							{
+								from = "fencerail.vmat"
+								to = "maps/tracks/uk_streets/material/fencerail.vmat"
+							},
+							{
+								from = "restaurant.vmat"
+								to = "maps/tracks/uk_streets/material/restaurant_1.vmat"
+							},
 						]
 						use_global_default = false
 						global_default_material = "materials/default.vmat"
@@ -62,12 +78,14 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"darkConcrete",
-								"concreteSlab",
-								"brick2",
-								"concreteWall",
 								"shopFront",
 								"roadSIgn2",
+								"brick1",
+								"restaurant",
+								"darkConcrete",
+								"concreteWall",
+								"concreteSlab",
+								"brick2",
 							]
 						}
 					},
