@@ -10,7 +10,7 @@ public partial class WheelCollider : Component
 {
 
 	private float wheelRadius = 14;
-	private float mass = 15;
+	private float mass = 20;
 
 	[Group( "Properties" ), Property]
 	public float Radius
@@ -44,7 +44,10 @@ public partial class WheelCollider : Component
 	[Group( "Components" ), Property] VehicleController Controller { get; set; }
 
 	private Rigidbody CarBody => Controller.Body;
-
+	protected override void OnAwake()
+	{
+		Controller ??= Components.Get<VehicleController>( FindMode.InAncestors );
+	}
 	protected override void OnStart()
 	{
 		base.OnStart();
@@ -81,13 +84,13 @@ public partial class WheelCollider : Component
 		if ( UseVisual )
 			UpdateVisual();
 
+		prevAngularVelocity = AngularVelocity;
+
 		UpdateSteer();
 		UpdateHitVariables();
 		UpdateSuspension();
 		UpdateFriction();
-	}
-	protected override void OnAwake()
-	{
-		Controller ??= Components.Get<VehicleController>( FindMode.InAncestors );
+		ApplySquatAndChassisTorque();
+		ApplyForceToHitBody();
 	}
 }

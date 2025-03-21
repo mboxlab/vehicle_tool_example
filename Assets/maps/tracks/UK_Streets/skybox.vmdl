@@ -14,44 +14,12 @@
 						remaps = 
 						[
 							{
-								from = "ambar.vmat"
-								to = "maps/tracks/uk_streets/material/storage_01.vmat"
-							},
-							{
-								from = "houses.vmat"
-								to = "maps/tracks/uk_streets/material/med_tech_08.vmat"
-							},
-							{
-								from = "lowtech_3.vmat"
-								to = "maps/tracks/uk_streets/material/lowtech_03.vmat"
-							},
-							{
-								from = "lowtech_5.vmat"
-								to = "maps/tracks/uk_streets/material/lowtech_05.vmat"
-							},
-							{
-								from = "medtech_6.vmat"
-								to = "maps/tracks/uk_streets/material/med_tech_06.vmat"
-							},
-							{
-								from = "medtech_7.vmat"
-								to = "maps/tracks/uk_streets/material/med_tech_07.vmat"
-							},
-							{
-								from = "officefacade.vmat"
-								to = "maps/tracks/uk_streets/material/officefacade.vmat"
-							},
-							{
-								from = "plasticfacade.vmat"
-								to = "maps/tracks/uk_streets/material/plasticfacade.vmat"
-							},
-							{
-								from = "servicepoint_d.vmat"
-								to = "maps/tracks/uk_streets/material/servicepoint_d.vmat"
-							},
-							{
 								from = "terrain.vmat"
 								to = "maps/tracks/uk_streets/material/overlay.vmat"
+							},
+							{
+								from = "ambar.vmat"
+								to = "maps/tracks/uk_streets/material/storage_01.vmat"
 							},
 						]
 						use_global_default = false
@@ -79,14 +47,6 @@
 							exception_list = 
 							[
 								"ambar",
-								"servicepoint_d",
-								"houses",
-								"lowtech_3",
-								"lowtech_5",
-								"medtech_6",
-								"medtech_7",
-								"plasticFacade",
-								"officeFacade",
 								"terrain",
 							]
 						}
@@ -100,6 +60,15 @@
 					{
 						_class = "ModelModifier_ScaleAndMirror"
 						scale = 0.3937
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.125
 						mirror_x = false
 						mirror_y = false
 						mirror_z = false

@@ -934,37 +934,6 @@
           }
         }
       ]
-    },
-    {
-      "__guid": "c6a48f54-aa2f-4d56-8adf-c4222e3cc4ca",
-      "Flags": 0,
-      "Name": "map",
-      "Position": "4000,5000,0",
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "eeaeb67f-51ad-42e5-9d35-2c19fc688ec9",
-          "BodyGroups": 18446744073709551615,
-          "CreateAttachments": false,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "maps/tracks/uk_streets/map.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ]
     }
   ],
   "SceneProperties": {

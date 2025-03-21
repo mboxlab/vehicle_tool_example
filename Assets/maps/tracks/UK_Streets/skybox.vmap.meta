@@ -1,0 +1,21 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "Skybox",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "skybox",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "IsStandaloneOnly": false,
+      "Metadata": {
+        "SingleAssetSource": "maps/tracks/uk_streets/skybox.vmap",
+        "ParentPackage": "meteorlab.vehicle_tool_example"
+      }
+    }
+  }
+}
