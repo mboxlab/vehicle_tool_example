@@ -94,8 +94,45 @@ public partial class WheelCollider
 
 
 	}
+	/// <summary>
+	///     Amount of anti-squat geometry. 
+	///     -1 = There is no anti-squat and full squat torque is applied to the chassis.
+	///     0 = No squat torque is applied to the chassis.
+	///     1 = Anti-squat torque (inverse squat) is applied to the chassis.
+	///     Higher value will result in less vehicle squat/dive under acceleration/braking.
+	/// </summary>
+	[Property, Range( -1, 1 )]
+	public float AntiSquat;
 
+	void ApplySquatAndChassisTorque()
+	{
+		float squatMagnitude = ForwardFriction.Force * Radius * AntiSquat;
 
+		Vector3 right = TransformRotationSteer.Forward;
+		Vector3 squatTorque = squatMagnitude * right;
+
+		float chassisTorqueMag = ((prevAngularVelocity - AngularVelocity) * Inertia) / Time.Delta;
+		Vector3 chassisTorque = chassisTorqueMag * right;
+
+		CarBody.ApplyTorque( squatTorque + chassisTorque );
+	}
+
+	private void ApplyForceToHitBody()
+	{
+		if ( GroundHit.Collider == null )
+			return;
+
+		if ( GroundHit.Collider is Collider collider )
+		{
+			if ( !collider.Rigidbody.IsValid() )
+				return;
+
+			collider.Rigidbody.ApplyForceAt( GroundHit.Point, -(FrictionForce + SuspensionForce) );
+
+		}
+	}
+
+	private float prevAngularVelocity;
 	private Vector3 lowSpeedReferencePosition;
 	private bool lowSpeedReferenceIsSet;
 	private Vector3 currentPosition;

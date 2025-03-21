@@ -6,7 +6,7 @@ public partial class WheelCollider
 {
 	private static Rotation CylinderOffset => Rotation.FromRoll( 90 );
 
-	public bool IsGrounded => GroundHit.Hit;
+	public bool IsGrounded { get; private set; }
 
 	private GroundHit GroundHit;
 	private void DoTrace()
@@ -23,6 +23,8 @@ public partial class WheelCollider
 				.UseRenderMeshes( false )
 				.UseHitPosition( false )
 				.Run() );
+
+		IsGrounded = GroundHit.Hit;
 	}
 
 }

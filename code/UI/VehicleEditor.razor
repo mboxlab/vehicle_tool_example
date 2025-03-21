@@ -6,38 +6,53 @@
 
 <root class="@(Visible ? "" : "hidden")">
 
-	<div class="container">
-		<title>Suspension</title>
-		<SliderControl Min=@(0) Max=@(32) Value:bind="@MinSuspensionLength">Min Length</SliderControl>
-		<SliderControl Min=@(0) Max=@(64) Value:bind="@MaxSuspensionLength">Max Length</SliderControl>
-		<SliderControl Min=@(0) Max=@(320000) Value:bind="@SuspensionStiffness">Stiffness</SliderControl>
-		<SliderControl Min=@(0) Max=@(10000) Value:bind="@SuspensionDamping">Damping</SliderControl>
-	</div>
+	<div class="colomn">
 
-	<div class="container">
-		<title>Wheel</title>
-		<SliderControl Min=@(1) Max=@(32) Value:bind="@Radius">Radius</SliderControl>
-		<SliderControl Min=@(1) Max=@(32) Value:bind="@Width">Width</SliderControl>
-		<SliderControl Min=@(1) Max=@(320) Value:bind="@Mass">Mass</SliderControl>
-		<SliderControl Min=@(0) Max=@(100000) Value:bind="@LoadRating">Friction</SliderControl>
-		<SliderControl Min=@(0) Max=@(500) Value:bind="@RollingResistanceTorque">Rolling Resistance Torque</SliderControl>
-		<SwitchControl Value:bind="@AutoSetFriction">Auto Detect Ground Friction</SwitchControl>
-	</div>
 
-	<div class="container">
-		<title>Engine</title>
-		<SliderControl Min=@(0) Max=@(3000) Value:bind="@vehicleComponent.MaxPower">Max Power</SliderControl>
-		<SliderControl Min=@(1) Max=@(320) Value:bind="@vehicleComponent.MaxSpeed">Max Speed</SliderControl>
-		<SliderControl Min=@(0) Max=@(32000) Value:bind="@vehicleComponent.HandBrakePower">Hand Brake Power</SliderControl>
-	</div>
+		<div class="container">
+			<title>Engine</title>
+			<SliderControl Min=@(0) Max=@(3000) Value:bind="@vehicleComponent.MaxPower">Max Power</SliderControl>
+			<SliderControl Min=@(1) Max=@(320) Value:bind="@vehicleComponent.MaxSpeed">Max Speed</SliderControl>
+			<SliderControl Min=@(0) Max=@(32000) Value:bind="@vehicleComponent.HandBrakePower">Hand Brake Power</SliderControl>
+		</div>
 
-	<div class="container">
-		<title>Steering</title>
-		<SliderControl Min=@(0) Max=@(90) Value:bind="@vehicleComponent.MaxSteerAngle">Max Angle</SliderControl>
-		<SliderControl Step="@(0.1f)" Min=@(0) Max=@(1) Value:bind="@vehicleComponent.AssistMultiplier">Assist Multiplier</SliderControl>
-		<SliderControl Min=@(0) Max=@(320) Value:bind="@vehicleComponent.AssistStartSpeed">Assist Start Speed</SliderControl>
+		<div class="container">
+			<title>Steering</title>
+			<SliderControl Min=@(0) Max=@(90) Value:bind="@vehicleComponent.MaxSteerAngle">Max Angle</SliderControl>
+			<SliderControl Step="@(0.1f)" Min=@(0) Max=@(1) Value:bind="@vehicleComponent.AssistMultiplier">Assist Multiplier</SliderControl>
+			<SliderControl Min=@(0) Max=@(320) Value:bind="@vehicleComponent.AssistStartSpeed">Assist Start Speed</SliderControl>
+		</div>
+		<div class="container">
+			<title>Spring</title>
+			<SliderControl Min=@(0) Max=@(32) Value:bind="@MinSuspensionLength">Min Length</SliderControl>
+			<SliderControl Min=@(0) Max=@(64) Value:bind="@MaxSuspensionLength">Max Length</SliderControl>
+			<SliderControl Min=@(0) Max=@(320000) Value:bind="@SuspensionStiffness">Stiffness</SliderControl>
+			<SliderControl Min=@(0) Max=@(320000) Value:bind="@SuspensionStiffness">Extension Speed</SliderControl>
+		</div>
 	</div>
+	<div class="colomn">
 
+		<div class="container">
+			<title>Wheel</title>
+			<SliderControl Min=@(1) Max=@(32) Value:bind="@Radius">Radius</SliderControl>
+			<SliderControl Min=@(1) Max=@(32) Value:bind="@Width">Width</SliderControl>
+			<SliderControl Min=@(1) Max=@(320) Value:bind="@Mass">Mass</SliderControl>
+			<SliderControl Min=@(0) Max=@(100000) Value:bind="@LoadRating">Friction</SliderControl>
+			<SliderControl Min=@(0) Max=@(500) Value:bind="@RollingResistanceTorque">Rolling Resistance Torque</SliderControl>
+			<SwitchControl Value:bind="@AutoSetFriction">Auto Detect Ground Friction</SwitchControl>
+		</div>
+		<div class="container">
+			<title>Damper</title>
+			<SliderControl Min=@(0) Max=@(50000) Value:bind="@BumpRate">Bump Rate</SliderControl>
+			<SliderControl Min=@(0) Max=@(50000) Value:bind="@ReboundRate">Rebound Rate</SliderControl>
+			<SliderControl Step=@(0.01f) Min=@(0) Max=@(3) Value:bind="@SlowBump">Slow Bump</SliderControl>
+			<SliderControl Step=@(0.01f) Min=@(0) Max=@(3) Value:bind="@FastBump">Fast Bump</SliderControl>
+			<SliderControl Step=@(0.01f) Min=@(0) Max=@(0.2f) Value:bind="@BumpDivisionVelocity">Bump Division Velocity</SliderControl>
+			<SliderControl Step=@(0.01f) Min=@(0) Max=@(3) Value:bind="@ReboundDivisionVelocity">Rebound Division Velocity</SliderControl>
+			<SliderControl Step=@(0.01f) Min=@(0) Max=@(3) Value:bind="@SlowRebound">Slow Rebound</SliderControl>
+			<SliderControl Step=@(0.01f) Min=@(0) Max=@(0.2f) Value:bind="@FastRebound">Fast Rebound</SliderControl>
+		</div>
+	</div>
 </root>
 @code
 {
@@ -56,7 +71,6 @@
 		minSuspensionLength = wheel.MinSuspensionLength;
 		maxSuspensionLength = wheel.MaxSuspensionLength;
 		suspensionStiffness = wheel.SuspensionStiffness;
-		suspensionDamping = wheel.SuspensionDamping;
 
 		radius = wheel.Radius;
 		width = wheel.Width;
@@ -64,7 +78,146 @@
 		loadRating = wheel.LoadRating;
 		rollingResistanceTorque = wheel.RollingResistanceTorque;
 		autoSetFriction = wheel.AutoSetFriction;
+
+		bumpRate = wheel.BumpRate;
+		reboundRate = wheel.ReboundRate;
+		slowBump = wheel.SlowBump;
+		fastBump = wheel.FastBump;
+		bumpDivisionVelocity = wheel.BumpDivisionVelocity;
+		reboundDivisionVelocity = wheel.ReboundDivisionVelocity;
+		slowRebound = wheel.SlowRebound;
+		fastRebound = wheel.FastRebound;
 	}
+
+	private float fastRebound;
+	private float FastRebound
+	{
+		get => fastRebound; set
+		{
+			fastRebound = value;
+			SetFastRebound(value);
+		}
+	}
+
+	void SetFastRebound(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.FastRebound = value;
+	}
+
+	private float slowRebound;
+	private float SlowRebound
+	{
+		get => slowRebound; set
+		{
+			slowRebound = value;
+			SetSlowRebound(value);
+		}
+	}
+
+	void SetSlowRebound(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.SlowRebound = value;
+	}
+
+	private float reboundDivisionVelocity;
+	private float ReboundDivisionVelocity
+	{
+		get => reboundDivisionVelocity; set
+		{
+			reboundDivisionVelocity = value;
+			SetReboundDivisionVelocity(value);
+		}
+	}
+
+	void SetReboundDivisionVelocity(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.ReboundDivisionVelocity = value;
+	}
+
+	private float bumpDivisionVelocity;
+	private float BumpDivisionVelocity
+	{
+		get => bumpDivisionVelocity; set
+		{
+			bumpDivisionVelocity = value;
+			SetBumpDivisionVelocity(value);
+		}
+	}
+
+	void SetBumpDivisionVelocity(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.BumpDivisionVelocity = value;
+	}
+
+	private float fastBump;
+	private float FastBump
+	{
+		get => fastBump; set
+		{
+			fastBump = value;
+			SetFastBump(value);
+		}
+	}
+
+	void SetFastBump(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.FastBump = value;
+	}
+
+	private float slowBump;
+	private float SlowBump
+	{
+		get => slowBump; set
+		{
+			slowBump = value;
+			SetSlowBump(value);
+		}
+	}
+
+	void SetSlowBump(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.SlowBump = value;
+	}
+
+
+	private float reboundRate;
+	private float ReboundRate
+	{
+		get => reboundRate; set
+		{
+			reboundRate = value;
+			SetReboundRate(value);
+		}
+	}
+
+	void SetReboundRate(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.ReboundRate = value;
+	}
+
+	private float bumpRate;
+	private float BumpRate
+	{
+		get => bumpRate; set
+		{
+			bumpRate = value;
+			SetBumpRate(value);
+		}
+	}
+
+	void SetBumpRate(float value)
+	{
+		foreach (var item in vehicleComponent.Wheels)
+			item.BumpRate = value;
+	}
+
 
 	private float minSuspensionLength;
 	private float MinSuspensionLength
@@ -113,23 +266,6 @@
 		foreach (var item in vehicleComponent.Wheels)
 			item.SuspensionStiffness = value;
 	}
-
-	private float suspensionDamping;
-	private float SuspensionDamping
-	{
-		get => suspensionDamping; set
-		{
-			suspensionDamping = value;
-			SetSuspensionDamping(value);
-		}
-	}
-
-	void SetSuspensionDamping(float value)
-	{
-		foreach (var item in vehicleComponent.Wheels)
-			item.SuspensionDamping = value;
-	}
-
 
 	private float radius;
 	private float Radius
