@@ -26,7 +26,7 @@ public partial class WheelCollider : Component
 
 
 	private void UpdateInertia()
-		=> Inertia = 0.5f * Mass.MeterToInch() * (wheelRadius.InchToMeter() * wheelRadius.InchToMeter());
+		=> Inertia = 0.5f * Mass * (wheelRadius.InchToMeter() * wheelRadius.InchToMeter());
 
 	[Group( "Properties" ), Property] public float Width { get; set; } = 6;
 	[Group( "Properties" ), Property]
