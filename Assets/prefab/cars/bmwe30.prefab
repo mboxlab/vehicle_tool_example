@@ -20,7 +20,7 @@
         "CameraOffset": "350,0,12",
         "CombinedLoad": 0,
         "EyeDistanceFromTop": 8,
-        "EyePosition": "0,0,0",
+        "EyePosition": "-10,16,56",
         "HandBrakePower": 50000,
         "HandBrakeWheels": [
           {
@@ -270,7 +270,6 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "a9639a62-ce61-4105-8dba-bebe1c26c12c",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
@@ -282,7 +281,7 @@
                 },
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 65.024,
+                "Inertia": 1.6516095,
                 "LoadRating": 6400,
                 "Mass": 20,
                 "MaxSuspensionLength": 3,
@@ -364,7 +363,6 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "05fe1ca7-4e00-4af8-8774-3607f505f942",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
@@ -376,7 +374,7 @@
                 },
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 65.024,
+                "Inertia": 1.6516095,
                 "LoadRating": 6400,
                 "Mass": 20,
                 "MaxSuspensionLength": 3,
@@ -449,7 +447,6 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "a3542067-e3ab-4049-9269-697f7a211912",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
@@ -461,7 +458,7 @@
                 },
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 65.024,
+                "Inertia": 1.6516095,
                 "LoadRating": 6400,
                 "Mass": 20,
                 "MaxSuspensionLength": 3,
@@ -543,7 +540,6 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "6ed56fa6-c4ba-4f3c-b432-c67b608f721b",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
@@ -555,7 +551,7 @@
                 },
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 65.024,
+                "Inertia": 1.6516095,
                 "LoadRating": 6400,
                 "Mass": 20,
                 "MaxSuspensionLength": 3,
@@ -626,7 +622,6 @@
         "Name": "User",
         "Position": "5.819829,17.64129,13.79561",
         "Rotation": "0,-0.1305262,0,0.9914449",
-        "Enabled": true,
         "Components": [
           {
             "__type": "Sandbox.SkinnedModelRenderer",
