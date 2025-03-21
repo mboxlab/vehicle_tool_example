@@ -127,8 +127,11 @@ public partial class WheelCollider
 			if ( !collider.Rigidbody.IsValid() )
 				return;
 
-			collider.Rigidbody.ApplyForceAt( GroundHit.Point, -(FrictionForce + SuspensionForce) );
-
+			Vector3 force = -(FrictionForce + SuspensionForce);
+			force.x = force.x.InchToMeter();
+			force.y = force.y.InchToMeter();
+			force.z = force.z.InchToMeter();
+			collider.Rigidbody.ApplyImpulseAt( GroundHit.Point, force );
 		}
 	}
 

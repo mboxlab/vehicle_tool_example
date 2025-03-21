@@ -91,6 +91,5 @@ public partial class WheelCollider : Component
 		UpdateSuspension();
 		UpdateFriction();
 		ApplySquatAndChassisTorque();
-		ApplyForceToHitBody();
 	}
 }
