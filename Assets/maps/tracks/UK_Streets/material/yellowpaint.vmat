@@ -4,9 +4,6 @@ Layer0
 {
 	shader "shaders/complex.shader"
 
-	//---- Color ----
-	F_TINT_MASK 1
-
 	//---- Translucent ----
 	F_TRANSLUCENT 1
 
@@ -19,7 +16,6 @@ Layer0
 	g_flModelTintAmount "1.000"
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
 	TextureColor "maps/tracks/uk_streets/texture/png/yellowpaint.png"
-	TextureTintMask "maps/tracks/uk_streets/texture/png/yellowpaint_mask.png"
 
 	//---- Fade ----
 	g_flFadeExponent "1.000"
@@ -46,5 +42,5 @@ Layer0
 
 	//---- Translucent ----
 	g_flOpacityScale "1.000"
-	TextureTranslucency "materials/default/default_trans.tga"
+	TextureTranslucency "maps/tracks/uk_streets/texture/png/yellowpaint_trans.png"
 }

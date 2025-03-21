@@ -42,16 +42,12 @@
 								to = "maps/tracks/uk_streets/material/brick1.vmat"
 							},
 							{
-								from = "galvanised.vmat"
-								to = "maps/tracks/uk_streets/material/galvanised.vmat"
-							},
-							{
-								from = "fencerail.vmat"
-								to = "maps/tracks/uk_streets/material/fencerail.vmat"
-							},
-							{
 								from = "restaurant.vmat"
 								to = "maps/tracks/uk_streets/material/restaurant_1.vmat"
+							},
+							{
+								from = "brickarrow.vmat"
+								to = "maps/tracks/uk_streets/material/roadsign2.vmat"
 							},
 						]
 						use_global_default = false
@@ -86,6 +82,7 @@
 								"concreteWall",
 								"concreteSlab",
 								"brick2",
+								"brickArrow",
 							]
 						}
 					},

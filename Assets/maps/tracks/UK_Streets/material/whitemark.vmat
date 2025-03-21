@@ -42,5 +42,5 @@ Layer0
 
 	//---- Translucent ----
 	g_flOpacityScale "1.000"
-	TextureTranslucency "maps/tracks/uk_streets/texture/png/whitepaint_mask.png"
+	TextureTranslucency "maps/tracks/uk_streets/texture/png/whitepaint_trans.png"
 }
