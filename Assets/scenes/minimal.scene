@@ -30,8 +30,9 @@
       "__guid": "bfc59c12-1ed2-4f91-8956-a95a315eac3c",
       "Flags": 0,
       "Name": "Sun",
-      "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
+      "Rotation": "-0.3108267,-0.3188454,0.6250234,-0.6411476",
       "Tags": "light_directional,light",
+      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.DirectionalLight",
