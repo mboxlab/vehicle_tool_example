@@ -12,7 +12,7 @@ public partial class WheelCollider : Component
 	private float wheelRadius = 14;
 	private float mass = 20;
 
-	[Group( "Properties" ), Property]
+	[Group( "Properties" ), Property, Sync]
 	public float Radius
 	{
 		get => wheelRadius;
@@ -28,8 +28,8 @@ public partial class WheelCollider : Component
 	private void UpdateInertia()
 		=> Inertia = 0.5f * Mass * (wheelRadius.InchToMeter() * wheelRadius.InchToMeter());
 
-	[Group( "Properties" ), Property] public float Width { get; set; } = 6;
-	[Group( "Properties" ), Property]
+	[Group( "Properties" ), Property, Sync] public float Width { get; set; } = 6;
+	[Group( "Properties" ), Property, Sync]
 	public float Mass
 	{
 		get => mass;

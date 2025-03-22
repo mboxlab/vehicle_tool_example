@@ -5,7 +5,7 @@ public partial class WheelCollider
 {
 	private Rotation TransformRotationSteer;
 
-	[Property, Range( -90, 90 )] public float SteerAngle { get; set; }
+	[Property, Range( -90, 90 ), Sync] public float SteerAngle { get; set; }
 
 	private void UpdateSteer()
 	{

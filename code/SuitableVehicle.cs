@@ -7,7 +7,8 @@ public sealed class SuitableVehicle : Component, Component.IPressable, Component
 	[Sync] public PlayerController User { get; private set; }
 	public Connection Owner { get; set; }
 
-	protected override void OnStart()
+
+	protected override void OnAwake()
 	{
 		Vehicle ??= Components.Get<VehicleController>( FindMode.EverythingInSelf );
 		Vehicle.Enabled = false;

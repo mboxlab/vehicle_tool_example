@@ -106,6 +106,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetFastRebound(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -122,6 +123,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetSlowRebound(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -138,6 +140,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetReboundDivisionVelocity(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -154,6 +157,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetBumpDivisionVelocity(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -170,6 +174,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetFastBump(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -186,6 +191,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetSlowBump(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -203,6 +209,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetReboundRate(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -219,6 +226,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetBumpRate(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -236,6 +244,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetMinSuspensionLength(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -251,7 +260,7 @@
 			SetMaxSuspensionLength(value);
 		}
 	}
-
+	[Rpc.Broadcast]
 	void SetMaxSuspensionLength(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -268,6 +277,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetSuspensionStiffness(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -284,6 +294,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetRadius(float radius = 16f)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -305,6 +316,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetWidth(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -324,6 +336,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetWheelMass(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -341,6 +354,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetLoadRating(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -356,7 +370,8 @@
 			SetRollingResistanceTorque(value);
 		}
 	}
-
+	
+	[Rpc.Broadcast]
 	void SetRollingResistanceTorque(float value)
 	{
 		foreach (var item in vehicleComponent.Wheels)
@@ -373,6 +388,7 @@
 		}
 	}
 
+	[Rpc.Broadcast]
 	void SetAutoSetFriction(bool value)
 	{
 		foreach (var item in vehicleComponent.Wheels)

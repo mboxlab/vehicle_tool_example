@@ -54,6 +54,7 @@
 	{
 		if (SpawnedCars.TryGetValue(SelectedCar.GetHashCode(), out var spawnedCar))
 		{
+			spawnedCar.Network.TakeOwnership();
 			spawnedCar.Destroy();
 			SpawnedCars.Remove(SelectedCar.GetHashCode());
 		}
@@ -63,19 +64,15 @@
 		if (!SelectedCar.IsValid())
 			return;
 
-		if (SpawnedCars.TryGetValue(SelectedCar.GetHashCode(), out var spawnedCar))
-		{
-			spawnedCar.Destroy();
-			SpawnedCars.Remove(SelectedCar.GetHashCode());
-		}
-
+		RemoveCar();
 
 		var car = SelectedCar.Clone(contoller.Renderer.WorldTransform.Add(SelectedCar.GetLocalBounds().Maxs.WithY(0).WithZ(0), false));
 		car.WorldRotation = car.WorldRotation.RotateAroundAxis(Vector3.Up, -90);
-
-		car.NetworkSpawn();
 		car.Components.Get<SuitableVehicle>().Owner = Connection.Local;
+		car.NetworkSpawn();
+		car.Network.SetOwnerTransfer(OwnerTransfer.Takeover);
 		car.Network.DropOwnership();
+
 		SpawnedCars.Add(SelectedCar.GetHashCode(), car);
 	}
 

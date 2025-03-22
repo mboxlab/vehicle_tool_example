@@ -10,7 +10,7 @@ public partial class WheelCollider
 	/// Constant torque acting similar to brake torque.
 	/// Imitates rolling resistance.
 	/// </summary>
-	[Property, Range( 0, 500 )] public float RollingResistanceTorque { get; set; } = 230f;
+	[Property, Range( 0, 500 ), Sync] public float RollingResistanceTorque { get; set; } = 230f;
 
 	/// <summary>
 	/// The percentage this wheel is contributing to the total vehicle load bearing.
@@ -24,7 +24,7 @@ public partial class WheelCollider
 	/// A good rule of the thumb is that this value should be 2x the Load
 	/// while vehicle is stationary.
 	/// </summary>
-	[Property] public float LoadRating { get; set; } = 5400;
+	[Property, Sync] public float LoadRating { get; set; } = 5400;
 
 
 	/// <summary>
@@ -34,8 +34,8 @@ public partial class WheelCollider
 	/// </summary>
 	public float CounterTorque { get; private set; }
 
-	[Property] public bool AutoSetFriction { get; set; } = true;
-	[Property] public bool UseGroundVelocity { get; set; } = true;
+	[Property, Sync] public bool AutoSetFriction { get; set; } = true;
+	[Property, Sync] public bool UseGroundVelocity { get; set; } = true;
 
 	public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Asphalt;
 	public float MotorTorque;
