@@ -3,6 +3,7 @@
     "__guid": "9df4e86b-dcf7-4e0b-a623-a869861a4160",
     "Flags": 0,
     "Name": "player",
+    "Tags": "player",
     "Enabled": true,
     "Components": [
       {

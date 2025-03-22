@@ -229,7 +229,7 @@
             "__guid": "e94843a0-9dfe-4702-b114-17656bc37b97",
             "Flags": 0,
             "Name": "LF",
-            "Position": "69.39122,37.685,16.21234",
+            "Position": "69.39122,37,16.21234",
             "Enabled": true,
             "Components": [
               {
@@ -246,6 +246,7 @@
                 },
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": "player",
                 "Inertia": 1.6516095,
                 "LoadRating": 6400,
                 "Mass": 20,
@@ -272,7 +273,7 @@
                 "SuspensionStiffness": 16000,
                 "UseGroundVelocity": true,
                 "UseVisual": true,
-                "Width": 12
+                "Width": 11
               }
             ],
             "Children": [
@@ -322,7 +323,7 @@
             "__guid": "0eb614ed-2424-4833-97fd-f6dc437d8b55",
             "Flags": 0,
             "Name": "RF",
-            "Position": "69.39122,-37.68463,16.21234",
+            "Position": "69.39122,-37,16.21234",
             "Enabled": true,
             "Components": [
               {
@@ -339,6 +340,7 @@
                 },
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": "player",
                 "Inertia": 1.6516095,
                 "LoadRating": 6400,
                 "Mass": 20,
@@ -365,7 +367,7 @@
                 "SuspensionStiffness": 16000,
                 "UseGroundVelocity": true,
                 "UseVisual": true,
-                "Width": 12
+                "Width": 11
               }
             ],
             "Children": [
@@ -423,6 +425,7 @@
                 },
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": "player",
                 "Inertia": 1.6516095,
                 "LoadRating": 6400,
                 "Mass": 20,
@@ -449,7 +452,7 @@
                 "SuspensionStiffness": 16000,
                 "UseGroundVelocity": true,
                 "UseVisual": true,
-                "Width": 12
+                "Width": 11
               }
             ],
             "Children": [
@@ -516,6 +519,7 @@
                 },
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": "player",
                 "Inertia": 1.6516095,
                 "LoadRating": 6400,
                 "Mass": 20,
@@ -542,7 +546,7 @@
                 "SuspensionStiffness": 16000,
                 "UseGroundVelocity": true,
                 "UseVisual": true,
-                "Width": 12
+                "Width": 11
               }
             ],
             "Children": [
@@ -578,72 +582,6 @@
                 ]
               }
             ]
-          }
-        ]
-      },
-      {
-        "__guid": "433d7211-e599-4d44-8035-80b1ea0cc699",
-        "Flags": 0,
-        "Name": "User",
-        "Position": "5.819829,17.64129,13.79561",
-        "Rotation": "0,-0.1305262,0,0.9914449",
-        "Components": [
-          {
-            "__type": "Sandbox.SkinnedModelRenderer",
-            "__guid": "3ea673c9-9c47-4af8-a41b-2b3a38bbc330",
-            "AnimationGraph": null,
-            "BodyGroups": 341,
-            "BoneMergeTarget": null,
-            "CreateAttachments": false,
-            "CreateBoneObjects": false,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
-            "Model": "models/citizen/citizen.vmdl",
-            "Morphs": {},
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "Parameters": {
-              "bools": {},
-              "ints": {
-                "sit": 1
-              },
-              "floats": {},
-              "vectors": {},
-              "rotations": {}
-            },
-            "PlaybackRate": 1,
-            "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
-              "BloomLayer": false,
-              "AfterUILayer": false
-            },
-            "RenderType": "On",
-            "Sequence": {
-              "Name": null
-            },
-            "Tint": "1,1,1,1",
-            "UseAnimGraph": true
-          },
-          {
-            "__type": "PlayerDresser",
-            "__guid": "301ab0ff-14d3-4d02-9bd0-f94a5f653b6a",
-            "BodyRenderer": {
-              "_type": "component",
-              "component_id": "3ea673c9-9c47-4af8-a41b-2b3a38bbc330",
-              "go": "433d7211-e599-4d44-8035-80b1ea0cc699",
-              "component_type": "SkinnedModelRenderer"
-            },
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null
           }
         ]
       },
