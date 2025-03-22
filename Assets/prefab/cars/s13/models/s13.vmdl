@@ -1,0 +1,354 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "14.vmat"
+								to = "prefab/cars/s13/material/14.vmat"
+							},
+							{
+								from = "17.vmat"
+								to = "prefab/cars/s13/material/17.vmat"
+							},
+							{
+								from = "23.vmat"
+								to = "prefab/cars/s13/material/23.vmat"
+							},
+							{
+								from = "37.vmat"
+								to = "prefab/cars/s13/material/37.vmat"
+							},
+							{
+								from = "alpha.vmat"
+								to = "prefab/cars/s13/material/alpha.vmat"
+							},
+							{
+								from = "blitz_gauge.vmat"
+								to = "prefab/cars/s13/material/gaugeblitz.vmat"
+							},
+							{
+								from = "blitz_glass.vmat"
+								to = "materials/glass.vmat"
+							},
+							{
+								from = "body.vmat"
+								to = "prefab/cars/s13/material/body.vmat"
+							},
+							{
+								from = "chrome.vmat"
+								to = "materials/chrome.vmat"
+							},
+							{
+								from = "chrome_lights_orange.vmat"
+								to = "prefab/cars/s13/material/chrome_lights_orange.vmat"
+							},
+							{
+								from = "chrome_lights_red.vmat"
+								to = "prefab/cars/s13/material/chrome_lights_red.vmat"
+							},
+							{
+								from = "chrome_rough.vmat"
+								to = "materials/chrome.vmat"
+							},
+							{
+								from = "cloth02_lightgrey.vmat"
+								to = "prefab/cars/s13/material/cloth02_lightgrey.vmat"
+							},
+							{
+								from = "cloth_07_diff.vmat"
+								to = "prefab/cars/s13/material/cloth_07.vmat"
+							},
+							{
+								from = "cloth_detail.vmat"
+								to = "prefab/cars/s13/material/cloth_detail.vmat"
+							},
+							{
+								from = "metal_detail.vmat"
+								to = "prefab/cars/s13/material/body.vmat"
+							},
+							{
+								from = "cockpit_belt.vmat"
+								to = "prefab/cars/s13/material/cockpit_belt.vmat"
+							},
+							{
+								from = "corners.vmat"
+								to = "prefab/cars/s13/material/corners.vmat"
+							},
+							{
+								from = "cuciture.vmat"
+								to = "prefab/cars/s13/material/cuciture.vmat"
+							},
+							{
+								from = "dark.vmat"
+								to = "prefab/cars/s13/material/dark.vmat"
+							},
+							{
+								from = "darker.vmat"
+								to = "prefab/cars/s13/material/darker.vmat"
+							},
+							{
+								from = "digits2.vmat"
+								to = "prefab/cars/s13/material/digits2.vmat"
+							},
+							{
+								from = "exhaust.vmat"
+								to = "materials/chrome.vmat"
+							},
+							{
+								from = "ext_glass.vmat"
+								to = "prefab/cars/s13/material/ext_glass.vmat"
+							},
+							{
+								from = "ext_glass_rough.vmat"
+								to = "prefab/cars/s13/material/ext_glass_rough.vmat"
+							},
+							{
+								from = "floormat.vmat"
+								to = "prefab/cars/s13/material/floormat.vmat"
+							},
+							{
+								from = "floormatdecals.vmat"
+								to = "prefab/cars/s13/material/floormatdecals.vmat"
+							},
+							{
+								from = "frontlights.vmat"
+								to = "prefab/cars/s13/material/frontlights.vmat"
+							},
+							{
+								from = "gaugeturbo.vmat"
+								to = "prefab/cars/s13/material/gaugeturbo.vmat"
+							},
+							{
+								from = "gaugeturbo_decals.vmat"
+								to = "prefab/cars/s13/material/gaugeturbo_decals.vmat"
+							},
+							{
+								from = "int_recarologo.vmat"
+								to = "prefab/cars/s13/material/int_recarologo.vmat"
+							},
+							{
+								from = "int_seatcloth.vmat"
+								to = "prefab/cars/s13/material/int_seatcloth.vmat"
+							},
+							{
+								from = "internal_glass_reflex.vmat"
+								to = "prefab/cars/s13/material/internal_glass_reflex.vmat"
+							},
+							{
+								from = "leather.vmat"
+								to = "prefab/cars/s13/material/leather.vmat"
+							},
+							{
+								from = "leather02_darkgrey.vmat"
+								to = "prefab/cars/s13/material/leather02_darkgrey.vmat"
+							},
+							{
+								from = "leather_2.vmat"
+								to = "prefab/cars/s13/material/leather_2.vmat"
+							},
+							{
+								from = "matteglass_with_ext_lights_reflecters.vmat"
+								to = "prefab/cars/s13/material/matteglass_with_ext_lights_reflecters.vmat"
+							},
+							{
+								from = "matteglass_with_ext_taillight_lens_nm.vmat"
+								to = "prefab/cars/s13/material/matteglass_with_ext_taillight_lens_nm.vmat"
+							},
+							{
+								from = "metal_2.vmat"
+								to = "prefab/cars/s13/material/metal_2.vmat"
+							},
+							{
+								from = "mirror_l.vmat"
+								to = "materials/mirror.vmat"
+							},
+							{
+								from = "mirror_placement.vmat"
+								to = "materials/mirror.vmat"
+							},
+							{
+								from = "mirror_r.vmat"
+								to = "materials/mirror.vmat"
+							},
+							{
+								from = "nardi_grip.vmat"
+								to = "prefab/cars/s13/material/nardi_grip.vmat"
+							},
+							{
+								from = "nardi_horn.vmat"
+								to = "prefab/cars/s13/material/nardi_horn.vmat"
+							},
+							{
+								from = "nardi_metal.vmat"
+								to = "prefab/cars/s13/material/nardi_metal.vmat"
+							},
+							{
+								from = "nardi_ring.vmat"
+								to = "prefab/cars/s13/material/nardi_ring.vmat"
+							},
+							{
+								from = "orange_dark_glass.vmat"
+								to = "prefab/cars/s13/material/orange_dark_glass.vmat"
+							},
+							{
+								from = "orangeglass_with_ext_lights_reflecters.vmat"
+								to = "prefab/cars/s13/material/orangeglass_with_ext_lights_reflecters.vmat"
+							},
+							{
+								from = "plas.vmat"
+								to = "prefab/cars/s13/material/plas.vmat"
+							},
+							{
+								from = "plastic.vmat"
+								to = "prefab/cars/s13/material/plastic.vmat"
+							},
+							{
+								from = "plastic_bump.vmat"
+								to = "prefab/cars/s13/material/plastic_bump.vmat"
+							},
+							{
+								from = "plastic_dash.vmat"
+								to = "prefab/cars/s13/material/plastic_dash.vmat"
+							},
+							{
+								from = "plate_d.vmat"
+								to = "prefab/cars/s13/material/plate_d.vmat"
+							},
+							{
+								from = "proeq.vmat"
+								to = "prefab/cars/s13/material/proeq.vmat"
+							},
+							{
+								from = "red.vmat"
+								to = "prefab/cars/s13/material/red.vmat"
+							},
+							{
+								from = "redglass_with_ext_lights_reflecters.vmat"
+								to = "prefab/cars/s13/material/redglass_with_ext_lights_reflecters.vmat"
+							},
+							{
+								from = "redglass_with_ext_taillight_lens_nm.vmat"
+								to = "prefab/cars/s13/material/redglass_with_ext_lights_reflecters.vmat"
+							},
+							{
+								from = "rollcage_foam.vmat"
+								to = "prefab/cars/s13/material/rollcage_foam.vmat"
+							},
+							{
+								from = "rollcage_nm.vmat"
+								to = "prefab/cars/s13/material/rollcage_foam_nm.vmat"
+							},
+							{
+								from = "swatch_off_blk.vmat"
+								to = "prefab/cars/s13/material/swatch_off_blk.vmat"
+							},
+							{
+								from = "swatch_off_blk_nm.vmat"
+								to = "prefab/cars/s13/material/swatch_off_blk.vmat"
+							},
+							{
+								from = "vstavka.vmat"
+								to = "prefab/cars/s13/material/vstaska.vmat"
+							},
+							{
+								from = "window_diffuse_headlights.vmat"
+								to = "prefab/cars/s13/material/window_diffuse_headlights.vmat"
+							},
+							{
+								from = "window_diffuse_headlights_nm.vmat"
+								to = "prefab/cars/s13/material/window_diffuse_headlights_nm.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "materials/default.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "prefab/cars/s13/models/s13.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"s13",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.55
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsHullFile"
+						name = "collider"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid"
+						recenter_on_parent_bone = false
+						offset_origin = [ 0.0, 0.0, 0.0 ]
+						offset_angles = [ 0.0, 0.0, 0.0 ]
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						filename = "prefab/cars/s13/models/collider.fbx"
+						import_scale = 1.0
+						faceMergeAngle = 10.0
+						maxHullVertices = 0
+						import_mode = "SingleHull"
+						optimization_algorithm = "QEM"
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

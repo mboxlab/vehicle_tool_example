@@ -289,6 +289,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": null,
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -368,6 +369,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": null,
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -456,6 +458,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": null,
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -535,6 +538,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": null,
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -623,6 +627,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": null,
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -702,6 +707,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
+                "IgnoredTags": null,
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -831,6 +837,47 @@
               "go": "2857c469-73ce-418a-9679-1f38546de088",
               "component_type": "VehicleController"
             }
+          }
+        ]
+      },
+      {
+        "__guid": "b4e9a7c1-5fa2-4b82-81f9-1e27fd3792fa",
+        "Flags": 0,
+        "Name": "nametag",
+        "Position": "0,0,128",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "c7ea5262-be4a-4bef-8f1f-ab3b5d4f9818",
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PanelSize": "4096,512",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderScale": 5,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "NameTag",
+            "__guid": "894b8bcd-845e-45e2-a56d-9aec95420e1b",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           }
         ]
       }

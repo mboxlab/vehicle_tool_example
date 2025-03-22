@@ -1,0 +1,728 @@
+{
+  "RootObject": {
+    "__guid": "4be781c5-9523-4625-ad66-5988a96135a7",
+    "Flags": 0,
+    "Name": "nissan silvia s13",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Meteor.VehicleTool.Vehicle.VehicleController",
+        "__guid": "06c3c5e2-d8c2-414f-986d-e6b3176a57b3",
+        "AssistMultiplier": 0.8,
+        "AssistStartSpeed": 5,
+        "Body": {
+          "_type": "component",
+          "component_id": "b5d8535b-b26e-4957-aadd-8e11a7fe6a9c",
+          "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+          "component_type": "Rigidbody"
+        },
+        "BodyHeight": 72,
+        "CameraOffset": "350,0,12",
+        "CombinedLoad": 0,
+        "EyeDistanceFromTop": 8,
+        "EyePosition": "-14,-20,50",
+        "HandBrakePower": 50000,
+        "HandBrakeWheels": [
+          {
+            "_type": "component",
+            "component_id": "2015300d-8a41-4fff-b0ca-be2a4650c89d",
+            "go": "87759f8f-9052-4a69-ae2c-1bed51c0fa0a",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "9417650c-2725-4efe-a007-dbfb132aff21",
+            "go": "77d1b50b-3f8e-431d-8a17-d2b84c73911d",
+            "component_type": "WheelCollider"
+          }
+        ],
+        "LookSensitivity": 1,
+        "MaxPitch": 90,
+        "MaxPower": 300,
+        "MaxSpeed": 150,
+        "MaxSpeedForMinAngleMultiplier": 100,
+        "MaxSteerAngle": 55,
+        "MaxSteerAngleMultiplier": 1,
+        "MinPitch": 90,
+        "MinSteerAngleMultiplier": 0.05,
+        "MotorWheels": [
+          {
+            "_type": "component",
+            "component_id": "2015300d-8a41-4fff-b0ca-be2a4650c89d",
+            "go": "87759f8f-9052-4a69-ae2c-1bed51c0fa0a",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "9417650c-2725-4efe-a007-dbfb132aff21",
+            "go": "77d1b50b-3f8e-431d-8a17-d2b84c73911d",
+            "component_type": "WheelCollider"
+          }
+        ],
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "ShowRigidbodyComponent": false,
+        "SteeringWheels": [
+          {
+            "_type": "component",
+            "component_id": "13c0cdf3-9fbd-4ad5-95f5-8ef172f93127",
+            "go": "13b8797f-6d02-40b0-b712-5d54a09cbee9",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "552be0a8-7fcc-4585-9536-c8436df5e256",
+            "go": "4025fc41-7707-4a93-8711-fea800c75392",
+            "component_type": "WheelCollider"
+          }
+        ],
+        "ThirdPerson": true,
+        "ToggleCameraModeButton": "view",
+        "UseAssist": true,
+        "UseCameraControls": true,
+        "UseInputControls": true,
+        "UseLookControls": true,
+        "UsePowertrain": true,
+        "UseSteerAngleMultiplier": true,
+        "UseSteering": true,
+        "Wheels": [
+          {
+            "_type": "component",
+            "component_id": "552be0a8-7fcc-4585-9536-c8436df5e256",
+            "go": "4025fc41-7707-4a93-8711-fea800c75392",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "13c0cdf3-9fbd-4ad5-95f5-8ef172f93127",
+            "go": "13b8797f-6d02-40b0-b712-5d54a09cbee9",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "9417650c-2725-4efe-a007-dbfb132aff21",
+            "go": "77d1b50b-3f8e-431d-8a17-d2b84c73911d",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "2015300d-8a41-4fff-b0ca-be2a4650c89d",
+            "go": "87759f8f-9052-4a69-ae2c-1bed51c0fa0a",
+            "component_type": "WheelCollider"
+          }
+        ]
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "b5d8535b-b26e-4957-aadd-8e11a7fe6a9c",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {
+          "X": false,
+          "Y": false,
+          "Z": false,
+          "Pitch": false,
+          "Yaw": false,
+          "Roll": false
+        },
+        "MassCenterOverride": "5,0,25",
+        "MassOverride": 1200,
+        "MotionEnabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OverrideMassCenter": true,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "SuitableVehicle",
+        "__guid": "feea2859-63ac-4a39-adaf-b0b15c4413ee",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.RespawnComponent",
+        "__guid": "771cac68-122f-43a5-9281-541fa975b962",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "a5333752-4365-45ad-a6c3-dab4cf86f101",
+        "Flags": 0,
+        "Name": "body",
+        "Position": "3.913956,0.4387817,0.05123323",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "7ff3f93d-fd76-4918-aaf0-688eea8b325d",
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "prefab/cars/s13/models/s13.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "0.3907,0.32558,0,1"
+          },
+          {
+            "__type": "Sandbox.ModelCollider",
+            "__guid": "9f8684dd-e5bd-4204-976a-306e821cba7e",
+            "Friction": null,
+            "IsTrigger": false,
+            "Model": "prefab/cars/s13/models/s13.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnObjectTriggerEnter": null,
+            "OnObjectTriggerExit": null,
+            "OnTriggerEnter": null,
+            "OnTriggerExit": null,
+            "Static": false,
+            "Surface": null,
+            "SurfaceVelocity": "0,0,0"
+          }
+        ]
+      },
+      {
+        "__guid": "2c1b0f42-3d3c-4aac-b7e2-0b2c96c351eb",
+        "Flags": 0,
+        "Name": "Wheels",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "4025fc41-7707-4a93-8711-fea800c75392",
+            "Flags": 0,
+            "Name": "LF",
+            "Position": "72.76817,40,10",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "552be0a8-7fcc-4585-9536-c8436df5e256",
+                "AutoSetFriction": true,
+                "BumpDivisionVelocity": 0.06,
+                "BumpRate": 3000,
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "06c3c5e2-d8c2-414f-986d-e6b3176a57b3",
+                  "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+                  "component_type": "VehicleController"
+                },
+                "FastBump": 0.6,
+                "FastRebound": 0.6,
+                "IgnoredTags": "player",
+                "Inertia": 1.6516095,
+                "LoadRating": 6400,
+                "Mass": 20,
+                "MaxSuspensionLength": 3,
+                "MinSuspensionLength": 9,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 16,
+                "ReboundDivisionVelocity": 1,
+                "ReboundRate": 3000,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "82610ca1-5ecf-4f00-b7f1-fddba7e4ed1f"
+                },
+                "RollingResistanceTorque": 230,
+                "SlowBump": 1.4,
+                "SlowRebound": 1.6,
+                "SteerAngle": 0,
+                "SuspensionExtensionSpeed": 8,
+                "SuspensionStiffness": 16000,
+                "UseGroundVelocity": true,
+                "UseVisual": true,
+                "Width": 10
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "82610ca1-5ecf-4f00-b7f1-fddba7e4ed1f",
+                "Flags": 0,
+                "Name": "Object",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "d7b3b974-90b3-47c7-af0d-efdc0fd61b75",
+                    "Flags": 0,
+                    "Name": "body",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.ModelRenderer",
+                        "__guid": "b20111c9-7846-43d1-a463-e842de7dd950",
+                        "BodyGroups": 18446744073709551615,
+                        "CreateAttachments": false,
+                        "MaterialGroup": null,
+                        "MaterialOverride": null,
+                        "Model": "prefab/cars/s13/models/wheel.vmdl",
+                        "OnComponentDestroy": null,
+                        "OnComponentDisabled": null,
+                        "OnComponentEnabled": null,
+                        "OnComponentFixedUpdate": null,
+                        "OnComponentStart": null,
+                        "OnComponentUpdate": null,
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": false,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderType": "On",
+                        "Tint": "0.22791,0.22791,0.22791,1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "13b8797f-6d02-40b0-b712-5d54a09cbee9",
+            "Flags": 0,
+            "Name": "RF",
+            "Position": "72.76817,-40,10",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "13c0cdf3-9fbd-4ad5-95f5-8ef172f93127",
+                "AutoSetFriction": true,
+                "BumpDivisionVelocity": 0.06,
+                "BumpRate": 3000,
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "06c3c5e2-d8c2-414f-986d-e6b3176a57b3",
+                  "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+                  "component_type": "VehicleController"
+                },
+                "FastBump": 0.6,
+                "FastRebound": 0.6,
+                "IgnoredTags": "player",
+                "Inertia": 1.6516095,
+                "LoadRating": 6400,
+                "Mass": 20,
+                "MaxSuspensionLength": 3,
+                "MinSuspensionLength": 9,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 16,
+                "ReboundDivisionVelocity": 1,
+                "ReboundRate": 3000,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "27cb4fff-2bd8-4bf6-91b7-624f90fe35ab"
+                },
+                "RollingResistanceTorque": 230,
+                "SlowBump": 1.4,
+                "SlowRebound": 1.6,
+                "SteerAngle": 0,
+                "SuspensionExtensionSpeed": 8,
+                "SuspensionStiffness": 16000,
+                "UseGroundVelocity": true,
+                "UseVisual": true,
+                "Width": 10
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "27cb4fff-2bd8-4bf6-91b7-624f90fe35ab",
+                "Flags": 0,
+                "Name": "body",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "2f4072b3-38ee-4a0e-b16f-dff05529ecc9",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "prefab/cars/s13/models/wheel.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0.22791,0.22791,0.22791,1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "77d1b50b-3f8e-431d-8a17-d2b84c73911d",
+            "Flags": 0,
+            "Name": "LR",
+            "Position": "-64.23252,40,10",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "9417650c-2725-4efe-a007-dbfb132aff21",
+                "AutoSetFriction": true,
+                "BumpDivisionVelocity": 0.06,
+                "BumpRate": 3000,
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "06c3c5e2-d8c2-414f-986d-e6b3176a57b3",
+                  "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+                  "component_type": "VehicleController"
+                },
+                "FastBump": 0.6,
+                "FastRebound": 0.6,
+                "IgnoredTags": "player",
+                "Inertia": 1.6516095,
+                "LoadRating": 5400,
+                "Mass": 20,
+                "MaxSuspensionLength": 3,
+                "MinSuspensionLength": 9,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 16,
+                "ReboundDivisionVelocity": 1,
+                "ReboundRate": 3000,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "ef84c30c-4ec5-4161-ae56-445919030ac8"
+                },
+                "RollingResistanceTorque": 230,
+                "SlowBump": 1.4,
+                "SlowRebound": 1.6,
+                "SteerAngle": 0,
+                "SuspensionExtensionSpeed": 8,
+                "SuspensionStiffness": 16000,
+                "UseGroundVelocity": true,
+                "UseVisual": true,
+                "Width": 10
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "ef84c30c-4ec5-4161-ae56-445919030ac8",
+                "Flags": 0,
+                "Name": "Object",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "0fd9efc1-0279-4d37-8911-c31d4eb264c2",
+                    "Flags": 0,
+                    "Name": "body",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.ModelRenderer",
+                        "__guid": "8bf2b05a-a38a-4ff5-8967-6c0f4459c127",
+                        "BodyGroups": 18446744073709551615,
+                        "CreateAttachments": false,
+                        "MaterialGroup": null,
+                        "MaterialOverride": null,
+                        "Model": "prefab/cars/s13/models/wheel.vmdl",
+                        "OnComponentDestroy": null,
+                        "OnComponentDisabled": null,
+                        "OnComponentEnabled": null,
+                        "OnComponentFixedUpdate": null,
+                        "OnComponentStart": null,
+                        "OnComponentUpdate": null,
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": false,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderType": "On",
+                        "Tint": "0.22791,0.22791,0.22791,1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "87759f8f-9052-4a69-ae2c-1bed51c0fa0a",
+            "Flags": 0,
+            "Name": "RR",
+            "Position": "-64.23204,-40,10",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
+                "__guid": "2015300d-8a41-4fff-b0ca-be2a4650c89d",
+                "AutoSetFriction": true,
+                "BumpDivisionVelocity": 0.06,
+                "BumpRate": 3000,
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "06c3c5e2-d8c2-414f-986d-e6b3176a57b3",
+                  "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+                  "component_type": "VehicleController"
+                },
+                "FastBump": 0.6,
+                "FastRebound": 0.6,
+                "IgnoredTags": "player",
+                "Inertia": 1.6516095,
+                "LoadRating": 5400,
+                "Mass": 20,
+                "MaxSuspensionLength": 3,
+                "MinSuspensionLength": 9,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 16,
+                "ReboundDivisionVelocity": 1,
+                "ReboundRate": 3000,
+                "RendererObject": {
+                  "_type": "gameobject",
+                  "go": "04adb9a5-d7c0-4706-832a-2e62038ad132"
+                },
+                "RollingResistanceTorque": 230,
+                "SlowBump": 1.4,
+                "SlowRebound": 1.6,
+                "SteerAngle": 0,
+                "SuspensionExtensionSpeed": 8,
+                "SuspensionStiffness": 16000,
+                "UseGroundVelocity": true,
+                "UseVisual": true,
+                "Width": 10
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "04adb9a5-d7c0-4706-832a-2e62038ad132",
+                "Flags": 0,
+                "Name": "body",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "b9b2cf80-5334-41bd-849a-67e3417e107f",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "prefab/cars/s13/models/wheel.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0.22791,0.22791,0.22791,1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "60aaf637-3faa-4acc-903f-fc762a709a57",
+        "Flags": 0,
+        "Name": "hud",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.VehicleHud",
+            "__guid": "b59808a8-5ee0-4fd1-9061-4e21f54c3f44",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "suit": {
+              "_type": "component",
+              "component_id": "feea2859-63ac-4a39-adaf-b0b15c4413ee",
+              "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+              "component_type": "SuitableVehicle"
+            },
+            "vehicleComponent": {
+              "_type": "component",
+              "component_id": "06c3c5e2-d8c2-414f-986d-e6b3176a57b3",
+              "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+              "component_type": "VehicleController"
+            }
+          },
+          {
+            "__type": "Sandbox.ScreenPanel",
+            "__guid": "425fcf00-0ffc-4702-8475-efb32a78d56c",
+            "AutoScreenScale": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opacity": 1,
+            "Scale": 1,
+            "ScaleStrategy": "ConsistentHeight",
+            "TargetCamera": null,
+            "ZIndex": 100
+          },
+          {
+            "__type": "Sandbox.VehicleEditor",
+            "__guid": "a877eed0-9c81-488a-9329-314b94c9a583",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "suit": {
+              "_type": "component",
+              "component_id": "feea2859-63ac-4a39-adaf-b0b15c4413ee",
+              "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+              "component_type": "SuitableVehicle"
+            },
+            "vehicleComponent": {
+              "_type": "component",
+              "component_id": "06c3c5e2-d8c2-414f-986d-e6b3176a57b3",
+              "go": "4be781c5-9523-4625-ad66-5988a96135a7",
+              "component_type": "VehicleController"
+            }
+          }
+        ]
+      },
+      {
+        "__guid": "e3bcb74d-e21b-4e25-8b8f-b8f121d78d7e",
+        "Flags": 0,
+        "Name": "nametag",
+        "Position": "0,0,90.20982",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "ebb4d5a8-0bea-4824-bd13-83433acfba94",
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PanelSize": "4096,512",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderScale": 5,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "NameTag",
+            "__guid": "5e46a168-8c31-4a74-8304-d5adc8dc7b80",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          }
+        ]
+      }
+    ],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

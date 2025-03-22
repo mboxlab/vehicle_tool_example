@@ -58,6 +58,7 @@ public partial class WheelCollider : Component
 	{
 		UpdateInertia();
 		UpdateTotalSuspensionLength();
+		SuspensionLength = suspensionTotalLength / 2;
 		Controller?.Register( this );
 	}
 
