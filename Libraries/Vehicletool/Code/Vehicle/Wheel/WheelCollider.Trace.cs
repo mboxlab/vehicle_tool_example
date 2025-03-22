@@ -5,7 +5,7 @@ namespace Meteor.VehicleTool.Vehicle.Wheel;
 public partial class WheelCollider
 {
 	private static Rotation CylinderOffset => Rotation.FromRoll( 90 );
-
+	[Property] public TagSet IgnoredTags { get; set; }
 	public bool IsGrounded { get; private set; }
 
 	private GroundHit GroundHit;
@@ -19,9 +19,10 @@ public partial class WheelCollider
 				.IgnoreGameObjectHierarchy( Controller.GameObject )
 				.FromTo( startPos, endPos )
 				.Cylinder( Width, Radius )
-				.Rotated( TransformRotationSteer * CylinderOffset )
+				.Rotated( WorldRotation * CylinderOffset )
 				.UseRenderMeshes( false )
 				.UseHitPosition( false )
+				.WithoutTags( IgnoredTags )
 				.Run() );
 
 		IsGrounded = GroundHit.Hit;
