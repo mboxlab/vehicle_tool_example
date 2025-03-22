@@ -1,0 +1,31 @@
+﻿﻿﻿@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+
+	@if (IsProxy)
+	{
+		<div class="card">
+			<div class="name">@PlayerName</div>
+		</div>
+	}
+
+
+</root>
+
+@code {
+	public string PlayerName = "";
+
+	protected override void OnStart()
+	{
+		PlayerName = Network?.Owner?.DisplayName;
+	}
+	protected override void OnUpdate()
+	{
+		PlayerName = Network?.Owner?.DisplayName;
+	}
+
+
+	protected override int BuildHash() => System.HashCode.Combine(PlayerName);
+}

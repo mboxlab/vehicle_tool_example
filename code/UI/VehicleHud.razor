@@ -5,7 +5,7 @@
 @inherits PanelComponent
 @namespace Sandbox
 
-<root>
+<root class="@(Visible ? "" : "hidden")">
 	<div class="speedometer">
 		<div class="speed">
 			@{
@@ -30,13 +30,18 @@
 
 @code
 {
+	public bool Visible => suit.User.IsValid() && Network.IsOwner;
 
 	private static float VEL_TO_KMH = 0.06858f;
-	[Property] public VehicleController vehicleComponent;
+	[Property] private VehicleController vehicleComponent;
+	[Property] private SuitableVehicle suit;
+
+	protected override void OnAwake()
+	{
+		suit ??= Components.Get<SuitableVehicle>(FindMode.InAncestors);
+		vehicleComponent ??= Components.Get<VehicleController>(FindMode.InAncestors);
+	}
 
 
-	/// <summary>
-	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
-	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine(vehicleComponent.CurrentSpeed + vehicleComponent.VerticalInput);
+	protected override int BuildHash() => System.HashCode.Combine(Visible, vehicleComponent.CurrentSpeed, vehicleComponent.VerticalInput);
 }

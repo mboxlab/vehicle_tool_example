@@ -2,8 +2,11 @@
   "RootObject": {
     "__guid": "44de0aeb-2863-4485-a5eb-1d0d21ae3d0a",
     "Flags": 0,
-    "Name": "bmwe30",
+    "Name": "bmw e30",
     "Enabled": true,
+    "NetworkMode": 1,
+    "NetworkOrphaned": 3,
+    "OwnerTransfer": 2,
     "Components": [
       {
         "__type": "Meteor.VehicleTool.Vehicle.VehicleController",
@@ -154,52 +157,14 @@
         "OnComponentUpdate": null
       },
       {
-        "__type": "Sandbox.VehicleEditor",
-        "__guid": "780e4897-48f8-4a04-8756-df8a7224565b",
+        "__type": "SuitableVehicle",
+        "__guid": "1a28cd11-d500-43c4-b24b-f5957a9c80c0",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "vehicleComponent": {
-          "_type": "component",
-          "component_id": "f8656763-8ba5-4b20-a502-c8124a183f6d",
-          "go": "44de0aeb-2863-4485-a5eb-1d0d21ae3d0a",
-          "component_type": "VehicleController"
-        }
-      },
-      {
-        "__type": "Sandbox.ScreenPanel",
-        "__guid": "59aa043b-8235-4f55-bb1c-92e5eb515fbe",
-        "AutoScreenScale": true,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "Opacity": 1,
-        "Scale": 1,
-        "ScaleStrategy": "ConsistentHeight",
-        "TargetCamera": null,
-        "ZIndex": 100
-      },
-      {
-        "__type": "Sandbox.VehicleHud",
-        "__guid": "099d1f4d-1d24-4297-acea-0754f4c9df82",
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "vehicleComponent": {
-          "_type": "component",
-          "component_id": "f8656763-8ba5-4b20-a502-c8124a183f6d",
-          "go": "44de0aeb-2863-4485-a5eb-1d0d21ae3d0a",
-          "component_type": "VehicleController"
-        }
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
@@ -673,6 +638,115 @@
               "go": "433d7211-e599-4d44-8035-80b1ea0cc699",
               "component_type": "SkinnedModelRenderer"
             },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          }
+        ]
+      },
+      {
+        "__guid": "d61512e2-b144-4bb9-ac3f-29511a00b7ac",
+        "Flags": 0,
+        "Name": "hud",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.VehicleHud",
+            "__guid": "44408805-279d-4f17-8d70-64dd890967da",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "suit": {
+              "_type": "component",
+              "component_id": "1a28cd11-d500-43c4-b24b-f5957a9c80c0",
+              "go": "44de0aeb-2863-4485-a5eb-1d0d21ae3d0a",
+              "component_type": "SuitableVehicle"
+            },
+            "vehicleComponent": {
+              "_type": "component",
+              "component_id": "f8656763-8ba5-4b20-a502-c8124a183f6d",
+              "go": "44de0aeb-2863-4485-a5eb-1d0d21ae3d0a",
+              "component_type": "VehicleController"
+            }
+          },
+          {
+            "__type": "Sandbox.ScreenPanel",
+            "__guid": "b849ae91-a526-42e9-a4ae-49686c3388df",
+            "AutoScreenScale": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opacity": 1,
+            "Scale": 1,
+            "ScaleStrategy": "ConsistentHeight",
+            "TargetCamera": null,
+            "ZIndex": 100
+          },
+          {
+            "__type": "Sandbox.VehicleEditor",
+            "__guid": "238e41a4-8c1b-44e2-b0e9-fa111a2c329d",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "suit": {
+              "_type": "component",
+              "component_id": "1a28cd11-d500-43c4-b24b-f5957a9c80c0",
+              "go": "44de0aeb-2863-4485-a5eb-1d0d21ae3d0a",
+              "component_type": "SuitableVehicle"
+            },
+            "vehicleComponent": {
+              "_type": "component",
+              "component_id": "f8656763-8ba5-4b20-a502-c8124a183f6d",
+              "go": "44de0aeb-2863-4485-a5eb-1d0d21ae3d0a",
+              "component_type": "VehicleController"
+            }
+          }
+        ]
+      },
+      {
+        "__guid": "9724cc8a-a105-4cc0-8124-1a6109b947ec",
+        "Flags": 0,
+        "Name": "nametag",
+        "Position": "0,0,90.20982",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "d0096359-e36e-4f2e-970d-8276690f30ef",
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PanelSize": "4096,512",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderScale": 5,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "NameTag",
+            "__guid": "7064c4d0-7b96-44ef-960c-3003832ead2c",
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,

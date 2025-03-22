@@ -61,9 +61,6 @@ public partial class WheelCollider
 		}
 		if ( IsGrounded )
 		{
-			//var worldVelocity = (SuspensionLength - prevlength) / Time.Delta; // CarBody.GetVelocityAtPoint( GroundHit.StartPosition + CarBody.MassCenter ) - GroundVelocity;
-
-			//var localVel = worldVelocity.Dot( GroundHit.Normal ).InchToMeter();
 
 			var suspensionCompression = (suspensionTotalLength - SuspensionLength) / suspensionTotalLength;
 

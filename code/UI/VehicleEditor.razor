@@ -57,11 +57,18 @@
 @code
 {
 
-	public bool Visible => Input.Down("Score");
-	[Property] public VehicleController vehicleComponent;
-
+	public bool Visible => Input.Down("Score") && suit.User.IsValid() && Network.IsOwner;
 	private float initRadius;
 	private float initWidth;
+
+	[Property] private VehicleController vehicleComponent;
+	[Property] private SuitableVehicle suit;
+
+	protected override void OnAwake()
+	{
+		suit ??= Components.Get<SuitableVehicle>(FindMode.InAncestors);
+		vehicleComponent ??= Components.Get<VehicleController>(FindMode.InAncestors);
+	}
 
 	protected override void OnStart()
 	{

@@ -1,0 +1,83 @@
+@using Meteor.VehicleTool.Vehicle
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="carlist @(Visible ? "" : "hidden")">
+		<label class="title">
+			Car List
+		</label>
+		<div class="scroll">
+
+			@foreach (var car in SpawnableCars)
+			{
+				<div class="car @( SelectedCar == car ? "selected" : "")" onclick="@(() => SelectCar(car))">
+					@car.Name
+				</div>
+			}
+
+		</div>
+		<div class="control">
+			<div class="button" onclick="@SpawnCar">Spawn</div>
+			<div class="button" onclick="@RemoveCar">Remove</div>
+		</div>
+	</div>
+</root>
+
+@code
+{
+	public bool Visible => Input.Down("Score") && Network.IsOwner;
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+	}
+
+	[Property] public List<GameObject> SpawnableCars { get; set; }
+	[Property] public PlayerController contoller { get; set; }
+
+	public Dictionary<int, GameObject> SpawnedCars;
+	public GameObject SelectedCar { get; private set; }
+
+	protected override void OnStart()
+	{
+		SpawnedCars = new();
+	}
+
+	void SelectCar(GameObject car)
+	{
+		SelectedCar = car;
+	}
+
+	void RemoveCar()
+	{
+		if (SpawnedCars.TryGetValue(SelectedCar.GetHashCode(), out var spawnedCar))
+		{
+			spawnedCar.Destroy();
+			SpawnedCars.Remove(SelectedCar.GetHashCode());
+		}
+	}
+	void SpawnCar()
+	{
+		if (!SelectedCar.IsValid())
+			return;
+
+		if (SpawnedCars.TryGetValue(SelectedCar.GetHashCode(), out var spawnedCar))
+		{
+			spawnedCar.Destroy();
+			SpawnedCars.Remove(SelectedCar.GetHashCode());
+		}
+
+
+		var car = SelectedCar.Clone(contoller.Renderer.WorldTransform.Add(SelectedCar.GetLocalBounds().Maxs.WithY(0).WithZ(0), false));
+		car.WorldRotation = car.WorldRotation.RotateAroundAxis(Vector3.Up, -90);
+
+		car.NetworkSpawn();
+		car.Components.Get<SuitableVehicle>().Owner = Connection.Local;
+		car.Network.DropOwnership();
+		SpawnedCars.Add(SelectedCar.GetHashCode(), car);
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(Visible);
+}

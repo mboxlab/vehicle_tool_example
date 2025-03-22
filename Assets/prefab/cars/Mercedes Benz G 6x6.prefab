@@ -2,8 +2,11 @@
   "RootObject": {
     "__guid": "2857c469-73ce-418a-9679-1f38546de088",
     "Flags": 0,
-    "Name": "6x6",
+    "Name": "mercedes benz g 6x6",
     "Enabled": true,
+    "NetworkMode": 1,
+    "NetworkOrphaned": 3,
+    "OwnerTransfer": 2,
     "Components": [
       {
         "__type": "Meteor.VehicleTool.Vehicle.VehicleController",
@@ -202,52 +205,14 @@
         "OnComponentUpdate": null
       },
       {
-        "__type": "Sandbox.VehicleEditor",
-        "__guid": "4cc698e2-430d-4d6d-a3b3-540965ac63fe",
+        "__type": "SuitableVehicle",
+        "__guid": "e591de02-de4e-4e45-9af8-e7beb26e7a1c",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "vehicleComponent": {
-          "_type": "component",
-          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
-          "go": "2857c469-73ce-418a-9679-1f38546de088",
-          "component_type": "VehicleController"
-        }
-      },
-      {
-        "__type": "Sandbox.ScreenPanel",
-        "__guid": "4d37a66f-5b0a-42cd-b820-77fddc141cfb",
-        "AutoScreenScale": true,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "Opacity": 1,
-        "Scale": 1,
-        "ScaleStrategy": "ConsistentHeight",
-        "TargetCamera": null,
-        "ZIndex": 100
-      },
-      {
-        "__type": "Sandbox.VehicleHud",
-        "__guid": "9ffced74-85df-4b1d-835b-361598e438c1",
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "vehicleComponent": {
-          "_type": "component",
-          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
-          "go": "2857c469-73ce-418a-9679-1f38546de088",
-          "component_type": "VehicleController"
-        }
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
@@ -318,14 +283,13 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "6fa900de-8ed0-4444-815e-dad3ff315384",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 12.774168,
+                "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
                 "MaxSuspensionLength": 6,
@@ -398,14 +362,13 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 12.774168,
+                "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
                 "MaxSuspensionLength": 6,
@@ -487,14 +450,13 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 12.774168,
+                "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
                 "MaxSuspensionLength": 6,
@@ -567,14 +529,13 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 12.774168,
+                "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
                 "MaxSuspensionLength": 6,
@@ -656,14 +617,13 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "de76d44a-a059-427a-861b-f689d957556f",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 12.774168,
+                "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
                 "MaxSuspensionLength": 6,
@@ -736,14 +696,13 @@
               {
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "e7db4772-1b4e-4a77-b305-50aa66163e51",
-                "AntiSquat": 0,
                 "AutoSetFriction": true,
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 3000,
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "Inertia": 12.774168,
+                "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
                 "MaxSuspensionLength": 6,
@@ -814,6 +773,64 @@
                 ]
               }
             ]
+          }
+        ]
+      },
+      {
+        "__guid": "a73a89b0-5c2d-4ffd-bc31-652b58a30043",
+        "Flags": 0,
+        "Name": "hud",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.VehicleHud",
+            "__guid": "b9dd6c57-8cbf-4adf-936b-ee3361bef50b",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "suit": null,
+            "vehicleComponent": {
+              "_type": "component",
+              "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+              "go": "2857c469-73ce-418a-9679-1f38546de088",
+              "component_type": "VehicleController"
+            }
+          },
+          {
+            "__type": "Sandbox.ScreenPanel",
+            "__guid": "3e78fdd0-e5bc-4ac5-b135-de92e077d7b1",
+            "AutoScreenScale": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opacity": 1,
+            "Scale": 1,
+            "ScaleStrategy": "ConsistentHeight",
+            "TargetCamera": null,
+            "ZIndex": 100
+          },
+          {
+            "__type": "Sandbox.VehicleEditor",
+            "__guid": "fdff2597-cc5e-456a-ab22-131d3e1b5ee1",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "suit": null,
+            "vehicleComponent": {
+              "_type": "component",
+              "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+              "go": "2857c469-73ce-418a-9679-1f38546de088",
+              "component_type": "VehicleController"
+            }
           }
         ]
       }

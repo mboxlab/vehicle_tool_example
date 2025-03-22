@@ -231,6 +231,97 @@
             "OnComponentUpdate": null
           }
         ]
+      },
+      {
+        "__guid": "aad3579a-7b2d-4cce-b360-ff03c9d4bf46",
+        "Flags": 0,
+        "Name": "Hud",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ScreenPanel",
+            "__guid": "c8151c81-3842-4533-bd44-bcc11a536100",
+            "AutoScreenScale": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opacity": 1,
+            "Scale": 1,
+            "ScaleStrategy": "ConsistentHeight",
+            "TargetCamera": null,
+            "ZIndex": 100
+          },
+          {
+            "__type": "Sandbox.PlayerHud",
+            "__guid": "08a9f95e-903b-4d54-a67b-d382531868bc",
+            "contoller": {
+              "_type": "component",
+              "component_id": "9df1f909-9983-4b51-a8fe-80c1b59ff299",
+              "go": "9df4e86b-dcf7-4e0b-a623-a869861a4160",
+              "component_type": "PlayerController"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "SpawnableCars": [
+              {
+                "_type": "gameobject",
+                "prefab": "prefab/cars/mercedes benz g 6x6.prefab"
+              },
+              {
+                "_type": "gameobject",
+                "prefab": "prefab/cars/bmw e30.prefab"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "41b3bd40-8cb3-4f6a-a26e-ef5f0ab4d82c",
+        "Flags": 0,
+        "Name": "nametag",
+        "Position": "0,0,80",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "b9d3daf5-7725-46fa-b8f5-e731d99d9d5f",
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PanelSize": "4096,512",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderScale": 2,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "NameTag",
+            "__guid": "60165025-a4d1-44de-b7c6-00d306eaf3d4",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          }
+        ]
       }
     ],
     "__variables": [],
