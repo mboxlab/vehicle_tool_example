@@ -63,11 +63,15 @@ public partial class VehicleController
 		if ( UseAssist && CurrentSpeed > AssistStartSpeed && CarDirection > 0 && IsOnGround )
 			targetAngle = VelocityAngle * AssistMultiplier;
 
-		targetAngle = MathX.Clamp( targetAngle + CurrentSteerAngle, -MaxSteerAngle, MaxSteerAngle );
+		SetSteerAngle( MathX.Clamp( targetAngle + CurrentSteerAngle, -MaxSteerAngle, MaxSteerAngle ) );
+
+	}
+
+	protected virtual void SetSteerAngle( float angle )
+	{
 
 		foreach ( var item in SteeringWheels )
-			item.SteerAngle = targetAngle;
-
+			item.SteerAngle = angle;
 	}
 
 	public static float SignedAngle( Vector3 from, Vector3 to, Vector3 axis )

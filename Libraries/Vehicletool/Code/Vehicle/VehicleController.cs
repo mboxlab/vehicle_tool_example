@@ -38,7 +38,7 @@ public partial class VehicleController : Component
 		SteeringAngle = 0;
 		CurrentSteerAngle = 0;
 		if ( UseSteering )
-			UpdateSteerAngle();
+			SetSteerAngle( 0 );
 		if ( UsePowertrain )
 			UpdatePowertrain();
 	}
