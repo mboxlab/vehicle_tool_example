@@ -31,6 +31,17 @@ public partial class VehicleController : Component
 		}
 	}
 
+	protected override void OnDisabled()
+	{
+		VerticalInput = 0;
+		Handbrake = 0;
+		SteeringAngle = 0;
+		CurrentSteerAngle = 0;
+		if ( UseSteering )
+			UpdateSteerAngle();
+		if ( UsePowertrain )
+			UpdatePowertrain();
+	}
 
 	protected override void OnAwake()
 	{
