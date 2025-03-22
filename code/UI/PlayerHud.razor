@@ -24,15 +24,13 @@
 			<div class="button" onclick="@RemoveCar">Remove</div>
 		</div>
 	</div>
+	<InputHint Action="Score" Label="Car list" style="position:absolute; right: 16px;"></InputHint>
+
 </root>
 
 @code
 {
 	public bool Visible => Input.Down("Score") && Network.IsOwner;
-	protected override void OnUpdate()
-	{
-		base.OnUpdate();
-	}
 
 	[Property] public List<GameObject> SpawnableCars { get; set; }
 	[Property] public PlayerController contoller { get; set; }
@@ -42,6 +40,12 @@
 
 	protected override void OnStart()
 	{
+		if (!Network.IsOwner)
+		{
+			Destroy();
+			return;
+		}
+
 		SpawnedCars = new();
 	}
 
