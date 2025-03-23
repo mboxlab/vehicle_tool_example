@@ -37,12 +37,12 @@ public partial class WheelCollider
 		=> WorldTransform.PointToWorld( Vector3.Down * (SuspensionLength - minSuspensionLength) );
 
 	private float prevlength = 0;
-	private void UpdateSuspension()
+	private void UpdateSuspension( float dt )
 	{
 		prevlength = SuspensionLength;
 		if ( !IsGrounded )
 		{
-			SuspensionLength += Time.Delta * suspensionTotalLength * SuspensionExtensionSpeed;
+			SuspensionLength += dt * suspensionTotalLength * SuspensionExtensionSpeed;
 		}
 		else
 		{
@@ -59,21 +59,22 @@ public partial class WheelCollider
 			SuspensionLength = suspensionTotalLength;
 			IsGrounded = false;
 		}
+
 		if ( IsGrounded )
 		{
 
 			var suspensionCompression = (suspensionTotalLength - SuspensionLength) / suspensionTotalLength;
+			var compressionVelocity = (prevlength - SuspensionLength).InchToMeter() / dt;
 
-			var dampingForce = CalculateDamperForce( (SuspensionLength - prevlength).InchToMeter() / Time.Delta ) + GroundVelocity.z.InchToMeter();
-
+			var dampingForce = CalculateDamperForce( compressionVelocity ) + GroundVelocity.z.InchToMeter();
 			var springForce = SuspensionStiffness * suspensionCompression;
 
-			Load = Math.Max( 0, springForce - dampingForce );
+			Load = Math.Max( 0, springForce + dampingForce );
 
 
-			SuspensionForce = GroundHit.Normal * (Load.MeterToInch() * Time.Delta);
+			SuspensionForce = GroundHit.Normal * Load.MeterToInch();
 
-			CarBody.ApplyImpulseAt( WorldPosition, SuspensionForce );
+			CarBody.ApplyForceAt( WorldPosition, SuspensionForce );
 
 		}
 		else

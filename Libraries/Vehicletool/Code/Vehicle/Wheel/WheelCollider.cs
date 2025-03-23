@@ -1,12 +1,11 @@
-﻿using System;
-using Sandbox;
+﻿using Sandbox;
 
 namespace Meteor.VehicleTool.Vehicle.Wheel;
 
 [Category( "Physics" )]
 [Title( "Wheel Collider" )]
 [Icon( "sports_soccer" )]
-public partial class WheelCollider : Component
+public partial class WheelCollider : Component, IScenePhysicsEvents
 {
 
 	private float wheelRadius = 14;
@@ -43,6 +42,7 @@ public partial class WheelCollider : Component
 
 	[Group( "Components" ), Property] VehicleController Controller { get; set; }
 
+	public bool AutoSimulate = true;
 	private Rigidbody CarBody => Controller.Body;
 	protected override void OnAwake()
 	{
@@ -72,13 +72,13 @@ public partial class WheelCollider : Component
 		Controller?.UnRegister( this );
 	}
 
-
-	protected override void OnFixedUpdate()
+	void IScenePhysicsEvents.PrePhysicsStep()
 	{
-		PhysUpdate();
+		if ( AutoSimulate )
+			PhysUpdate( Time.Delta * Scene.PhysicsSubSteps );
 	}
 
-	public void PhysUpdate()
+	public void PhysUpdate( float dt )
 	{
 		DoTrace();
 
@@ -87,7 +87,7 @@ public partial class WheelCollider : Component
 
 		UpdateSteer();
 		UpdateHitVariables();
-		UpdateSuspension();
-		UpdateFriction();
+		UpdateSuspension( dt );
+		UpdateFriction( dt );
 	}
 }

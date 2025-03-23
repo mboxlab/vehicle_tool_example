@@ -1,5 +1,4 @@
-﻿using System;
-using Sandbox;
+﻿using Sandbox;
 namespace Meteor.VehicleTool.Vehicle.Wheel;
 
 public partial class WheelCollider
@@ -24,7 +23,7 @@ public partial class WheelCollider
 				.UseHitPosition( false )
 				.WithoutTags( IgnoredTags )
 				.Run() );
-		
+
 		IsGrounded = GroundHit.Hit;
 	}
 

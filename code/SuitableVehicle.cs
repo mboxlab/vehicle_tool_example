@@ -1,6 +1,6 @@
 using Meteor.VehicleTool.Vehicle;
 
-public sealed class SuitableVehicle : Component, Component.IPressable, Component.INetworkListener
+public sealed class SuitableVehicle : Component, Component.IPressable, Component.INetworkListener, IGameObjectNetworkEvents
 {
 
 	[Sync] public VehicleController Vehicle { get; private set; }
@@ -8,9 +8,12 @@ public sealed class SuitableVehicle : Component, Component.IPressable, Component
 	public Connection Owner { get; set; }
 
 
-	protected override void OnAwake()
+	protected override void OnStart()
 	{
+
 		Vehicle ??= Components.Get<VehicleController>( FindMode.EverythingInSelf );
+		if ( IsProxy )
+			return;
 		Vehicle.Enabled = false;
 	}
 

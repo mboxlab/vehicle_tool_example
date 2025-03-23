@@ -42,7 +42,9 @@ public partial class WheelCollider
 	public float BrakeTorque;
 	public Friction ForwardFriction = new();
 	public Friction SidewayFriction = new();
+	public float RPM => Math.Abs( AngularVelocity * 9.55f );
 	public float AngularVelocity = 0;
+	public Vector3 FrictionForce;
 
 
 	private Vector3 hitContactVelocity;
@@ -50,8 +52,36 @@ public partial class WheelCollider
 	private Vector3 hitSidewaysDirection;
 	private Rotation velocityRotation;
 	private float axleAngle;
-	private Vector3 FrictionForce;
 
+
+
+	public float LongitudinalSlip => ForwardFriction.Slip;
+	public float LongitudinalSpeed => ForwardFriction.Speed;
+	public virtual bool IsSkiddingLongitudinally => NormalizedLongitudinalSlip > 0.35f;
+	public virtual float NormalizedLongitudinalSlip
+	{
+		get
+		{
+			float lngSlip = LongitudinalSlip;
+			float absLngSlip = lngSlip < 0f ? -lngSlip : lngSlip;
+			return absLngSlip < 0f ? 0f : absLngSlip > 1f ? 1f : absLngSlip;
+		}
+	}
+
+
+	public float LateralSlip => SidewayFriction.Slip;
+	public float LateralSpeed => SidewayFriction.Speed;
+	public virtual bool IsSkiddingLaterally => NormalizedLateralSlip > 0.35f;
+
+	public virtual float NormalizedLateralSlip
+	{
+		get
+		{
+			float latSlip = LateralSlip;
+			float absLatSlip = latSlip < 0f ? -latSlip : latSlip;
+			return absLatSlip < 0f ? 0f : absLatSlip > 1f ? 1f : absLatSlip;
+		}
+	}
 
 	private void UpdateHitVariables()
 	{
@@ -100,7 +130,7 @@ public partial class WheelCollider
 	private Vector3 currentPosition;
 	private Vector3 referenceError;
 	private Vector3 correctiveForce;
-	private void UpdateFriction()
+	private void UpdateFriction( float dt )
 	{
 		if ( AutoSetFriction )
 			UpdateFrictionPreset();
@@ -119,7 +149,7 @@ public partial class WheelCollider
 
 		float mRadius = Radius.InchToMeter();
 
-		float invDt = 1f / Time.Delta;
+		float invDt = 1f / dt;
 		float invRadius = 1f / mRadius;
 		float inertia = Inertia;
 		float invInertia = 1f / Inertia;
@@ -128,35 +158,34 @@ public partial class WheelCollider
 		float forwardLoadFactor = loadClamped * 1.35f;
 		float sideLoadFactor = loadClamped * 1.9f;
 
-		float loadPercent = Load / LoadRating;
-		loadPercent = loadPercent < 0f ? 0f : loadPercent > 1f ? 1f : loadPercent;
+		float loadPercent = Math.Clamp( Load / LoadRating, 0f, 1f );
 		float slipLoadModifier = 1f - loadPercent * 0.4f;
 
 
 		float mass = CarBody.PhysicsBody.Mass;
-		float absForwardSpeed = ForwardFriction.Speed < 0 ? -ForwardFriction.Speed : ForwardFriction.Speed;
+		float absForwardSpeed = Math.Abs( ForwardFriction.Speed );
 		float forwardForceClamp = mass * LoadContribution * absForwardSpeed * invDt;
-		float absSideSpeed = SidewayFriction.Speed < 0 ? -SidewayFriction.Speed : SidewayFriction.Speed;
+		float absSideSpeed = Math.Abs( SidewayFriction.Speed );
 		float sideForceClamp = mass * LoadContribution * absSideSpeed * invDt;
 
-		float forwardSpeedClamp = 1.5f * (Time.Delta / 0.005f);
-		forwardSpeedClamp = forwardSpeedClamp < 1.5f ? 1.5f : forwardSpeedClamp > 10f ? 10f : forwardSpeedClamp;
-		float clampedAbsForwardSpeed = absForwardSpeed < forwardSpeedClamp ? forwardSpeedClamp : absForwardSpeed;
+		float forwardSpeedClamp = 1.5f * (dt / 0.005f);
+		forwardSpeedClamp = Math.Clamp( forwardSpeedClamp, 1.5f, 10f );
+		float clampedAbsForwardSpeed = Math.Max( absForwardSpeed, forwardSpeedClamp );
 
 		// Calculate effect of camber on friction
-		float camberFrictionCoeff = WorldRotation.Up.Dot( GroundHit.Normal );
-		camberFrictionCoeff = camberFrictionCoeff < 0f ? 0f : camberFrictionCoeff;
+		float camberFrictionCoeff = Math.Max( 0, WorldRotation.Up.Dot( GroundHit.Normal ) );
+
 
 		float peakForwardFrictionForce = FrictionPreset.PeakValue * forwardLoadFactor * ForwardFriction.Grip;
-		float absCombinedBrakeTorque = brakeTorque + RollingResistanceTorque;
-		absCombinedBrakeTorque = absCombinedBrakeTorque < 0 ? 0 : absCombinedBrakeTorque;
-		float signedCombinedBrakeTorque = absCombinedBrakeTorque * (ForwardFriction.Speed < 0 ? 1f : -1f);
+		float absCombinedBrakeTorque = Math.Max( 0, brakeTorque + RollingResistanceTorque );
+		float signedCombinedBrakeTorque = absCombinedBrakeTorque * -Math.Sign( ForwardFriction.Speed );
 		float signedCombinedBrakeForce = signedCombinedBrakeTorque * invRadius;
 		float motorForce = motorTorque * invRadius;
 		float forwardInputForce = motorForce + signedCombinedBrakeForce;
-		float absMotorTorque = motorTorque < 0 ? -motorTorque : motorTorque;
-		float absBrakeTorque = brakeTorque < 0 ? -brakeTorque : brakeTorque;
-		float maxForwardForce = peakForwardFrictionForce < forwardForceClamp ? peakForwardFrictionForce : forwardForceClamp;
+		float absMotorTorque = Math.Abs( motorTorque );
+		float absBrakeTorque = Math.Abs( brakeTorque );
+
+		float maxForwardForce = Math.Min( peakForwardFrictionForce, forwardForceClamp );
 		maxForwardForce = absMotorTorque < absBrakeTorque ? maxForwardForce : peakForwardFrictionForce;
 		ForwardFriction.Force = forwardInputForce > maxForwardForce ? maxForwardForce
 			: forwardInputForce < -maxForwardForce ? -maxForwardForce : forwardInputForce;
@@ -164,42 +193,31 @@ public partial class WheelCollider
 		bool wheelIsBlocked = false;
 		if ( IsGrounded )
 		{
-			float absCombinedBrakeForce = absCombinedBrakeTorque * invRadius;
-			float brakeForceSign = AngularVelocity < 0 ? 1f : -1f;
-			float signedWheelBrakeForce = absCombinedBrakeForce * brakeForceSign;
-			float combinedWheelForce = motorForce + signedWheelBrakeForce;
+			float combinedWheelForce = motorForce + absCombinedBrakeTorque * invRadius * -Math.Sign( AngularVelocity );
 			float wheelForceClampOverflow = 0;
 			if ( (combinedWheelForce >= 0 && AngularVelocity < 0) || (combinedWheelForce < 0 && AngularVelocity > 0) )
 			{
-				float absAngVel = AngularVelocity < 0 ? -AngularVelocity : AngularVelocity;
-				float absWheelForceClamp = absAngVel * inertia * invRadius * invDt;
+				float absWheelForceClamp = Math.Abs( AngularVelocity ) * inertia * invRadius * invDt;
 				float absCombinedWheelForce = combinedWheelForce < 0 ? -combinedWheelForce : combinedWheelForce;
-				float combinedWheelForceSign = combinedWheelForce < 0 ? -1f : 1f;
 				float wheelForceDiff = absCombinedWheelForce - absWheelForceClamp;
-				float clampedWheelForceDiff = wheelForceDiff < 0f ? 0f : wheelForceDiff;
-				wheelForceClampOverflow = clampedWheelForceDiff * combinedWheelForceSign;
-				combinedWheelForce = combinedWheelForce < -absWheelForceClamp ? -absWheelForceClamp :
-					combinedWheelForce > absWheelForceClamp ? absWheelForceClamp : combinedWheelForce;
+				wheelForceClampOverflow = Math.Max( 0, wheelForceDiff ) * Math.Sign( combinedWheelForce );
+				combinedWheelForce = Math.Clamp( combinedWheelForce, -absWheelForceClamp, absWheelForceClamp );
 			}
-			AngularVelocity += combinedWheelForce * mRadius * invInertia * Time.Delta;
+			AngularVelocity += combinedWheelForce * mRadius * invInertia * dt;
 
 			// Surface (corrective) force
 			float noSlipAngularVelocity = ForwardFriction.Speed * invRadius;
 			float angularVelocityError = AngularVelocity - noSlipAngularVelocity;
-			float angularVelocityCorrectionForce = -angularVelocityError * inertia * invRadius * invDt;
-			angularVelocityCorrectionForce = angularVelocityCorrectionForce < -maxForwardForce ? -maxForwardForce :
-				angularVelocityCorrectionForce > maxForwardForce ? maxForwardForce : angularVelocityCorrectionForce;
+			float angularVelocityCorrectionForce = Math.Clamp( -angularVelocityError * inertia * invRadius * invDt, -maxForwardForce, maxForwardForce );
 
-			float absWheelForceClampOverflow = wheelForceClampOverflow < 0 ? -wheelForceClampOverflow : wheelForceClampOverflow;
-			float absAngularVelocityCorrectionForce = angularVelocityCorrectionForce < 0 ? -angularVelocityCorrectionForce : angularVelocityCorrectionForce;
-			if ( absMotorTorque <= absBrakeTorque && absWheelForceClampOverflow > absAngularVelocityCorrectionForce )
+			if ( absMotorTorque < absBrakeTorque && Math.Abs( wheelForceClampOverflow ) > Math.Abs( angularVelocityCorrectionForce ) )
 			{
 				wheelIsBlocked = true;
 				AngularVelocity += ForwardFriction.Speed > 0 ? 1e-10f : -1e-10f;
 			}
 			else
 			{
-				AngularVelocity += angularVelocityCorrectionForce * mRadius * invInertia * Time.Delta;
+				AngularVelocity += angularVelocityCorrectionForce * mRadius * invInertia * dt;
 			}
 		}
 		else
@@ -207,15 +225,14 @@ public partial class WheelCollider
 			float maxBrakeTorque = AngularVelocity * inertia * invDt + motorTorque;
 			maxBrakeTorque = maxBrakeTorque < 0 ? -maxBrakeTorque : maxBrakeTorque;
 			float brakeTorqueSign = AngularVelocity < 0f ? -1f : 1f;
-			float clampedBrakeTorque = absCombinedBrakeTorque > maxBrakeTorque ? maxBrakeTorque :
-				absCombinedBrakeTorque < -maxBrakeTorque ? -maxBrakeTorque : absCombinedBrakeTorque;
-			AngularVelocity += (motorTorque - brakeTorqueSign * clampedBrakeTorque) * invInertia * Time.Delta;
+			float clampedBrakeTorque = Math.Clamp( absCombinedBrakeTorque, -maxBrakeTorque, maxBrakeTorque );
+			AngularVelocity += (motorTorque - brakeTorqueSign * clampedBrakeTorque) * invInertia * dt;
 		}
-		float absAngularVelocity = AngularVelocity < 0 ? -AngularVelocity : AngularVelocity;
 
-		CounterTorque = (signedCombinedBrakeForce - ForwardFriction.Force) * mRadius;
+		float absAngularVelocity = AngularVelocity < 0 ? -AngularVelocity : AngularVelocity;
 		float maxCounterTorque = inertia * absAngularVelocity;
-		CounterTorque = Math.Clamp( CounterTorque, -maxCounterTorque, maxCounterTorque );
+		CounterTorque = Math.Clamp( (signedCombinedBrakeForce - ForwardFriction.Force) * mRadius, -maxCounterTorque, maxCounterTorque );
+
 		ForwardFriction.Slip = (ForwardFriction.Speed - AngularVelocity * mRadius) / clampedAbsForwardSpeed;
 		ForwardFriction.Slip *= slipLoadModifier;
 
@@ -223,22 +240,22 @@ public partial class WheelCollider
 		SidewayFriction.Slip = MathF.Atan2( SidewayFriction.Speed, clampedAbsForwardSpeed ).RadianToDegree() * 0.01111f;
 		SidewayFriction.Slip *= slipLoadModifier;
 
-		float sideSlipSign = SidewayFriction.Slip < 0 ? -1f : 1f;
-		float absSideSlip = SidewayFriction.Slip < 0 ? -SidewayFriction.Slip : SidewayFriction.Slip;
+		float sideSlipSign = Math.Sign( SidewayFriction.Slip );
+		float absSideSlip = Math.Abs( SidewayFriction.Slip );
 		float peakSideFrictionForce = FrictionPreset.PeakValue * sideLoadFactor * SidewayFriction.Grip;
 		float sideForce = -sideSlipSign * FrictionPreset.Evaluate( absSideSlip ) * sideLoadFactor * SidewayFriction.Grip;
-		SidewayFriction.Force = sideForce > sideForceClamp ? sideForce : sideForce < -sideForceClamp ? -sideForceClamp : sideForce;
+		SidewayFriction.Force = Math.Clamp( sideForce, -sideForceClamp, sideForceClamp );
 		SidewayFriction.Force *= camberFrictionCoeff;
 
 		if ( IsGrounded && absForwardSpeed < 0.12f && absSideSpeed < 0.12f )
 		{
 			float verticalOffset = suspensionTotalLength.InchToMeter() + mRadius;
-			var _transformPosition = WorldPosition;
+			var transformPosition = WorldPosition;
 
-			var _transformUp = TransformRotationSteer.Up;
-			currentPosition.x = _transformPosition.x - _transformUp.x * verticalOffset;
-			currentPosition.y = _transformPosition.y - _transformUp.y * verticalOffset;
-			currentPosition.z = _transformPosition.z - _transformUp.z * verticalOffset;
+			var transformUp = TransformRotationSteer.Up;
+			currentPosition.x = transformPosition.x - transformUp.x * verticalOffset;
+			currentPosition.y = transformPosition.y - transformUp.y * verticalOffset;
+			currentPosition.z = transformPosition.z - transformUp.z * verticalOffset;
 
 			if ( !lowSpeedReferenceIsSet )
 			{
@@ -249,7 +266,7 @@ public partial class WheelCollider
 			{
 				if ( GroundHit.Collider != null )
 				{
-					lowSpeedReferencePosition = lowSpeedReferencePosition + GroundVelocity * Time.Delta;
+					lowSpeedReferencePosition += GroundVelocity * dt;
 				}
 				referenceError.x = lowSpeedReferencePosition.x - currentPosition.x;
 				referenceError.y = lowSpeedReferencePosition.y - currentPosition.y;
@@ -273,11 +290,8 @@ public partial class WheelCollider
 			lowSpeedReferenceIsSet = false;
 		}
 
-		ForwardFriction.Force = ForwardFriction.Force > peakForwardFrictionForce ? peakForwardFrictionForce
-			: ForwardFriction.Force < -peakForwardFrictionForce ? -peakForwardFrictionForce : ForwardFriction.Force;
-
-		SidewayFriction.Force = SidewayFriction.Force > peakSideFrictionForce ? peakSideFrictionForce
-			: SidewayFriction.Force < -peakSideFrictionForce ? -peakSideFrictionForce : SidewayFriction.Force;
+		ForwardFriction.Force = Math.Clamp( ForwardFriction.Force, -peakForwardFrictionForce, peakForwardFrictionForce );
+		SidewayFriction.Force = Math.Clamp( SidewayFriction.Force, -peakSideFrictionForce, peakSideFrictionForce );
 
 		if ( absForwardSpeed > 2f || absAngularVelocity > 4f )
 		{

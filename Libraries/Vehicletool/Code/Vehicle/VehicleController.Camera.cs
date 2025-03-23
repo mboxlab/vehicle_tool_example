@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Sandbox;
 
 namespace Meteor.VehicleTool.Vehicle;
@@ -61,10 +62,7 @@ public partial class VehicleController
 		}
 
 		Rotation worldRotation = EyeAngles.ToRotation();
-		if ( !ThirdPerson )
-		{
-			worldRotation = WorldRotation * worldRotation;
-		}
+
 		cam.WorldRotation = worldRotation;
 		Vector3 from = WorldPosition + Vector3.Up * (BodyHeight - EyeDistanceFromTop);
 		if ( IsOnGround && _eyez != 0f )

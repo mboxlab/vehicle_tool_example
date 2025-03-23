@@ -21,10 +21,27 @@
         },
         "BodyHeight": 72,
         "CameraOffset": "450,0,12",
-        "CombinedLoad": 0,
+        "Clutch": {
+          "_type": "component",
+          "component_id": "cf40d7bb-e9cd-4d93-934b-6e99ab70a92e",
+          "go": "e6649cbf-07db-4f8b-9ed8-6d8f4075bb8d",
+          "component_type": "Clutch"
+        },
+        "Differential": {
+          "_type": "component",
+          "component_id": "c54335e0-c6f2-4eca-9d16-5b2ab97b5845",
+          "go": "042f1ac4-1cdb-4bd4-8a9f-fd4574df5a9f",
+          "component_type": "Differential"
+        },
+        "Engine": {
+          "_type": "component",
+          "component_id": "faafa831-c9e3-4ad9-8866-61661cfca9c8",
+          "go": "b7cdb304-cf53-4da0-8877-f42e65ac1a94",
+          "component_type": "Engine"
+        },
         "EyeDistanceFromTop": 8,
         "EyePosition": "40,16,85",
-        "HandBrakePower": 50000,
+        "HandBrakeTorque": 50000,
         "HandBrakeWheels": [
           {
             "_type": "component",
@@ -52,11 +69,16 @@
           }
         ],
         "LookSensitivity": 1,
+        "Manager": {
+          "_type": "component",
+          "component_id": "0f3e07d8-2fd9-4fa3-84e7-c3c8e30b7cc4",
+          "go": "2857c469-73ce-418a-9679-1f38546de088",
+          "component_type": "WheelManager"
+        },
+        "MaxBrakeTorque": 15000,
         "MaxPitch": 90,
-        "MaxPower": 400,
-        "MaxSpeed": 100,
         "MaxSpeedForMinAngleMultiplier": 100,
-        "MaxSteerAngle": 35,
+        "MaxSteerAngle": 45,
         "MaxSteerAngleMultiplier": 1,
         "MinPitch": 90,
         "MinSteerAngleMultiplier": 0.05,
@@ -108,64 +130,32 @@
         "SteeringWheels": [
           {
             "_type": "component",
-            "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
-            "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
+            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
+            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
             "component_type": "WheelCollider"
           },
           {
             "_type": "component",
-            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
-            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
+            "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
+            "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
             "component_type": "WheelCollider"
           }
         ],
         "ThirdPerson": true,
         "ToggleCameraModeButton": "view",
+        "Transmission": {
+          "_type": "component",
+          "component_id": "9f0032b6-5674-4594-8708-f92a6b40eabf",
+          "go": "30431b11-0fe3-425e-a715-4c8ea7e0c295",
+          "component_type": "Transmission"
+        },
         "UseAssist": true,
         "UseCameraControls": true,
         "UseInputControls": true,
         "UseLookControls": true,
         "UsePowertrain": true,
         "UseSteerAngleMultiplier": true,
-        "UseSteering": true,
-        "Wheels": [
-          {
-            "_type": "component",
-            "component_id": "e7db4772-1b4e-4a77-b305-50aa66163e51",
-            "go": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "de76d44a-a059-427a-861b-f689d957556f",
-            "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
-            "go": "566441bc-63ea-427c-9379-e7552c7b3641",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
-            "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
-            "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
-            "component_type": "WheelCollider"
-          },
-          {
-            "_type": "component",
-            "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
-            "go": "864d0620-1f20-4a78-9394-05bc5584f267",
-            "component_type": "WheelCollider"
-          }
-        ]
+        "UseSteering": true
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -213,6 +203,17 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Meteor.VehicleTool.Vehicle.WheelManager",
+        "__guid": "0f3e07d8-2fd9-4fa3-84e7-c3c8e30b7cc4",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Wheels": []
       }
     ],
     "Children": [
@@ -289,7 +290,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "IgnoredTags": null,
+                "IgnoredTags": "player",
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -369,7 +370,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "IgnoredTags": null,
+                "IgnoredTags": "player",
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -458,7 +459,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "IgnoredTags": null,
+                "IgnoredTags": "player",
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -538,7 +539,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "IgnoredTags": null,
+                "IgnoredTags": "player",
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -627,7 +628,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "IgnoredTags": null,
+                "IgnoredTags": "player",
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -707,7 +708,7 @@
                 "Controller": null,
                 "FastBump": 0.6,
                 "FastRebound": 0.6,
-                "IgnoredTags": null,
+                "IgnoredTags": "player",
                 "Inertia": 5.80644,
                 "LoadRating": 8000,
                 "Mass": 45,
@@ -878,6 +879,1448 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null
+          }
+        ]
+      },
+      {
+        "__guid": "2700b061-222e-40e6-bf23-85540b0e875b",
+        "Flags": 0,
+        "Name": "Powertrain",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "b7cdb304-cf53-4da0-8877-f42e65ac1a94",
+            "Flags": 0,
+            "Name": "Engine",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Engine",
+                "__guid": "faafa831-c9e3-4ad9-8866-61661cfca9c8",
+                "AutoStartOnThrottle": true,
+                "Controller": {
+                  "_type": "component",
+                  "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                  "component_type": "VehicleController"
+                },
+                "EngineLossPercent": 0.25,
+                "EstimatedPeakPower": 0,
+                "EstimatedPeakPowerRPM": 0,
+                "EstimatedPeakTorque": 0,
+                "EstimatedPeakTorqueRPM": 0,
+                "FlyingStartEnabled": false,
+                "IdleRPM": 900,
+                "Ignition": true,
+                "Inertia": 0.25,
+                "Input": null,
+                "InputRPM": 0,
+                "IsRunning": false,
+                "MaxPower": 320,
+                "Name": null,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Output": {
+                  "_type": "component",
+                  "component_id": "cf40d7bb-e9cd-4d93-934b-6e99ab70a92e",
+                  "go": "e6649cbf-07db-4f8b-9ed8-6d8f4075bb8d",
+                  "component_type": "Clutch"
+                },
+                "OutputRPM": 0,
+                "PowerCurve": [
+                  {
+                    "x": 0,
+                    "y": 0.4,
+                    "in": 0,
+                    "out": 0,
+                    "mode": "Mirrored"
+                  },
+                  {
+                    "x": 0.16,
+                    "y": 0.65,
+                    "in": 0,
+                    "out": 0,
+                    "mode": "Mirrored"
+                  },
+                  {
+                    "x": 0.32,
+                    "y": 0.85,
+                    "in": 0,
+                    "out": 0,
+                    "mode": "Mirrored"
+                  },
+                  {
+                    "x": 0.64,
+                    "y": 1,
+                    "in": 0,
+                    "out": 0,
+                    "mode": "Mirrored"
+                  },
+                  {
+                    "x": 0.8,
+                    "y": 0.9,
+                    "in": 0,
+                    "out": 0,
+                    "mode": "Mirrored"
+                  },
+                  {
+                    "x": 0.9,
+                    "y": 0.6,
+                    "in": 0,
+                    "out": 0,
+                    "mode": "Mirrored"
+                  },
+                  {
+                    "x": 1,
+                    "y": 0.2,
+                    "in": 0,
+                    "out": 0,
+                    "mode": "Mirrored"
+                  }
+                ],
+                "RevLimiterCutoffDuration": 0,
+                "RevLimiterRPM": 4700,
+                "RPMPercent": 0,
+                "StartDuration": 0.5,
+                "StarterActive": false,
+                "ThrottlePosition": 0,
+                "Type": "ICE"
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "e6649cbf-07db-4f8b-9ed8-6d8f4075bb8d",
+                "Flags": 0,
+                "Name": "Clutch",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Clutch",
+                    "__guid": "cf40d7bb-e9cd-4d93-934b-6e99ab70a92e",
+                    "ClutchInput": 0,
+                    "Controller": {
+                      "_type": "component",
+                      "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                      "go": "2857c469-73ce-418a-9679-1f38546de088",
+                      "component_type": "VehicleController"
+                    },
+                    "CreepSpeedLimit": 1,
+                    "CreepTorque": 0,
+                    "Engagement": 0,
+                    "EngagementCurve": [
+                      {
+                        "x": 0,
+                        "y": 0,
+                        "in": 0,
+                        "out": 0,
+                        "mode": "Mirrored"
+                      },
+                      {
+                        "x": 1,
+                        "y": 1,
+                        "in": 0,
+                        "out": 0,
+                        "mode": "Mirrored"
+                      }
+                    ],
+                    "EngagementRange": 400,
+                    "EngagementRPM": 1200,
+                    "Inertia": 0.02,
+                    "Input": {
+                      "_type": "component",
+                      "component_id": "faafa831-c9e3-4ad9-8866-61661cfca9c8",
+                      "go": "b7cdb304-cf53-4da0-8877-f42e65ac1a94",
+                      "component_type": "Engine"
+                    },
+                    "InputRPM": 0,
+                    "Name": null,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "Output": {
+                      "_type": "component",
+                      "component_id": "9f0032b6-5674-4594-8708-f92a6b40eabf",
+                      "go": "30431b11-0fe3-425e-a715-4c8ea7e0c295",
+                      "component_type": "Transmission"
+                    },
+                    "OutputRPM": 0,
+                    "SlipTorque": 500,
+                    "СontrolType": "Automatic"
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "30431b11-0fe3-425e-a715-4c8ea7e0c295",
+                    "Flags": 0,
+                    "Name": "Transmission",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Transmission",
+                        "__guid": "9f0032b6-5674-4594-8708-f92a6b40eabf",
+                        "AllowDownshiftGearSkipping": true,
+                        "AllowUpshiftGearSkipping": false,
+                        "ClutchInputShiftThreshold": 1,
+                        "Controller": {
+                          "_type": "component",
+                          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                          "go": "2857c469-73ce-418a-9679-1f38546de088",
+                          "component_type": "VehicleController"
+                        },
+                        "CurrentGearRatio": 0,
+                        "DNRShiftType": "Auto",
+                        "DnrSpeedThreshold": 0.4,
+                        "DownshiftRPM": 1400,
+                        "FinalGearRatio": 4.3,
+                        "Gear": 0,
+                        "GearingProfile": {
+                          "ForwardGears": [
+                            3.59,
+                            2.02,
+                            1.38,
+                            1,
+                            0.87
+                          ],
+                          "ReverseGears": [
+                            -4
+                          ]
+                        },
+                        "Gears": [],
+                        "HoldToKeepInGear": false,
+                        "IgnorePostShiftBanInManual": true,
+                        "InclineEffectCoeff": 0,
+                        "Inertia": 0.01,
+                        "Input": {
+                          "_type": "component",
+                          "component_id": "cf40d7bb-e9cd-4d93-934b-6e99ab70a92e",
+                          "go": "e6649cbf-07db-4f8b-9ed8-6d8f4075bb8d",
+                          "component_type": "Clutch"
+                        },
+                        "InputRPM": 0,
+                        "IsPostShiftBanActive": false,
+                        "IsSequential": false,
+                        "IsShifting": false,
+                        "Name": null,
+                        "OnComponentDestroy": null,
+                        "OnComponentDisabled": null,
+                        "OnComponentEnabled": null,
+                        "OnComponentFixedUpdate": null,
+                        "OnComponentStart": null,
+                        "OnComponentUpdate": null,
+                        "Output": {
+                          "_type": "component",
+                          "component_id": "c54335e0-c6f2-4eca-9d16-5b2ab97b5845",
+                          "go": "042f1ac4-1cdb-4bd4-8a9f-fd4574df5a9f",
+                          "component_type": "Differential"
+                        },
+                        "OutputRPM": 0,
+                        "PostShiftBan": 0.5,
+                        "ShiftDuration": 0.2,
+                        "ShiftProgress": 0,
+                        "TargetDownshiftRPM": 0,
+                        "TargetUpshiftRPM": 0,
+                        "TransmissionType": "Automatic",
+                        "UpshiftRPM": 2800,
+                        "VariableShiftIntensity": 0.3,
+                        "VariableShiftPoint": true
+                      }
+                    ],
+                    "Children": [
+                      {
+                        "__guid": "042f1ac4-1cdb-4bd4-8a9f-fd4574df5a9f",
+                        "Flags": 0,
+                        "Name": "Differential",
+                        "Enabled": true,
+                        "Components": [
+                          {
+                            "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Differential",
+                            "__guid": "c54335e0-c6f2-4eca-9d16-5b2ab97b5845",
+                            "BiasAB": 0.5,
+                            "CoastRamp": 0.5,
+                            "Controller": {
+                              "_type": "component",
+                              "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                              "go": "2857c469-73ce-418a-9679-1f38546de088",
+                              "component_type": "VehicleController"
+                            },
+                            "Inertia": 0.1,
+                            "Input": {
+                              "_type": "component",
+                              "component_id": "9f0032b6-5674-4594-8708-f92a6b40eabf",
+                              "go": "30431b11-0fe3-425e-a715-4c8ea7e0c295",
+                              "component_type": "Transmission"
+                            },
+                            "InputRPM": 0,
+                            "Name": null,
+                            "OnComponentDestroy": null,
+                            "OnComponentDisabled": null,
+                            "OnComponentEnabled": null,
+                            "OnComponentFixedUpdate": null,
+                            "OnComponentStart": null,
+                            "OnComponentUpdate": null,
+                            "Output": {
+                              "_type": "component",
+                              "component_id": "4b05757e-439a-4e32-9d9a-99bdd92a1607",
+                              "go": "38b8bfdb-e8a3-4f94-8392-778270027839",
+                              "component_type": "Differential"
+                            },
+                            "OutputB": {
+                              "_type": "component",
+                              "component_id": "4e500465-47f8-4353-af71-d545974c30a1",
+                              "go": "732006dc-4726-4121-8324-333f86256161",
+                              "component_type": "Differential"
+                            },
+                            "OutputRPM": 0,
+                            "PowerRamp": 1,
+                            "SlipTorque": 400,
+                            "Stiffness": 0.5,
+                            "Type": "Open"
+                          }
+                        ],
+                        "Children": [
+                          {
+                            "__guid": "38b8bfdb-e8a3-4f94-8392-778270027839",
+                            "Flags": 0,
+                            "Name": "Differential",
+                            "Enabled": true,
+                            "Components": [
+                              {
+                                "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Differential",
+                                "__guid": "4b05757e-439a-4e32-9d9a-99bdd92a1607",
+                                "BiasAB": 0.5,
+                                "CoastRamp": 0.5,
+                                "Controller": {
+                                  "_type": "component",
+                                  "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                  "component_type": "VehicleController"
+                                },
+                                "Inertia": 0.1,
+                                "Input": {
+                                  "_type": "component",
+                                  "component_id": "c54335e0-c6f2-4eca-9d16-5b2ab97b5845",
+                                  "go": "042f1ac4-1cdb-4bd4-8a9f-fd4574df5a9f",
+                                  "component_type": "Differential"
+                                },
+                                "InputRPM": 0,
+                                "Name": null,
+                                "OnComponentDestroy": null,
+                                "OnComponentDisabled": null,
+                                "OnComponentEnabled": null,
+                                "OnComponentFixedUpdate": null,
+                                "OnComponentStart": null,
+                                "OnComponentUpdate": null,
+                                "Output": {
+                                  "_type": "component",
+                                  "component_id": "e727a640-c596-4419-adf5-b945666951dd",
+                                  "go": "aa604e62-0985-4544-ac15-4748ef964ca7",
+                                  "component_type": "WheelPowertrain"
+                                },
+                                "OutputB": null,
+                                "OutputRPM": 0,
+                                "PowerRamp": 1,
+                                "SlipTorque": 400,
+                                "Stiffness": 0.5,
+                                "Type": "Open"
+                              }
+                            ],
+                            "Children": [
+                              {
+                                "__guid": "56bac374-1494-4e7c-a8db-1889f5bfb1ce",
+                                "Flags": 0,
+                                "Name": "Differential",
+                                "Enabled": true,
+                                "Components": [
+                                  {
+                                    "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Differential",
+                                    "__guid": "60786cbf-c503-43d6-8d6f-982758fdf5ba",
+                                    "BiasAB": 0.5,
+                                    "CoastRamp": 0.5,
+                                    "Controller": {
+                                      "_type": "component",
+                                      "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                      "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                      "component_type": "VehicleController"
+                                    },
+                                    "Inertia": 0.1,
+                                    "Input": {
+                                      "_type": "component",
+                                      "component_id": "4b05757e-439a-4e32-9d9a-99bdd92a1607",
+                                      "go": "38b8bfdb-e8a3-4f94-8392-778270027839",
+                                      "component_type": "Differential"
+                                    },
+                                    "InputRPM": 0,
+                                    "Name": null,
+                                    "OnComponentDestroy": null,
+                                    "OnComponentDisabled": null,
+                                    "OnComponentEnabled": null,
+                                    "OnComponentFixedUpdate": null,
+                                    "OnComponentStart": null,
+                                    "OnComponentUpdate": null,
+                                    "Output": {
+                                      "_type": "component",
+                                      "component_id": "e7c0e292-751c-4100-a017-340ed59c297c",
+                                      "go": "d81f8c68-b3ee-4af1-aeed-8b29f7b4706c",
+                                      "component_type": "WheelPowertrain"
+                                    },
+                                    "OutputB": {
+                                      "_type": "component",
+                                      "component_id": "3c6935fc-3f08-4234-a1ea-4d14236f5007",
+                                      "go": "ed410db5-bd06-4e40-ad6b-e3070798b12b",
+                                      "component_type": "WheelPowertrain"
+                                    },
+                                    "OutputRPM": 0,
+                                    "PowerRamp": 1,
+                                    "SlipTorque": 400,
+                                    "Stiffness": 0.5,
+                                    "Type": "Open"
+                                  }
+                                ],
+                                "Children": [
+                                  {
+                                    "__guid": "ed410db5-bd06-4e40-ad6b-e3070798b12b",
+                                    "Flags": 0,
+                                    "Name": "Wheel W1 R",
+                                    "Enabled": true,
+                                    "Components": [
+                                      {
+                                        "__type": "Meteor.VehicleTool.Vehicle.Powertrain.WheelPowertrain",
+                                        "__guid": "3c6935fc-3f08-4234-a1ea-4d14236f5007",
+                                        "Controller": {
+                                          "_type": "component",
+                                          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                          "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                          "component_type": "VehicleController"
+                                        },
+                                        "Inertia": 0.01,
+                                        "Input": {
+                                          "_type": "component",
+                                          "component_id": "60786cbf-c503-43d6-8d6f-982758fdf5ba",
+                                          "go": "56bac374-1494-4e7c-a8db-1889f5bfb1ce",
+                                          "component_type": "Differential"
+                                        },
+                                        "InputRPM": 0,
+                                        "Name": null,
+                                        "OnComponentDestroy": null,
+                                        "OnComponentDisabled": null,
+                                        "OnComponentEnabled": null,
+                                        "OnComponentFixedUpdate": null,
+                                        "OnComponentStart": null,
+                                        "OnComponentUpdate": null,
+                                        "Output": null,
+                                        "OutputRPM": 0,
+                                        "Wheel": {
+                                          "_type": "component",
+                                          "component_id": "94664dc4-fa59-4cc9-a67d-5e4bfe6b1528",
+                                          "go": "ea9750ba-76a1-4782-a017-5c962cfef2ae",
+                                          "component_type": "WheelCollider"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "__guid": "d81f8c68-b3ee-4af1-aeed-8b29f7b4706c",
+                                    "Flags": 0,
+                                    "Name": "Wheel W1 L",
+                                    "Enabled": true,
+                                    "Components": [
+                                      {
+                                        "__type": "Meteor.VehicleTool.Vehicle.Powertrain.WheelPowertrain",
+                                        "__guid": "e7c0e292-751c-4100-a017-340ed59c297c",
+                                        "Controller": {
+                                          "_type": "component",
+                                          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                          "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                          "component_type": "VehicleController"
+                                        },
+                                        "Inertia": 0.01,
+                                        "Input": {
+                                          "_type": "component",
+                                          "component_id": "60786cbf-c503-43d6-8d6f-982758fdf5ba",
+                                          "go": "56bac374-1494-4e7c-a8db-1889f5bfb1ce",
+                                          "component_type": "Differential"
+                                        },
+                                        "InputRPM": 0,
+                                        "Name": null,
+                                        "OnComponentDestroy": null,
+                                        "OnComponentDisabled": null,
+                                        "OnComponentEnabled": null,
+                                        "OnComponentFixedUpdate": null,
+                                        "OnComponentStart": null,
+                                        "OnComponentUpdate": null,
+                                        "Output": null,
+                                        "OutputRPM": 0,
+                                        "Wheel": {
+                                          "_type": "component",
+                                          "component_id": "6fa900de-8ed0-4444-815e-dad3ff315384",
+                                          "go": "864d0620-1f20-4a78-9394-05bc5584f267",
+                                          "component_type": "WheelCollider"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "__guid": "732006dc-4726-4121-8324-333f86256161",
+                            "Flags": 0,
+                            "Name": "Differential",
+                            "Enabled": true,
+                            "Components": [
+                              {
+                                "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Differential",
+                                "__guid": "4e500465-47f8-4353-af71-d545974c30a1",
+                                "BiasAB": 0.5,
+                                "CoastRamp": 0.5,
+                                "Controller": {
+                                  "_type": "component",
+                                  "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                  "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                  "component_type": "VehicleController"
+                                },
+                                "Inertia": 0.1,
+                                "Input": {
+                                  "_type": "component",
+                                  "component_id": "c54335e0-c6f2-4eca-9d16-5b2ab97b5845",
+                                  "go": "042f1ac4-1cdb-4bd4-8a9f-fd4574df5a9f",
+                                  "component_type": "Differential"
+                                },
+                                "InputRPM": 0,
+                                "Name": null,
+                                "OnComponentDestroy": null,
+                                "OnComponentDisabled": null,
+                                "OnComponentEnabled": null,
+                                "OnComponentFixedUpdate": null,
+                                "OnComponentStart": null,
+                                "OnComponentUpdate": null,
+                                "Output": {
+                                  "_type": "component",
+                                  "component_id": "18832115-b7ec-41c1-b1a8-b2bd134ed9b8",
+                                  "go": "00f91ebc-60fa-4799-9fd7-5ed5d73455de",
+                                  "component_type": "Differential"
+                                },
+                                "OutputB": {
+                                  "_type": "component",
+                                  "component_id": "cfa7b2da-f8c3-418a-a625-0a2f279f35ab",
+                                  "go": "447cafc2-a8ee-41f5-854c-559ad929d18a",
+                                  "component_type": "WheelPowertrain"
+                                },
+                                "OutputRPM": 0,
+                                "PowerRamp": 1,
+                                "SlipTorque": 400,
+                                "Stiffness": 0.5,
+                                "Type": "Open"
+                              }
+                            ],
+                            "Children": [
+                              {
+                                "__guid": "00f91ebc-60fa-4799-9fd7-5ed5d73455de",
+                                "Flags": 0,
+                                "Name": "Differential",
+                                "Enabled": true,
+                                "Components": [
+                                  {
+                                    "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Differential",
+                                    "__guid": "18832115-b7ec-41c1-b1a8-b2bd134ed9b8",
+                                    "BiasAB": 0.5,
+                                    "CoastRamp": 0.5,
+                                    "Controller": {
+                                      "_type": "component",
+                                      "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                      "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                      "component_type": "VehicleController"
+                                    },
+                                    "Inertia": 0.1,
+                                    "Input": {
+                                      "_type": "component",
+                                      "component_id": "4e500465-47f8-4353-af71-d545974c30a1",
+                                      "go": "732006dc-4726-4121-8324-333f86256161",
+                                      "component_type": "Differential"
+                                    },
+                                    "InputRPM": 0,
+                                    "Name": null,
+                                    "OnComponentDestroy": null,
+                                    "OnComponentDisabled": null,
+                                    "OnComponentEnabled": null,
+                                    "OnComponentFixedUpdate": null,
+                                    "OnComponentStart": null,
+                                    "OnComponentUpdate": null,
+                                    "Output": {
+                                      "_type": "component",
+                                      "component_id": "e727a640-c596-4419-adf5-b945666951dd",
+                                      "go": "aa604e62-0985-4544-ac15-4748ef964ca7",
+                                      "component_type": "WheelPowertrain"
+                                    },
+                                    "OutputB": {
+                                      "_type": "component",
+                                      "component_id": "cf22ac9f-2aaf-410a-8eb1-a03696f9cfff",
+                                      "go": "f9e60fe1-950a-4598-8e54-f3d5b6707145",
+                                      "component_type": "WheelPowertrain"
+                                    },
+                                    "OutputRPM": 0,
+                                    "PowerRamp": 1,
+                                    "SlipTorque": 400,
+                                    "Stiffness": 0.5,
+                                    "Type": "Open"
+                                  }
+                                ],
+                                "Children": [
+                                  {
+                                    "__guid": "f9e60fe1-950a-4598-8e54-f3d5b6707145",
+                                    "Flags": 0,
+                                    "Name": "Wheel W2 R",
+                                    "Enabled": true,
+                                    "Components": [
+                                      {
+                                        "__type": "Meteor.VehicleTool.Vehicle.Powertrain.WheelPowertrain",
+                                        "__guid": "cf22ac9f-2aaf-410a-8eb1-a03696f9cfff",
+                                        "Controller": {
+                                          "_type": "component",
+                                          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                          "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                          "component_type": "VehicleController"
+                                        },
+                                        "Inertia": 0.01,
+                                        "Input": {
+                                          "_type": "component",
+                                          "component_id": "18832115-b7ec-41c1-b1a8-b2bd134ed9b8",
+                                          "go": "00f91ebc-60fa-4799-9fd7-5ed5d73455de",
+                                          "component_type": "Differential"
+                                        },
+                                        "InputRPM": 0,
+                                        "Name": null,
+                                        "OnComponentDestroy": null,
+                                        "OnComponentDisabled": null,
+                                        "OnComponentEnabled": null,
+                                        "OnComponentFixedUpdate": null,
+                                        "OnComponentStart": null,
+                                        "OnComponentUpdate": null,
+                                        "Output": null,
+                                        "OutputRPM": 0,
+                                        "Wheel": {
+                                          "_type": "component",
+                                          "component_id": "769e9ad6-3405-46f3-aed7-80f0b93d7a83",
+                                          "go": "566441bc-63ea-427c-9379-e7552c7b3641",
+                                          "component_type": "WheelCollider"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "__guid": "aa604e62-0985-4544-ac15-4748ef964ca7",
+                                    "Flags": 0,
+                                    "Name": "Wheel W2 L",
+                                    "Enabled": true,
+                                    "Components": [
+                                      {
+                                        "__type": "Meteor.VehicleTool.Vehicle.Powertrain.WheelPowertrain",
+                                        "__guid": "e727a640-c596-4419-adf5-b945666951dd",
+                                        "Controller": {
+                                          "_type": "component",
+                                          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                          "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                          "component_type": "VehicleController"
+                                        },
+                                        "Inertia": 0.01,
+                                        "Input": {
+                                          "_type": "component",
+                                          "component_id": "18832115-b7ec-41c1-b1a8-b2bd134ed9b8",
+                                          "go": "00f91ebc-60fa-4799-9fd7-5ed5d73455de",
+                                          "component_type": "Differential"
+                                        },
+                                        "InputRPM": 0,
+                                        "Name": null,
+                                        "OnComponentDestroy": null,
+                                        "OnComponentDisabled": null,
+                                        "OnComponentEnabled": null,
+                                        "OnComponentFixedUpdate": null,
+                                        "OnComponentStart": null,
+                                        "OnComponentUpdate": null,
+                                        "Output": null,
+                                        "OutputRPM": 0,
+                                        "Wheel": {
+                                          "_type": "component",
+                                          "component_id": "8f82e47e-b72d-4802-9c9a-cc5047e1c7ca",
+                                          "go": "63f09c77-30ed-4f78-a161-6b5cfaa20512",
+                                          "component_type": "WheelCollider"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "__guid": "3c22c0a7-dff2-45ba-9285-5275dd70aac9",
+                                "Flags": 0,
+                                "Name": "Differential",
+                                "Enabled": true,
+                                "Components": [
+                                  {
+                                    "__type": "Meteor.VehicleTool.Vehicle.Powertrain.Differential",
+                                    "__guid": "0c22ba25-9cd2-4035-bd5b-8c65749eb586",
+                                    "BiasAB": 0.5,
+                                    "CoastRamp": 0.5,
+                                    "Controller": {
+                                      "_type": "component",
+                                      "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                      "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                      "component_type": "VehicleController"
+                                    },
+                                    "Inertia": 0.1,
+                                    "Input": {
+                                      "_type": "component",
+                                      "component_id": "4e500465-47f8-4353-af71-d545974c30a1",
+                                      "go": "732006dc-4726-4121-8324-333f86256161",
+                                      "component_type": "Differential"
+                                    },
+                                    "InputRPM": 0,
+                                    "Name": null,
+                                    "OnComponentDestroy": null,
+                                    "OnComponentDisabled": null,
+                                    "OnComponentEnabled": null,
+                                    "OnComponentFixedUpdate": null,
+                                    "OnComponentStart": null,
+                                    "OnComponentUpdate": null,
+                                    "Output": {
+                                      "_type": "component",
+                                      "component_id": "e2c0a08f-ad9e-4ba5-a172-83c492c62c3d",
+                                      "go": "0d9083d3-8bae-40b6-aceb-3f1402d46f1b",
+                                      "component_type": "WheelPowertrain"
+                                    },
+                                    "OutputB": {
+                                      "_type": "component",
+                                      "component_id": "cfa7b2da-f8c3-418a-a625-0a2f279f35ab",
+                                      "go": "447cafc2-a8ee-41f5-854c-559ad929d18a",
+                                      "component_type": "WheelPowertrain"
+                                    },
+                                    "OutputRPM": 0,
+                                    "PowerRamp": 1,
+                                    "SlipTorque": 400,
+                                    "Stiffness": 0.5,
+                                    "Type": "Open"
+                                  }
+                                ],
+                                "Children": [
+                                  {
+                                    "__guid": "447cafc2-a8ee-41f5-854c-559ad929d18a",
+                                    "Flags": 0,
+                                    "Name": "Wheel W3 R",
+                                    "Enabled": true,
+                                    "Components": [
+                                      {
+                                        "__type": "Meteor.VehicleTool.Vehicle.Powertrain.WheelPowertrain",
+                                        "__guid": "cfa7b2da-f8c3-418a-a625-0a2f279f35ab",
+                                        "Controller": {
+                                          "_type": "component",
+                                          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                          "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                          "component_type": "VehicleController"
+                                        },
+                                        "Inertia": 0.01,
+                                        "Input": {
+                                          "_type": "component",
+                                          "component_id": "0c22ba25-9cd2-4035-bd5b-8c65749eb586",
+                                          "go": "3c22c0a7-dff2-45ba-9285-5275dd70aac9",
+                                          "component_type": "Differential"
+                                        },
+                                        "InputRPM": 0,
+                                        "Name": null,
+                                        "OnComponentDestroy": null,
+                                        "OnComponentDisabled": null,
+                                        "OnComponentEnabled": null,
+                                        "OnComponentFixedUpdate": null,
+                                        "OnComponentStart": null,
+                                        "OnComponentUpdate": null,
+                                        "Output": null,
+                                        "OutputRPM": 0,
+                                        "Wheel": {
+                                          "_type": "component",
+                                          "component_id": "e7db4772-1b4e-4a77-b305-50aa66163e51",
+                                          "go": "77e3f687-b51f-4ed4-9e93-d74e46c2dcb7",
+                                          "component_type": "WheelCollider"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "__guid": "0d9083d3-8bae-40b6-aceb-3f1402d46f1b",
+                                    "Flags": 0,
+                                    "Name": "Wheel W3 L",
+                                    "Enabled": true,
+                                    "Components": [
+                                      {
+                                        "__type": "Meteor.VehicleTool.Vehicle.Powertrain.WheelPowertrain",
+                                        "__guid": "e2c0a08f-ad9e-4ba5-a172-83c492c62c3d",
+                                        "Controller": {
+                                          "_type": "component",
+                                          "component_id": "677a40f2-2d56-4301-a67d-c3aa69585417",
+                                          "go": "2857c469-73ce-418a-9679-1f38546de088",
+                                          "component_type": "VehicleController"
+                                        },
+                                        "Inertia": 0.01,
+                                        "Input": {
+                                          "_type": "component",
+                                          "component_id": "0c22ba25-9cd2-4035-bd5b-8c65749eb586",
+                                          "go": "3c22c0a7-dff2-45ba-9285-5275dd70aac9",
+                                          "component_type": "Differential"
+                                        },
+                                        "InputRPM": 0,
+                                        "Name": null,
+                                        "OnComponentDestroy": null,
+                                        "OnComponentDisabled": null,
+                                        "OnComponentEnabled": null,
+                                        "OnComponentFixedUpdate": null,
+                                        "OnComponentStart": null,
+                                        "OnComponentUpdate": null,
+                                        "Output": null,
+                                        "OutputRPM": 0,
+                                        "Wheel": {
+                                          "_type": "component",
+                                          "component_id": "de76d44a-a059-427a-861b-f689d957556f",
+                                          "go": "682e3425-b595-46e1-b32c-c3a9f4cb282c",
+                                          "component_type": "WheelCollider"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "57348b45-2a84-4738-b146-a860ed6ede52",
+        "Flags": 0,
+        "Name": "Exhaust",
+        "Position": "8.492118,43.23936,23.96688",
+        "Rotation": "0,0,0.7933534,0.6087613",
+        "Tags": "particles",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Exhaust",
+            "__guid": "141c5d97-5bb5-4ced-974e-3e210e687ee5",
+            "Effect": {
+              "_type": "component",
+              "component_id": "2992da03-4976-47a5-b6de-d6c3ecca3a8c",
+              "go": "57348b45-2a84-4738-b146-a860ed6ede52",
+              "component_type": "ParticleEffect"
+            },
+            "Emitter": {
+              "_type": "component",
+              "component_id": "6d20d9f6-99de-4ea8-887a-55fbcae1e182",
+              "go": "57348b45-2a84-4738-b146-a860ed6ede52",
+              "component_type": "ParticleConeEmitter"
+            },
+            "Engine": {
+              "_type": "component",
+              "component_id": "faafa831-c9e3-4ad9-8866-61661cfca9c8",
+              "go": "b7cdb304-cf53-4da0-8877-f42e65ac1a94",
+              "component_type": "Engine"
+            },
+            "MaxSizeMultiplier": 1.2,
+            "MaxSpeedMultiplier": 1.4,
+            "NormalColor": "0.6,0.6,0.6,0.3",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Renderer": {
+              "_type": "component",
+              "component_id": "8f506057-723b-48c5-88e9-a934c11dfd6c",
+              "go": "57348b45-2a84-4738-b146-a860ed6ede52",
+              "component_type": "ParticleSpriteRenderer"
+            },
+            "SmokeTexture": "materials/particles/smoke/render/smokeloop_i_0.vtex",
+            "SootColor": "0.1,0.1,0.8,1",
+            "SootIntensity": 0.4
+          },
+          {
+            "__type": "Sandbox.ParticleEffect",
+            "__guid": "2992da03-4976-47a5-b6de-d6c3ecca3a8c",
+            "__version": 1,
+            "Alpha": {
+              "Type": "Curve",
+              "Evaluation": "Particle",
+              "CurveA": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 0.2,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 1,
+                  "y": 0,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "CurveB": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Constants": "0,0,0,0"
+            },
+            "ApplyAlpha": true,
+            "ApplyColor": true,
+            "ApplyRotation": true,
+            "ApplyShape": true,
+            "Bounce": 1,
+            "Brightness": 1,
+            "Bumpiness": 0,
+            "Collision": false,
+            "CollisionIgnore": null,
+            "CollisionRadius": 1,
+            "Damping": 1,
+            "DieOnCollisionChance": 0,
+            "Force": true,
+            "ForceDirection": "120,0,20",
+            "ForceScale": 1,
+            "ForceSpace": "Local",
+            "Friction": 1,
+            "Gradient": {
+              "Type": "Range",
+              "Evaluation": "Life",
+              "GradientA": {
+                "blend": "Linear",
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "GradientB": {
+                "blend": "Linear",
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "ConstantA": "1,1,1,1",
+              "ConstantB": "0,0,0,0"
+            },
+            "Lifetime": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "CurveA": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "CurveB": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Constants": "1.2,2,0,0"
+            },
+            "MaxParticles": 1000,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnParticleCreated": null,
+            "OnParticleDestroyed": null,
+            "OrbitalForce": {
+              "X": 0,
+              "Y": 0,
+              "Z": 0
+            },
+            "OrbitalPull": 0,
+            "PerParticleTimeScale": 1,
+            "Pitch": 0,
+            "PreWarm": 0,
+            "PushStrength": 0,
+            "Roll": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "CurveA": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "CurveB": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Constants": "0,360,0,0"
+            },
+            "Scale": {
+              "Type": "Curve",
+              "Evaluation": "Life",
+              "CurveA": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 0.05,
+                  "y": 5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 1,
+                  "y": 20,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "CurveB": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Constants": "0,0,0,0"
+            },
+            "SequenceId": 0,
+            "SequenceSpeed": 0.5,
+            "SequenceTime": 1,
+            "SheetSequence": true,
+            "Space": "Local",
+            "StartDelay": 0,
+            "StartVelocity": 0,
+            "Stretch": 0,
+            "TimeScale": 1,
+            "Tint": "1,1,1,1",
+            "Yaw": 0
+          },
+          {
+            "__type": "Sandbox.ParticleSpriteRenderer",
+            "__guid": "8f506057-723b-48c5-88e9-a934c11dfd6c",
+            "Additive": false,
+            "Alignment": "LookAtCamera",
+            "BlurAmount": 0.5,
+            "BlurOpacity": 0.5,
+            "BlurSpacing": 0.5,
+            "DepthFeather": 0,
+            "FaceVelocity": false,
+            "FogStrength": 1,
+            "LeadingTrail": true,
+            "Lighting": false,
+            "MotionBlur": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opaque": false,
+            "Pivot": "0.5,0.5",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RotationOffset": 0,
+            "Scale": 1,
+            "Shadows": false,
+            "SortMode": "Unsorted",
+            "Texture": "materials/particles/smoke/render/smokeloop_i_0.vtex"
+          },
+          {
+            "__type": "Sandbox.ParticleConeEmitter",
+            "__guid": "6d20d9f6-99de-4ea8-887a-55fbcae1e182",
+            "Burst": 1,
+            "CenterBias": 0,
+            "CenterBiasVelocity": 0,
+            "ConeAngle": 22,
+            "ConeFar": 15,
+            "ConeNear": 1,
+            "Delay": 0,
+            "DestroyOnEnd": false,
+            "Duration": 5,
+            "InVolume": false,
+            "Loop": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnEdge": false,
+            "Rate": 50,
+            "RateOverDistance": 0,
+            "VelocityMultiplier": 1,
+            "VelocityRandom": 0
+          }
+        ]
+      },
+      {
+        "__guid": "c9bb5f05-6108-4e89-853d-fce6b9c955ba",
+        "Flags": 0,
+        "Name": "Exhaust (1)",
+        "Position": "8.492118,-43.239,23.96688",
+        "Rotation": "0,0,0.8660254,-0.5000001",
+        "Tags": "particles",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Exhaust",
+            "__guid": "09181a24-64b6-4333-a05d-66b73276669a",
+            "Effect": {
+              "_type": "component",
+              "component_id": "4d8cfea2-beea-4fa8-a164-c40c493af434",
+              "go": "c9bb5f05-6108-4e89-853d-fce6b9c955ba",
+              "component_type": "ParticleEffect"
+            },
+            "Emitter": {
+              "_type": "component",
+              "component_id": "e7f44a2e-9d65-4d3b-9bc3-7f08daa4995b",
+              "go": "c9bb5f05-6108-4e89-853d-fce6b9c955ba",
+              "component_type": "ParticleConeEmitter"
+            },
+            "Engine": {
+              "_type": "component",
+              "component_id": "faafa831-c9e3-4ad9-8866-61661cfca9c8",
+              "go": "b7cdb304-cf53-4da0-8877-f42e65ac1a94",
+              "component_type": "Engine"
+            },
+            "MaxSizeMultiplier": 1.2,
+            "MaxSpeedMultiplier": 1.4,
+            "NormalColor": "0.6,0.6,0.6,0.3",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Renderer": {
+              "_type": "component",
+              "component_id": "d5859cdd-ecc2-47a9-9576-8ad795f1242b",
+              "go": "c9bb5f05-6108-4e89-853d-fce6b9c955ba",
+              "component_type": "ParticleSpriteRenderer"
+            },
+            "SmokeTexture": "materials/particles/smoke/render/smokeloop_i_0.vtex",
+            "SootColor": "0.1,0.1,0.8,1",
+            "SootIntensity": 0.4
+          },
+          {
+            "__type": "Sandbox.ParticleEffect",
+            "__guid": "4d8cfea2-beea-4fa8-a164-c40c493af434",
+            "__version": 1,
+            "Alpha": {
+              "Type": "Curve",
+              "Evaluation": "Particle",
+              "CurveA": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 0.2,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 1,
+                  "y": 0,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "CurveB": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Constants": "0,0,0,0"
+            },
+            "ApplyAlpha": true,
+            "ApplyColor": true,
+            "ApplyRotation": true,
+            "ApplyShape": true,
+            "Bounce": 1,
+            "Brightness": 1,
+            "Bumpiness": 0,
+            "Collision": false,
+            "CollisionIgnore": null,
+            "CollisionRadius": 1,
+            "Damping": 1,
+            "DieOnCollisionChance": 0,
+            "Force": true,
+            "ForceDirection": "120,0,20",
+            "ForceScale": 1,
+            "ForceSpace": "Local",
+            "Friction": 1,
+            "Gradient": {
+              "Type": "Range",
+              "Evaluation": "Life",
+              "GradientA": {
+                "blend": "Linear",
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "GradientB": {
+                "blend": "Linear",
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "ConstantA": "1,1,1,1",
+              "ConstantB": "0,0,0,0"
+            },
+            "Lifetime": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "CurveA": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "CurveB": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Constants": "1.2,2,0,0"
+            },
+            "MaxParticles": 1000,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnParticleCreated": null,
+            "OnParticleDestroyed": null,
+            "OrbitalForce": {
+              "X": 0,
+              "Y": 0,
+              "Z": 0
+            },
+            "OrbitalPull": 0,
+            "PerParticleTimeScale": 1,
+            "Pitch": 0,
+            "PreWarm": 0,
+            "PushStrength": 0,
+            "Roll": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "CurveA": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "CurveB": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Constants": "0,360,0,0"
+            },
+            "Scale": {
+              "Type": "Curve",
+              "Evaluation": "Life",
+              "CurveA": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 0.05,
+                  "y": 5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                },
+                {
+                  "x": 1,
+                  "y": 20,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "CurveB": [
+                {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "in": 0,
+                  "out": 0,
+                  "mode": "Mirrored"
+                }
+              ],
+              "Constants": "0,0,0,0"
+            },
+            "SequenceId": 0,
+            "SequenceSpeed": 0.5,
+            "SequenceTime": 1,
+            "SheetSequence": true,
+            "Space": "Local",
+            "StartDelay": 0,
+            "StartVelocity": 0,
+            "Stretch": 0,
+            "TimeScale": 1,
+            "Tint": "1,1,1,1",
+            "Yaw": 0
+          },
+          {
+            "__type": "Sandbox.ParticleSpriteRenderer",
+            "__guid": "d5859cdd-ecc2-47a9-9576-8ad795f1242b",
+            "Additive": false,
+            "Alignment": "LookAtCamera",
+            "BlurAmount": 0.5,
+            "BlurOpacity": 0.5,
+            "BlurSpacing": 0.5,
+            "DepthFeather": 0,
+            "FaceVelocity": false,
+            "FogStrength": 1,
+            "LeadingTrail": true,
+            "Lighting": false,
+            "MotionBlur": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opaque": false,
+            "Pivot": "0.5,0.5",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RotationOffset": 0,
+            "Scale": 1,
+            "Shadows": false,
+            "SortMode": "Unsorted",
+            "Texture": "materials/particles/smoke/render/smokeloop_i_0.vtex"
+          },
+          {
+            "__type": "Sandbox.ParticleConeEmitter",
+            "__guid": "e7f44a2e-9d65-4d3b-9bc3-7f08daa4995b",
+            "Burst": 1,
+            "CenterBias": 0,
+            "CenterBiasVelocity": 0,
+            "ConeAngle": 22,
+            "ConeFar": 15,
+            "ConeNear": 1,
+            "Delay": 0,
+            "DestroyOnEnd": false,
+            "Duration": 5,
+            "InVolume": false,
+            "Loop": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnEdge": false,
+            "Rate": 50,
+            "RateOverDistance": 0,
+            "VelocityMultiplier": 1,
+            "VelocityRandom": 0
           }
         ]
       }

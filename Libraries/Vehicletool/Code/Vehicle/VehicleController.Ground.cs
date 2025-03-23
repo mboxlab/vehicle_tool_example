@@ -1,53 +1,25 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Meteor.VehicleTool.Vehicle.Wheel;
 using Sandbox;
 namespace Meteor.VehicleTool.Vehicle;
 
 public partial class VehicleController
 {
-	public bool IsOnGround { get; private set; }
-	[Property] public List<WheelCollider> Wheels { get; set; } = [];
-	[Property] public float CombinedLoad => combinedLoad;
-	private float combinedLoad;
-	private int WheelCount;
+	[Property, RequireComponent, Group( "Components" )] public WheelManager Manager { get; set; }
+	public bool IsOnGround => Manager.IsOnGround;
+	public float CombinedLoad => Manager.CombinedLoad;
+	public IReadOnlyList<WheelCollider> Wheels => Manager.Wheels;
+	public int WheelCount => Manager.WheelCount;
 
-
-	public void FindWheels()
-	{
-		Wheels = Components.GetAll<WheelCollider>( FindMode.InDescendants ).ToList();
-		WheelCount = Wheels.Count;
-	}
-
-	private void UpdateWheelLoad()
-	{
-		combinedLoad = 0f;
-		IsOnGround = false;
-		for ( int i = 0; i < WheelCount; i++ )
-		{
-			WheelCollider wheel = Wheels[i];
-			combinedLoad += wheel.Load;
-			IsOnGround |= wheel.IsGrounded;
-		}
-	}
+	[Button]
+	internal void ConnectWheels() => Manager.ConnectWheels();
 
 	public void Register( WheelCollider wheel )
 	{
-		if ( Wheels.Contains( wheel ) )
-			return;
-
-		Wheels.Add( wheel );
-		WheelCount++;
-
+		Manager.Register( wheel );
 	}
-
-
 	public void UnRegister( WheelCollider wheel )
 	{
-		if ( !Wheels.Contains( wheel ) )
-			return;
-
-		Wheels.Remove( wheel );
-		WheelCount--;
+		Manager.UnRegister( wheel );
 	}
 }

@@ -14,6 +14,7 @@ public partial class VehicleController : Component
 	public Rigidbody Body { get; set; }
 
 	public float CurrentSpeed { get; private set; }
+	public Vector3 LocalVelocity { get; private set; }
 
 	private bool _showRigidBodyComponent;
 
@@ -39,18 +40,17 @@ public partial class VehicleController : Component
 		CurrentSteerAngle = 0;
 		if ( UseSteering )
 			SetSteerAngle( 0 );
-		if ( UsePowertrain )
-			UpdatePowertrain();
+
+		foreach ( var item in Wheels )
+		{
+			item.BrakeTorque = 200f;
+			item.MotorTorque = 0;
+		}
 	}
 
 	protected override void OnAwake()
 	{
 		EnsureComponentsCreated();
-	}
-
-	protected override void OnStart()
-	{
-		FindWheels();
 	}
 
 	protected override void OnUpdate()
@@ -70,12 +70,12 @@ public partial class VehicleController : Component
 
 	protected override void OnFixedUpdate()
 	{
+		LocalVelocity = WorldTransform.PointToLocal( Body.GetVelocityAtPoint( WorldPosition ) + WorldPosition );
 		CurrentSpeed = Body.Velocity.Length.InchToMeter();
-		UpdateWheelLoad();
 		if ( UseSteering )
 			UpdateSteerAngle();
 		if ( UsePowertrain )
-			UpdatePowertrain();
+			UpdateBrakes();
 	}
 
 }

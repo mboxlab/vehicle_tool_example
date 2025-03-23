@@ -91,7 +91,7 @@
           "Roll": true
         },
         "MassCenterOverride": "0,0,36",
-        "MassOverride": 15,
+        "MassOverride": 55,
         "MotionEnabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,

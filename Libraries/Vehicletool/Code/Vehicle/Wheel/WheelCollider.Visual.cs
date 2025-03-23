@@ -21,4 +21,16 @@ public partial class WheelCollider
 
 		RendererObject.WorldPosition = GetCenter();
 	}
+
+	[Feature( "Visual" )]
+	[Button]
+	public void SetBoundsToVisual()
+	{
+		var bounds = RendererObject.GetLocalBounds().Size / 2;
+		using ( Scene.Editor.UndoScope( "Set Bounds To Visual" ).WithComponentChanges( this ).Push() )
+		{
+			Width = bounds.y * 2 - 1;
+			Radius = bounds.x - 1;
+		}
+	}
 }

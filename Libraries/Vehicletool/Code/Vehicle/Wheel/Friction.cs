@@ -1,5 +1,4 @@
-﻿using Sandbox;
-namespace Meteor.VehicleTool.Vehicle.Wheel;
+﻿namespace Meteor.VehicleTool.Vehicle.Wheel;
 public struct Friction
 {
 	public Friction()

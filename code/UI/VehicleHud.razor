@@ -7,20 +7,38 @@
 
 <root class="@(Visible ? "" : "hidden")">
 	<div class="speedometer">
-		<div class="speed">
-			@{
-				var str = Math.Round(vehicleComponent.CurrentSpeed.MeterToInch() * VEL_TO_KMH).ToString("000");
-				var clr = "#333";
-				@for (int i = 0; i < 3; ++i)
-				{
-					var s = str[i];
-					if (s != '0')
+		<div class="speedgear">
+			<div class="speed">
+				@{
+					var str = Math.Round(vehicleComponent.CurrentSpeed.MeterToInch() * VEL_TO_KMH).ToString("000");
+					var clr = "#333";
+					@for (int i = 0; i < 3; ++i)
 					{
-						clr = "#fff";
+						var s = str[i];
+						if (s != '0')
+						{
+							clr = "#fff";
+						}
+						<label class="speedchar" style="color: @clr">@s</label>
 					}
-					<label class="speedchar" style="color: @clr">@s</label>
 				}
-			}
+			</div>
+			<div class="gear">
+				@{
+					if (vehicleComponent.Transmission.Gear == 0)
+					{
+						<label>N</label>
+					}
+					else if (vehicleComponent.Transmission.Gear == -1)
+					{
+						<label>R</label>
+					}
+					else
+					{
+						<label>@vehicleComponent.Transmission.Gear</label>
+					}
+				}
+			</div>
 		</div>
 		<div class="throttle-container">
 			<div class="inner" style="width: @(Math.Abs(vehicleComponent.VerticalInput) * 100)%" />
