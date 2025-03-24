@@ -91,6 +91,12 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "ShowRigidbodyComponent": false,
+        "SoundMixer": {
+          "Name": "game",
+          "Id": "97f010aa-9120-4627-af46-5bbfe789663a"
+        },
+        "SoundParent": null,
+        "Sounds": {},
         "SteeringWheels": [
           {
             "_type": "component",
@@ -114,12 +120,14 @@
           "component_type": "Transmission"
         },
         "UseAssist": true,
+        "UseAudio": true,
         "UseCameraControls": true,
         "UseInputControls": true,
         "UseLookControls": true,
         "UsePowertrain": true,
         "UseSteerAngleMultiplier": true,
-        "UseSteering": true
+        "UseSteering": true,
+        "Volume": 1
       },
       {
         "__type": "Sandbox.Rigidbody",

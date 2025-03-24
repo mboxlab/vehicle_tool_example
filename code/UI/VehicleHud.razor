@@ -6,6 +6,7 @@
 @namespace Sandbox
 
 <root class="@(Visible ? "" : "hidden")">
+	<InputHint Action="Score" Label="Editor" style="position:absolute; right: 16px; bottom: 256px;"></InputHint>
 	<div class="speedometer">
 		<div class="speedgear">
 			<div class="speed">
@@ -24,24 +25,17 @@
 				}
 			</div>
 			<div class="gear">
-				@{
-					if (vehicleComponent.Transmission.Gear == 0)
-					{
-						<label>N</label>
-					}
-					else if (vehicleComponent.Transmission.Gear == -1)
-					{
-						<label>R</label>
-					}
-					else
-					{
-						<label>@vehicleComponent.Transmission.Gear</label>
-					}
-				}
+				<label>@vehicleComponent.Transmission.GearName</label>
 			</div>
 		</div>
 		<div class="throttle-container">
-			<div class="inner" style="width: @(Math.Abs(vehicleComponent.VerticalInput) * 100)%" />
+			<div class="inner" style="width: @(Math.Abs(vehicleComponent.Engine.ThrottlePosition) * 100)%" />
+		</div>
+		<div class="rpm-container">
+			@{
+				var rpm = vehicleComponent.Engine.RPMPercent;
+			}
+			<div class="inner" style=" background-color: rgba(255, @(255 - Math.Pow(rpm, 8) * 255), @(255 - Math.Pow(rpm, 8) * 255), 0.3); width: @(Math.Abs(rpm) * 100)%" />
 		</div>
 	</div>
 </root>

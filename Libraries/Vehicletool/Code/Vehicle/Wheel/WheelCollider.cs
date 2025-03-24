@@ -40,7 +40,7 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 	}
 	[Group( "Properties" ), Property, ReadOnly] public float Inertia;
 
-	[Group( "Components" ), Property] VehicleController Controller { get; set; }
+	[Group( "Components" ), Property] public VehicleController Controller { get; set; }
 
 	public bool AutoSimulate = true;
 	private Rigidbody CarBody => Controller.Body;

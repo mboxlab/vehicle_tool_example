@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Meteor.VehicleTool.Vehicle.Powertrain;
 using Meteor.VehicleTool.Vehicle.Wheel;
 using Sandbox;
@@ -11,7 +10,7 @@ public partial class VehicleController
 	[Property, FeatureEnabled( "Powertrain", Icon = "power" )]
 	public bool UsePowertrain { get; set; } = true;
 
-	[Property, Feature( "Powertrain" ), Group( "Properties" )] public float MaxBrakeTorque { get; set; } = 15000;
+	[Property, Feature( "Powertrain" ), Group( "Properties" )] public float MaxBrakeTorque { get; set; } = 3000;
 	[Property, Feature( "Powertrain" ), Group( "Properties" )] public float HandBrakeTorque { get; set; } = 50000;
 
 
@@ -41,6 +40,8 @@ public partial class VehicleController
 
 		Engine.Controller = this;
 		Engine.Inertia = 0.25f;
+		Engine.Ignition = false;
+
 		if ( !Clutch.IsValid() )
 			Clutch = new GameObject( Engine.GameObject, true, "Clutch" ).GetOrAddComponent<Clutch>();
 

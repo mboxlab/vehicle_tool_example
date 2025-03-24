@@ -42,7 +42,7 @@ public partial class Differential : PowertrainComponent
 	[Property]
 	public DifferentialType Type
 	{
-		get { return _differentialType; }
+		get => _differentialType;
 		set
 		{
 			_differentialType = value;

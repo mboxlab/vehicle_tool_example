@@ -91,6 +91,18 @@ public partial class VehicleController
 	public float SwappedThrottle => IsInputSwapped ? Brakes : Throttle;
 	public float SwappedBrakes => IsInputSwapped ? Throttle : Brakes;
 
+	public void ResetInput()
+	{
+		VerticalInput = 0;
+		Handbrake = 0;
+
+		SteeringAngle = 0;
+
+		IsClutching = 0;
+
+		IsShiftingUp = false;
+		IsShiftingDown = false;
+	}
 	private void UpdateInput()
 	{
 		VerticalInput = Input.AnalogMove.x;
@@ -100,8 +112,8 @@ public partial class VehicleController
 
 		IsClutching = (Input.Down( "Run" ) || Input.Down( "Jump" )) ? 1 : 0;
 
-		IsShiftingUp |= Input.Pressed( "Attack1" );
-		IsShiftingDown |= Input.Pressed( "Attack2" );
+		IsShiftingUp = Input.Pressed( "Attack1" );
+		IsShiftingDown = Input.Pressed( "Attack2" );
 
 	}
 

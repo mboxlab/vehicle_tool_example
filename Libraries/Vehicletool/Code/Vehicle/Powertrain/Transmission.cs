@@ -182,7 +182,7 @@ public class Transmission : PowertrainComponent
 	[Property]
 	public float DownshiftRPM
 	{
-		get { return _downshiftRPM; }
+		get => _downshiftRPM;
 		set { _downshiftRPM = Math.Clamp( value, 0, float.MaxValue ); }
 	}
 
@@ -193,10 +193,7 @@ public class Transmission : PowertrainComponent
 	///     To get actual downshift RPM use DownshiftRPM.
 	/// </summary>
 	[Property]
-	public float TargetDownshiftRPM
-	{
-		get { return _targetDownshiftRPM; }
-	}
+	public float TargetDownshiftRPM => _targetDownshiftRPM;
 
 	private float _targetDownshiftRPM;
 	/// <summary>
@@ -206,7 +203,7 @@ public class Transmission : PowertrainComponent
 	[Property]
 	public float UpshiftRPM
 	{
-		get { return _upshiftRPM; }
+		get => _upshiftRPM;
 		set { _upshiftRPM = Math.Clamp( value, 0, float.MaxValue ); }
 	}
 	private float _upshiftRPM = 2800;
@@ -217,10 +214,7 @@ public class Transmission : PowertrainComponent
 	///     To get actual upshift RPM use UpshiftRPM.
 	/// </summary>
 	[Property]
-	public float TargetUpshiftRPM
-	{
-		get { return _targetUpshiftRPM; }
-	}
+	public float TargetUpshiftRPM => _targetUpshiftRPM;
 	private float _targetUpshiftRPM;
 
 	public enum TransmissionShiftType
@@ -237,8 +231,15 @@ public class Transmission : PowertrainComponent
 	///     other high gear count vehicles.
 	///     AutomaticSequential - automatic gear changing but only one gear at the time can be shifted (e.g. 3rd->4th)
 	/// </summary>
-	[Property] public TransmissionShiftType TransmissionType { get; set; } = TransmissionShiftType.Automatic;
-
+	[Property]
+	public TransmissionShiftType TransmissionType
+	{
+		get => transmissionType; set
+		{
+			transmissionType = value;
+			AssignShiftDelegate();
+		}
+	}
 	/// <summary>
 	/// Is the automatic gearbox sequential?
 	/// Has no effect on manual transmission.
@@ -267,8 +268,8 @@ public class Transmission : PowertrainComponent
 	[Property]
 	public int Gear
 	{
-		get { return IndexToGear( gearIndex ); }
-		set { gearIndex = GearToIndex( value ); }
+		get => IndexToGear( gearIndex );
+		set => gearIndex = GearToIndex( value );
 	}
 
 
@@ -279,6 +280,7 @@ public class Transmission : PowertrainComponent
 	/// Use Gear to get the actual gear.
 	/// </summary>
 	public int gearIndex;
+	private TransmissionShiftType transmissionType = TransmissionShiftType.Automatic;
 
 	private int GearToIndex( int g )
 	{
@@ -306,7 +308,7 @@ public class Transmission : PowertrainComponent
 			else if ( gear > 0 )
 				gearName = Gear.ToString();
 			else
-				gearName = "R" + -gear;
+				gearName = "R" + (ReverseGearCount > 1 ? -gear : "");
 
 			_gearNameCache[gear] = gearName;
 			return gearName;
@@ -605,7 +607,6 @@ public class Transmission : PowertrainComponent
 		float throttleInput = car.SwappedThrottle;
 		float brakeInput = car.SwappedBrakes;
 		int currentGear = Gear;
-
 		// Assign base shift points
 		_targetDownshiftRPM = _downshiftRPM;
 		_targetUpshiftRPM = _upshiftRPM;

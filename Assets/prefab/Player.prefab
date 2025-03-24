@@ -91,7 +91,7 @@
           "Roll": true
         },
         "MassCenterOverride": "0,0,36",
-        "MassOverride": 55,
+        "MassOverride": 15,
         "MotionEnabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -273,15 +273,11 @@
             "SpawnableCars": [
               {
                 "_type": "gameobject",
-                "prefab": "prefab/cars/mercedes benz g 6x6.prefab"
-              },
-              {
-                "_type": "gameobject",
-                "prefab": "prefab/cars/bmw e30.prefab"
-              },
-              {
-                "_type": "gameobject",
                 "prefab": "prefab/cars/s13/nissan silvia s13.prefab"
+              },
+              {
+                "_type": "gameobject",
+                "prefab": "prefab/cars/silverado1987/chevrolet silverado 1987.prefab"
               }
             ]
           }

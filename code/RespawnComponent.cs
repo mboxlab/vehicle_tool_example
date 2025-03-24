@@ -5,7 +5,7 @@ public sealed class RespawnComponent : Component
 {
 	protected override void OnUpdate()
 	{
-		if ( IsProxy )
+		if ( IsProxy || Network.Owner is null )
 			return;
 
 		if ( Input.Pressed( "Reload" ) )

@@ -10,7 +10,7 @@ public partial class WheelCollider
 	public bool UseVisual { get; set; } = true;
 
 	[Feature( "Visual" )]
-	[Property] GameObject RendererObject { get; set; }
+	[Property] public GameObject RendererObject { get; set; }
 
 	void UpdateVisual()
 	{

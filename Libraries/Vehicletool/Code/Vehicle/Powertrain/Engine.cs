@@ -63,7 +63,7 @@ public class Engine : PowertrainComponent
 	/// Loss power (pumping, friction losses) is calculated as the percentage of maxPower.
 	/// Should be between 0 and 1 (100%).
 	/// </summary>
-	[Range( 0, 1 ), Property] public float EngineLossPercent { get; set; } = 0.25f;
+	[Range( 0, 1 ), Property] public float EngineLossPercent { get; set; } = 0.8f;
 
 
 	/// <summary>
@@ -72,7 +72,7 @@ public class Engine : PowertrainComponent
 	/// </summary>
 	[Property] public bool FlyingStartEnabled { get; set; }
 
-	[Property] public bool Ignition { get; set; } = true;
+	[Property] public bool Ignition { get; set; }
 
 	/// <summary>
 	///     Power curve with RPM range [0,1] on the X axis and power coefficient [0,1] on Y axis.
@@ -90,7 +90,7 @@ public class Engine : PowertrainComponent
 	///     If engine RPM rises above revLimiterRPM, how long should fuel cutoff last?
 	///     Higher values make hitting rev limiter more rough and choppy.
 	/// </summary>
-	[Property] public float RevLimiterCutoffDuration { get; set; } = 0f;
+	[Property] public float RevLimiterCutoffDuration { get; set; } = 0.12f;
 
 	/// <summary>
 	///     Engine RPM at which rev limiter activates.
@@ -114,11 +114,7 @@ public class Engine : PowertrainComponent
 	/// After changing power, power curve or RPM range call UpdatePeakPowerAndTorque() to get update the value.
 	/// </summary>
 	[Property, ReadOnly, Group( "Info" )]
-	public float EstimatedPeakPower
-	{
-		get { return _peakPower; }
-	}
-
+	public float EstimatedPeakPower => _peakPower;
 	private float _peakPower;
 
 
@@ -128,10 +124,7 @@ public class Engine : PowertrainComponent
 	/// After changing power, power curve or RPM range call UpdatePeakPowerAndTorque() to get update the value.
 	/// </summary>
 	[Property, ReadOnly, Group( "Info" )]
-	public float EstimatedPeakPowerRPM
-	{
-		get { return _peakPowerRpm; }
-	}
+	public float EstimatedPeakPowerRPM => _peakPowerRpm;
 
 	private float _peakPowerRpm;
 
@@ -140,10 +133,7 @@ public class Engine : PowertrainComponent
 	/// After changing power, power curve or RPM range call UpdatePeakPowerAndTorque() to get update the value.
 	/// </summary>
 	[Property, ReadOnly, Group( "Info" )]
-	public float EstimatedPeakTorque
-	{
-		get { return _peakTorque; }
-	}
+	public float EstimatedPeakTorque => _peakTorque;
 
 	private float _peakTorque;
 
@@ -152,10 +142,7 @@ public class Engine : PowertrainComponent
 	/// After changing power, power curve or RPM range call UpdatePeakPowerAndTorque() to get update the value.
 	/// </summary>
 	[Property, ReadOnly, Group( "Info" )]
-	public float EstimatedPeakTorqueRPM
-	{
-		get { return _peakTorqueRpm; }
-	}
+	public float EstimatedPeakTorqueRPM => _peakTorqueRpm;
 
 	private float _peakTorqueRpm;
 
@@ -163,10 +150,7 @@ public class Engine : PowertrainComponent
 	///     RPM as a percentage of maximum RPM.
 	/// </summary>
 	[Property, ReadOnly, Group( "Info" )]
-	public float RPMPercent
-	{
-		get { return _rpmPercent; }
-	}
+	public float RPMPercent => _rpmPercent;
 
 	private float _rpmPercent;
 	/// <summary>
@@ -182,6 +166,13 @@ public class Engine : PowertrainComponent
 	[Property, ReadOnly, Group( "Info" )]
 	public bool IsRunning { get; private set; }
 
+	/// <summary>
+	/// Is the engine currently running?
+	/// Requires ignition to be enabled.
+	/// </summary>
+	[Property, ReadOnly, Group( "Info" )]
+	public bool IsActive { get; private set; }
+
 	private float _idleAngularVelocity;
 
 
@@ -189,10 +180,7 @@ public class Engine : PowertrainComponent
 	/// <summary>
 	/// Current load of the engine, based on the power produced.
 	/// </summary>
-	public float Load
-	{
-		get { return _load; }
-	}
+	public float Load => _load;
 	public event Action OnEngineStart;
 	public event Action OnEngineStop;
 	public event Action OnRevLimiter;
@@ -257,6 +245,7 @@ public class Engine : PowertrainComponent
 		// Start finished
 		_starterTorque = 0;
 		StarterActive = false;
+		IsActive = true;
 	}
 
 
@@ -270,6 +259,7 @@ public class Engine : PowertrainComponent
 	public void StopEngine()
 	{
 		Ignition = false;
+		IsActive = true;
 		OnEngineStop?.Invoke();
 	}
 
@@ -305,7 +295,7 @@ public class Engine : PowertrainComponent
 		if ( !IsRunning && !StarterActive && AutoStartOnThrottle && ThrottlePosition > 0.2f )
 			StartEngine();
 
-		// Check if stall needed
+
 		bool wasRunning = IsRunning;
 		IsRunning = Ignition;
 		if ( wasRunning && !IsRunning )

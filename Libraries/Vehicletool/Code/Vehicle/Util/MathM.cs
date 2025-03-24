@@ -17,4 +17,18 @@ public static class MathM
 	/// </summary>
 	public static float RPMToAngularVelocity( this float RPM ) => RPM * 0.10471975511966f;
 
+
+	public static float Map( float x, float a, float b, float c, float d ) => (x - a) / (b - a) * (d - c) + c;
+
+	public static float Fade( float n, float min, float mid, float max )
+	{
+		if ( n < min || n > max )
+			return 0;
+
+		if ( n > mid )
+			min = mid - (max - mid);
+
+		return MathF.Cos( (1 - ((n - min) / (mid - min))) * (MathF.PI / 2) );
+	}
+
 }

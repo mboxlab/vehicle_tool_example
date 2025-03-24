@@ -1,0 +1,249 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "blackcasamba.vmat"
+								to = "prefab/cars/silverado1987/material/blackcasamba.vmat"
+							},
+							{
+								from = "body.vmat"
+								to = "materials/metal_detail.vmat"
+							},
+							{
+								from = "farois.vmat"
+								to = "prefab/cars/silverado1987/material/farois.vmat"
+							},
+							{
+								from = "grade.vmat"
+								to = "materials/chrome.vmat"
+							},
+							{
+								from = "interior.vmat"
+								to = "prefab/cars/silverado1987/material/interior.vmat"
+							},
+							{
+								from = "lanterna.vmat"
+								to = "prefab/cars/silverado1987/material/lanterna.vmat"
+							},
+							{
+								from = "logos.vmat"
+								to = "prefab/cars/silverado1987/material/logos.vmat"
+							},
+							{
+								from = "material_#109.vmat"
+								to = "prefab/cars/s13/material/plate_d.vmat"
+							},
+							{
+								from = "material_#111.vmat"
+								to = "prefab/cars/silverado1987/material/lusez.vmat"
+							},
+							{
+								from = "material_#149.vmat"
+								to = "prefab/cars/silverado1987/material/dash.vmat"
+							},
+							{
+								from = "miror.vmat"
+								to = "materials/mirror.vmat"
+							},
+							{
+								from = "motor.vmat"
+								to = "prefab/cars/silverado1987/material/motor.vmat"
+							},
+							{
+								from = "opaqe.vmat"
+								to = "prefab/cars/silverado1987/material/opaqe.vmat"
+							},
+							{
+								from = "parachoques.vmat"
+								to = "prefab/cars/silverado1987/material/parachoques.vmat"
+							},
+							{
+								from = "shine.vmat"
+								to = "prefab/cars/silverado1987/material/shine.vmat"
+							},
+							{
+								from = "vrido.vmat"
+								to = "materials/glass.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "materials/default.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "lod_a"
+						filename = "prefab/cars/silverado1987/model/model.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"silverado_87_lm",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "lod_c"
+						filename = "prefab/cars/silverado1987/model/lod_c.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "lod_d"
+						filename = "prefab/cars/silverado1987/model/lod_d.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.55
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsMeshFile"
+						name = "collider"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid"
+						recenter_on_parent_bone = false
+						offset_origin = [ 0.0, 0.0, 0.0 ]
+						offset_angles = [ 0.0, 0.0, 0.0 ]
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						filename = "prefab/cars/silverado1987/model/collider.fbx"
+						import_scale = 1.0
+						maxMeshVertices = 0
+						qemError = 0.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+					{
+						_class = "PhysicsHullFile"
+						name = "collider1"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid"
+						recenter_on_parent_bone = false
+						offset_origin = [ 0.0, 0.0, 0.0 ]
+						offset_angles = [ 0.0, 0.0, 0.0 ]
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						filename = "prefab/cars/silverado1987/model/collider.fbx"
+						import_scale = 1.0
+						faceMergeAngle = 10.0
+						maxHullVertices = 0
+						import_mode = "SingleHull"
+						optimization_algorithm = "QEM"
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "LODGroupList"
+				children = 
+				[
+					{
+						_class = "LODGroup"
+						switch_threshold = 0.0
+						meshes = 
+						[
+							"lod_a",
+						]
+					},
+					{
+						_class = "LODGroup"
+						switch_threshold = 85.327477
+						meshes = 
+						[
+							"lod_c",
+						]
+					},
+					{
+						_class = "LODGroup"
+						switch_threshold = 142.391357
+						meshes = 
+						[
+							"lod_d",
+						]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

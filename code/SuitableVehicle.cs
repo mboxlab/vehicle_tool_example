@@ -14,7 +14,9 @@ public sealed class SuitableVehicle : Component, Component.IPressable, Component
 		Vehicle ??= Components.Get<VehicleController>( FindMode.EverythingInSelf );
 		if ( IsProxy )
 			return;
-		Vehicle.Enabled = false;
+		Vehicle.UseInputControls = false;
+		Vehicle.UseCameraControls = false;
+		Vehicle.UseLookControls = false;
 	}
 
 	void INetworkListener.OnDisconnected( Connection channel )
@@ -33,7 +35,9 @@ public sealed class SuitableVehicle : Component, Component.IPressable, Component
 			Network.TakeOwnership();
 			User = ply;
 			ply.GameObject.Enabled = false;
-			Vehicle.Enabled = true;
+			Vehicle.UseInputControls = true;
+			Vehicle.UseCameraControls = true;
+			Vehicle.UseLookControls = true;
 			Input.Clear( "use" );
 			return true;
 		}
@@ -56,7 +60,16 @@ public sealed class SuitableVehicle : Component, Component.IPressable, Component
 			return;
 
 		User.GameObject.Enabled = true;
-		Vehicle.Enabled = false;
+		Vehicle.UseInputControls = false;
+		Vehicle.UseCameraControls = false;
+		Vehicle.UseLookControls = false;
+		Vehicle.ResetInput();
+
+
+		foreach ( var item in Vehicle.Wheels )
+		{
+			item.BrakeTorque = 200f;
+		}
 
 		User.WorldPosition = Vehicle.WorldTransform.PointToWorld( Vector3.Left * 64f );
 		User.EyeAngles = Vehicle.WorldRotation;

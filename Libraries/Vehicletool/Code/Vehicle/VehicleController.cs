@@ -38,6 +38,8 @@ public partial class VehicleController : Component
 		Handbrake = 0;
 		SteeringAngle = 0;
 		CurrentSteerAngle = 0;
+		Throttle = 0;
+		Brakes = 0;
 		if ( UseSteering )
 			SetSteerAngle( 0 );
 
@@ -48,17 +50,27 @@ public partial class VehicleController : Component
 		}
 	}
 
+	protected override void OnDestroy()
+	{
+		RemoveSounds();
+	}
+
 	protected override void OnAwake()
 	{
+		LoadSoundsAsync();
 		EnsureComponentsCreated();
+		Transmission.OnGearUpShift += OnGearUp;
+		Transmission.OnGearDownShift += OnGearDown;
 	}
 
 	protected override void OnUpdate()
 	{
+
+		if ( UseAudio )
+			UpdateSound();
+
 		if ( IsProxy )
 			return;
-
-		UpdateInput();
 
 		if ( UseCameraControls )
 			UpdateCameraPosition();
@@ -70,6 +82,9 @@ public partial class VehicleController : Component
 
 	protected override void OnFixedUpdate()
 	{
+		if ( !IsProxy && UseInputControls )
+			UpdateInput();
+
 		LocalVelocity = WorldTransform.PointToLocal( Body.GetVelocityAtPoint( WorldPosition ) + WorldPosition );
 		CurrentSpeed = Body.Velocity.Length.InchToMeter();
 		if ( UseSteering )

@@ -8,14 +8,6 @@
 
 	<div class="colomn">
 
-
-		@* <div class="container"> *@
-		@* 	<title>Engine</title> *@
-		@* 	<SliderControl Min=@(0) Max=@(3000) Value:bind="@vehicleComponent.MaxPower">Max Power</SliderControl> *@
-		@* 	<SliderControl Min=@(1) Max=@(320) Value:bind="@vehicleComponent.MaxRPM">Max RPM</SliderControl> *@
-		@* 	<SliderControl Min=@(0) Max=@(32000) Value:bind="@vehicleComponent.HandBrakePower">Hand Brake Power</SliderControl> *@
-		@* </div> *@
-
 		<div class="container">
 			<title>Steering</title>
 			<SliderControl Min=@(0) Max=@(90) Value:bind="@vehicleComponent.MaxSteerAngle">Max Angle</SliderControl>
@@ -29,18 +21,15 @@
 			<SliderControl Min=@(0) Max=@(320000) Value:bind="@SuspensionStiffness">Stiffness</SliderControl>
 			<SliderControl Min=@(0) Max=@(320000) Value:bind="@SuspensionStiffness">Extension Speed</SliderControl>
 		</div>
+		<div class="container">
+			<title>Wheel</title>
+			<SliderControl Min=@(0) Max=@(100000) Value:bind="@LoadRating">Friction</SliderControl>
+			<SliderControl Min=@(0) Max=@(500) Value:bind="@RollingResistanceTorque">Rolling Resistance Torque</SliderControl>
+		</div>
 	</div>
 	<div class="colomn">
 
-		<div class="container">
-			<title>Wheel</title>
-			<SliderControl Min=@(1) Max=@(32) Value:bind="@Radius">Radius</SliderControl>
-			<SliderControl Min=@(1) Max=@(32) Value:bind="@Width">Width</SliderControl>
-			<SliderControl Min=@(1) Max=@(320) Value:bind="@Mass">Mass</SliderControl>
-			<SliderControl Min=@(0) Max=@(100000) Value:bind="@LoadRating">Friction</SliderControl>
-			<SliderControl Min=@(0) Max=@(500) Value:bind="@RollingResistanceTorque">Rolling Resistance Torque</SliderControl>
-			<SwitchControl Value:bind="@AutoSetFriction">Auto Detect Ground Friction</SwitchControl>
-		</div>
+
 		<div class="container">
 			<title>Damper</title>
 			<SliderControl Min=@(0) Max=@(50000) Value:bind="@BumpRate">Bump Rate</SliderControl>
@@ -370,7 +359,7 @@
 			SetRollingResistanceTorque(value);
 		}
 	}
-	
+
 	[Rpc.Broadcast]
 	void SetRollingResistanceTorque(float value)
 	{

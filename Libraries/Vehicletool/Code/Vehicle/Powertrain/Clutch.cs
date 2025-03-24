@@ -70,10 +70,7 @@ public partial class Clutch : PowertrainComponent
 	/// Clutch engagement based on ClutchInput and the clutchEngagementCurve
 	/// </summary>
 	[Property, ReadOnly]
-	public float Engagement
-	{
-		get { return _clutchEngagement; }
-	}
+	public float Engagement => _clutchEngagement;
 	private float _clutchEngagement;
 
 	protected override void OnStart()

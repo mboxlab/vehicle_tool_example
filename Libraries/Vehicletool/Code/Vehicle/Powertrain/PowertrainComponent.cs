@@ -32,7 +32,7 @@ public abstract class PowertrainComponent : Component
 	[Property]
 	public PowertrainComponent Input
 	{
-		get { return _input; }
+		get => _input;
 		set
 		{
 			if ( value == null || value == this )

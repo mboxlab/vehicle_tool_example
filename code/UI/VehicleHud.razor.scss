@@ -22,6 +22,7 @@ VehicleHud {
         right: 32px;
         bottom: 32px;
         padding: 16px;
+        padding-bottom: 32px;
         flex-direction: column;
 
         > .speedgear {
@@ -57,7 +58,7 @@ VehicleHud {
 
         > .throttle-container {
             position: absolute;
-            bottom: 0;
+            bottom: 16px;
             left: 16px;
             right: 16px;
             min-height: 4px;
@@ -67,6 +68,21 @@ VehicleHud {
 
             > .inner {
                 transition: all 0.2s ease;
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        > .rpm-container {
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+            min-height: 4px;
+            max-height: 4px;
+            max-width: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+
+            > .inner {
                 background-color: rgba(255, 255, 255, 0.3);
             }
         }
