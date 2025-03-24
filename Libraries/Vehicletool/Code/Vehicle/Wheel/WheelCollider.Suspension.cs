@@ -96,12 +96,12 @@ public partial class WheelCollider
 	/// <summary>
 	///     Bump rate of the damper in Ns/m.
 	/// </summary>
-	[Property, Group( "Damper" )] public float BumpRate { get; set; } = 3000f;
+	[Property, Group( "Damper" )] public float BumpRate { get; set; } = 7000f;
 
 	/// <summary>
 	///     Rebound rate of the damper in Ns/m.
 	/// </summary>
-	[Property, Group( "Damper" )] public float ReboundRate { get; set; } = 3000f;
+	[Property, Group( "Damper" )] public float ReboundRate { get; set; } = 7000f;
 
 	/// <summary>
 	/// Slow bump slope for the damper, used for damper velocity below bumpDivisionVelocity.
