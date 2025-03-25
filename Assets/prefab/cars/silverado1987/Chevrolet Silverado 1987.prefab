@@ -115,7 +115,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "ShowRigidbodyComponent": false,
+        "ShowRigidbodyComponent": true,
         "SoundMixer": {
           "Name": "master",
           "Id": "41992d12-7c57-4961-aad0-5dabcb08ba26"
@@ -170,7 +170,7 @@
           "Roll": false
         },
         "MassCenterOverride": "0,0,0",
-        "MassOverride": 1500,
+        "MassOverride": 1300,
         "MotionEnabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -308,8 +308,18 @@
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "45290b94-ddbb-4385-84f5-6e9cc02d8bde",
                 "AutoSetFriction": true,
+                "BottomMeshCollider": {
+                  "_type": "component",
+                  "component_id": "bcaa532d-d5ec-4b03-ab38-af3341cda8ab",
+                  "go": "0f322923-fa4d-46cc-b3ba-d2cfc1dfddbe",
+                  "component_type": "ModelCollider"
+                },
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 9000,
+                "ColliderGO": {
+                  "_type": "gameobject",
+                  "go": "0f322923-fa4d-46cc-b3ba-d2cfc1dfddbe"
+                },
                 "Controller": {
                   "_type": "component",
                   "component_id": "38ed5ee3-01e4-4c78-82b6-d3b503d6c475",
@@ -343,9 +353,65 @@
                 "SteerAngle": 0,
                 "SuspensionExtensionSpeed": 6,
                 "SuspensionStiffness": 20000,
+                "TopMeshCollider": {
+                  "_type": "component",
+                  "component_id": "63817f4a-e0da-4064-9512-64ad2abef2a8",
+                  "go": "0f322923-fa4d-46cc-b3ba-d2cfc1dfddbe",
+                  "component_type": "ModelCollider"
+                },
                 "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 15
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "0f322923-fa4d-46cc-b3ba-d2cfc1dfddbe",
+                "Flags": 0,
+                "Name": "Colliders",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelCollider",
+                    "__guid": "bcaa532d-d5ec-4b03-ab38-af3341cda8ab",
+                    "Friction": 0,
+                    "IsTrigger": false,
+                    "Model": "sbox_procedural_model.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  },
+                  {
+                    "__type": "Sandbox.ModelCollider",
+                    "__guid": "63817f4a-e0da-4064-9512-64ad2abef2a8",
+                    "Friction": 0,
+                    "IsTrigger": false,
+                    "Model": "sbox_procedural_model.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
               }
             ]
           },
@@ -400,8 +466,18 @@
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "bfdf49d4-77e6-40ac-81b6-783c3846c14e",
                 "AutoSetFriction": true,
+                "BottomMeshCollider": {
+                  "_type": "component",
+                  "component_id": "40b1fcd4-642f-4767-aee9-fbc87698a76e",
+                  "go": "fcc8d2ce-b254-492e-acf4-0b770f2c2ebe",
+                  "component_type": "ModelCollider"
+                },
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 9000,
+                "ColliderGO": {
+                  "_type": "gameobject",
+                  "go": "fcc8d2ce-b254-492e-acf4-0b770f2c2ebe"
+                },
                 "Controller": {
                   "_type": "component",
                   "component_id": "38ed5ee3-01e4-4c78-82b6-d3b503d6c475",
@@ -435,9 +511,65 @@
                 "SteerAngle": 0,
                 "SuspensionExtensionSpeed": 6,
                 "SuspensionStiffness": 20000,
+                "TopMeshCollider": {
+                  "_type": "component",
+                  "component_id": "b685a37f-a495-493e-8e52-a1cb5754245d",
+                  "go": "fcc8d2ce-b254-492e-acf4-0b770f2c2ebe",
+                  "component_type": "ModelCollider"
+                },
                 "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 15
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "fcc8d2ce-b254-492e-acf4-0b770f2c2ebe",
+                "Flags": 0,
+                "Name": "Colliders",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelCollider",
+                    "__guid": "40b1fcd4-642f-4767-aee9-fbc87698a76e",
+                    "Friction": 0,
+                    "IsTrigger": false,
+                    "Model": "sbox_procedural_model.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  },
+                  {
+                    "__type": "Sandbox.ModelCollider",
+                    "__guid": "b685a37f-a495-493e-8e52-a1cb5754245d",
+                    "Friction": 0,
+                    "IsTrigger": false,
+                    "Model": "sbox_procedural_model.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
               }
             ]
           },
@@ -493,8 +625,18 @@
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "76a89732-cfe5-4b74-9c62-4d2aa1cb3f3f",
                 "AutoSetFriction": true,
+                "BottomMeshCollider": {
+                  "_type": "component",
+                  "component_id": "5bfe24c4-4dc8-4ed3-8818-81cbac8b4322",
+                  "go": "2c38fe74-5b40-4aa1-ad96-388b6c646a74",
+                  "component_type": "ModelCollider"
+                },
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 9000,
+                "ColliderGO": {
+                  "_type": "gameobject",
+                  "go": "2c38fe74-5b40-4aa1-ad96-388b6c646a74"
+                },
                 "Controller": {
                   "_type": "component",
                   "component_id": "38ed5ee3-01e4-4c78-82b6-d3b503d6c475",
@@ -528,9 +670,65 @@
                 "SteerAngle": 0,
                 "SuspensionExtensionSpeed": 6,
                 "SuspensionStiffness": 20000,
+                "TopMeshCollider": {
+                  "_type": "component",
+                  "component_id": "79f3c9bf-153d-417c-8697-8e5a69a45f32",
+                  "go": "2c38fe74-5b40-4aa1-ad96-388b6c646a74",
+                  "component_type": "ModelCollider"
+                },
                 "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 15
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "2c38fe74-5b40-4aa1-ad96-388b6c646a74",
+                "Flags": 0,
+                "Name": "Colliders",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelCollider",
+                    "__guid": "5bfe24c4-4dc8-4ed3-8818-81cbac8b4322",
+                    "Friction": 0,
+                    "IsTrigger": false,
+                    "Model": "sbox_procedural_model.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  },
+                  {
+                    "__type": "Sandbox.ModelCollider",
+                    "__guid": "79f3c9bf-153d-417c-8697-8e5a69a45f32",
+                    "Friction": 0,
+                    "IsTrigger": false,
+                    "Model": "sbox_procedural_model.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
               }
             ]
           },
@@ -585,8 +783,18 @@
                 "__type": "Meteor.VehicleTool.Vehicle.Wheel.WheelCollider",
                 "__guid": "d567dd2a-3ea4-47a4-bda7-a3556ab679f4",
                 "AutoSetFriction": true,
+                "BottomMeshCollider": {
+                  "_type": "component",
+                  "component_id": "eb4865f1-8382-46d8-b2fc-1b6b1e2a1857",
+                  "go": "dac1fc79-f655-416b-a270-4d725e9a72b4",
+                  "component_type": "ModelCollider"
+                },
                 "BumpDivisionVelocity": 0.06,
                 "BumpRate": 9000,
+                "ColliderGO": {
+                  "_type": "gameobject",
+                  "go": "dac1fc79-f655-416b-a270-4d725e9a72b4"
+                },
                 "Controller": {
                   "_type": "component",
                   "component_id": "38ed5ee3-01e4-4c78-82b6-d3b503d6c475",
@@ -620,9 +828,65 @@
                 "SteerAngle": 0,
                 "SuspensionExtensionSpeed": 6,
                 "SuspensionStiffness": 20000,
+                "TopMeshCollider": {
+                  "_type": "component",
+                  "component_id": "00f3c24a-b9ce-493e-96fa-402b6a204275",
+                  "go": "dac1fc79-f655-416b-a270-4d725e9a72b4",
+                  "component_type": "ModelCollider"
+                },
                 "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 15
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "dac1fc79-f655-416b-a270-4d725e9a72b4",
+                "Flags": 0,
+                "Name": "Colliders",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelCollider",
+                    "__guid": "eb4865f1-8382-46d8-b2fc-1b6b1e2a1857",
+                    "Friction": 0,
+                    "IsTrigger": false,
+                    "Model": "sbox_procedural_model.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  },
+                  {
+                    "__type": "Sandbox.ModelCollider",
+                    "__guid": "00f3c24a-b9ce-493e-96fa-402b6a204275",
+                    "Friction": 0,
+                    "IsTrigger": false,
+                    "Model": "sbox_procedural_model.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
               }
             ]
           },

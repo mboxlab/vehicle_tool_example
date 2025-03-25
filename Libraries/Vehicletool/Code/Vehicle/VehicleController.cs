@@ -14,6 +14,9 @@ public partial class VehicleController : Component
 	public Rigidbody Body { get; set; }
 
 	public float CurrentSpeed { get; private set; }
+	public float BodyMass { get; set; } = 1300;
+
+
 	public Vector3 LocalVelocity { get; private set; }
 
 	private bool _showRigidBodyComponent;

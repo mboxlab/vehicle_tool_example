@@ -278,6 +278,10 @@
               {
                 "_type": "gameobject",
                 "prefab": "prefab/cars/silverado1987/chevrolet silverado 1987.prefab"
+              },
+              {
+                "_type": "gameobject",
+                "prefab": "prefab/cars/mercedes benz g 6x6.prefab"
               }
             ]
           }

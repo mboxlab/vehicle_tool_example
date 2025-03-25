@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using System;
+using Sandbox;
 
 namespace Meteor.VehicleTool.Vehicle.Wheel;
 
@@ -11,6 +12,10 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 	private float wheelRadius = 14;
 	private float mass = 20;
 
+	[Property] private ModelCollider BottomMeshCollider { get; set; }
+	[Property] private ModelCollider TopMeshCollider { get; set; }
+	[Property] private GameObject ColliderGO { get; set; }
+
 	[Group( "Properties" ), Property, Sync]
 	public float Radius
 	{
@@ -19,13 +24,45 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 		{
 			wheelRadius = value;
 			UpdateTotalSuspensionLength();
-			UpdateInertia();
+			UpdatePhysicalProperties();
 		}
 	}
 
 
-	private void UpdateInertia()
-		=> Inertia = 0.5f * Mass * (wheelRadius.InchToMeter() * wheelRadius.InchToMeter());
+	[Button]
+	internal void CreateColliders()
+	{
+		using var undo = Scene.Editor.UndoScope( "Create Colliders" ).WithComponentCreations().WithComponentChanges( this ).Push();
+		ColliderGO = new GameObject( GameObject, true, "Colliders" );
+		BottomMeshCollider = ColliderGO.AddComponent<ModelCollider>();
+
+		TopMeshCollider = ColliderGO.AddComponent<ModelCollider>();
+
+		UpdatePhysicalProperties();
+	}
+
+	private void UpdatePhysicalProperties()
+	{
+		Inertia = 0.5f * Mass * (wheelRadius.InchToMeter() * wheelRadius.InchToMeter());
+		if ( BottomMeshCollider != null )
+		{
+			float radiusUndersizing = Math.Clamp( Radius * 0.05f, 0, 0.025f );
+			float widthUndersizing = Math.Clamp( Width * 0.05f, 0, 0.025f );
+			BottomMeshCollider.Model = CreateWheelMesh(
+				Radius - radiusUndersizing,
+				Width - widthUndersizing, false );
+			BottomMeshCollider.Friction = 0;
+		}
+
+		if ( TopMeshCollider != null )
+		{
+			float oversizing = Math.Clamp( Radius * 0.1f, 0, 0.1f );
+			TopMeshCollider.Model = CreateWheelMesh(
+				Radius + oversizing,
+				Width + oversizing, true );
+			TopMeshCollider.Friction = 0;
+		}
+	}
 
 	[Group( "Properties" ), Property, Sync] public float Width { get; set; } = 6;
 	[Group( "Properties" ), Property, Sync]
@@ -35,7 +72,7 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 		set
 		{
 			mass = value;
-			UpdateInertia();
+			UpdatePhysicalProperties();
 		}
 	}
 	[Group( "Properties" ), Property, ReadOnly] public float Inertia;
@@ -56,7 +93,7 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 
 	protected override void OnEnabled()
 	{
-		UpdateInertia();
+		UpdatePhysicalProperties();
 		UpdateTotalSuspensionLength();
 		SuspensionLength = suspensionTotalLength / 2;
 		Controller?.Register( this );
@@ -78,16 +115,30 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 			PhysUpdate( Time.Delta * Scene.PhysicsSubSteps );
 	}
 
+	protected override void OnUpdate()
+	{
+
+		if ( UseVisual )
+			UpdateVisual();
+	}
+
 	public void PhysUpdate( float dt )
 	{
 		DoTrace();
 
-		if ( UseVisual )
-			UpdateVisual();
+		ColliderGO.WorldPosition = GetCenter();
+		ColliderGO.WorldRotation = TransformRotationSteer;
+		axleAngle = AngularVelocity.RadianToDegree() * Time.Delta;
+
+		BottomMeshCollider.Enabled = GroundHit.Distance == 0;
+		if ( !BottomMeshCollider.Enabled )
+			UpdateSuspension( dt );
+
+		if ( BottomMeshCollider.IsValid() )
+			BottomMeshCollider.Enabled = GroundHit.Distance == 0;
 
 		UpdateSteer();
 		UpdateHitVariables();
-		UpdateSuspension( dt );
 		UpdateFriction( dt );
 	}
 }

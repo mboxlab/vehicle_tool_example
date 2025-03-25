@@ -17,8 +17,6 @@ public partial class WheelCollider
 		if ( !RendererObject.IsValid() )
 			return;
 
-		axleAngle = AngularVelocity.RadianToDegree() * Time.Delta;
-
 		RendererObject.WorldPosition = GetCenter();
 	}
 

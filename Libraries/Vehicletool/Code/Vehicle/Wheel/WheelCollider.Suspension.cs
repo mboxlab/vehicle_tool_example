@@ -1,6 +1,5 @@
 ﻿using System;
 using Sandbox;
-using Sandbox.Utility;
 namespace Meteor.VehicleTool.Vehicle.Wheel;
 
 public partial class WheelCollider
@@ -72,9 +71,9 @@ public partial class WheelCollider
 			Load = Math.Max( 0, springForce + dampingForce );
 
 
-			SuspensionForce = GroundHit.Normal * Load.MeterToInch();
+			SuspensionForce = GroundHit.Normal * Load;
 
-			CarBody.ApplyForceAt( WorldPosition, SuspensionForce );
+			CarBody.ApplyImpulseAt( WorldPosition, SuspensionForce );
 
 		}
 		else

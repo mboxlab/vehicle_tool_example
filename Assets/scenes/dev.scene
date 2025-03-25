@@ -559,6 +559,31 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "ada95a22-6fe2-43cf-84e6-e3a7993f9c61",
+      "Flags": 0,
+      "Name": "Network",
+      "Rotation": "0,0,0.9659258,0.2588192",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.NetworkHelper",
+          "__guid": "b19b8416-1ed5-499c-82af-aa45f6fff404",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PlayerPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefab/player.prefab"
+          },
+          "SpawnPoints": [],
+          "StartServer": true
+        }
+      ]
     }
   ],
   "SceneProperties": {
