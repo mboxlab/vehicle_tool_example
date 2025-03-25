@@ -130,12 +130,20 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 		ColliderGO.WorldRotation = TransformRotationSteer;
 		axleAngle = AngularVelocity.RadianToDegree() * Time.Delta;
 
-		BottomMeshCollider.Enabled = GroundHit.Distance == 0;
-		if ( !BottomMeshCollider.Enabled )
+
+		var bottomMeshColliderEnabled = false;
+
+		// Check for high vertical velocity and enable the collider if above one frame travel distance
+		float thresholdVelocity = suspensionTotalLength < 1e-5f ? float.MinValue : -suspensionTotalLength / dt;
+		float relativeYVelocity = Controller.LocalVelocity.z;
+		if ( relativeYVelocity < thresholdVelocity )
+			bottomMeshColliderEnabled = true;
+
+		if ( !bottomMeshColliderEnabled )
 			UpdateSuspension( dt );
 
 		if ( BottomMeshCollider.IsValid() )
-			BottomMeshCollider.Enabled = GroundHit.Distance == 0;
+			BottomMeshCollider.Enabled = bottomMeshColliderEnabled|| SuspensionLength == 0;
 
 		UpdateSteer();
 		UpdateHitVariables();

@@ -57,32 +57,12 @@ public partial class WheelCollider
 
 	public float LongitudinalSlip => ForwardFriction.Slip;
 	public float LongitudinalSpeed => ForwardFriction.Speed;
-	public virtual bool IsSkiddingLongitudinally => NormalizedLongitudinalSlip > 0.35f;
-	public virtual float NormalizedLongitudinalSlip
-	{
-		get
-		{
-			float lngSlip = LongitudinalSlip;
-			float absLngSlip = lngSlip < 0f ? -lngSlip : lngSlip;
-			return absLngSlip < 0f ? 0f : absLngSlip > 1f ? 1f : absLngSlip;
-		}
-	}
-
-
+	public bool IsSkiddingLongitudinally => NormalizedLongitudinalSlip > 0.35f;
+	public float NormalizedLongitudinalSlip => Math.Clamp( Math.Abs( LongitudinalSlip ), 0, 1 );
 	public float LateralSlip => SidewayFriction.Slip;
 	public float LateralSpeed => SidewayFriction.Speed;
-	public virtual bool IsSkiddingLaterally => NormalizedLateralSlip > 0.35f;
-
-	public virtual float NormalizedLateralSlip
-	{
-		get
-		{
-			float latSlip = LateralSlip;
-			float absLatSlip = latSlip < 0f ? -latSlip : latSlip;
-			return absLatSlip < 0f ? 0f : absLatSlip > 1f ? 1f : absLatSlip;
-		}
-	}
-
+	public bool IsSkiddingLaterally => NormalizedLateralSlip > 0.35f;
+	public float NormalizedLateralSlip => Math.Clamp( Math.Abs( LateralSlip ), 0, 1 );
 	private void UpdateHitVariables()
 	{
 		if ( IsGrounded )

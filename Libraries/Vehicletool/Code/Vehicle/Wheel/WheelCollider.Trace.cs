@@ -20,7 +20,7 @@ public partial class WheelCollider
 				.IgnoreGameObjectHierarchy( Controller.GameObject )
 				.FromTo( startPos, endPos )
 				.Cylinder( Width, Radius )
-				.Rotated( WorldRotation * CylinderOffset )
+				.Rotated( TransformRotationSteer * CylinderOffset )
 				.UseRenderMeshes( false )
 				.UseHitPosition( false )
 				.WithoutTags( IgnoredTags )

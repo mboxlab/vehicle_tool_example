@@ -315,7 +315,7 @@
                   "component_type": "ModelCollider"
                 },
                 "BumpDivisionVelocity": 0.06,
-                "BumpRate": 9000,
+                "BumpRate": 5000,
                 "ColliderGO": {
                   "_type": "gameobject",
                   "go": "0f322923-fa4d-46cc-b3ba-d2cfc1dfddbe"
@@ -332,7 +332,7 @@
                 "Inertia": 3.122574,
                 "LoadRating": 6400,
                 "Mass": 20,
-                "MaxSuspensionLength": 3,
+                "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 7,
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
@@ -352,7 +352,7 @@
                 "SlowRebound": 1.6,
                 "SteerAngle": 0,
                 "SuspensionExtensionSpeed": 6,
-                "SuspensionStiffness": 20000,
+                "SuspensionStiffness": 16000,
                 "TopMeshCollider": {
                   "_type": "component",
                   "component_id": "63817f4a-e0da-4064-9512-64ad2abef2a8",
@@ -473,7 +473,7 @@
                   "component_type": "ModelCollider"
                 },
                 "BumpDivisionVelocity": 0.06,
-                "BumpRate": 9000,
+                "BumpRate": 5000,
                 "ColliderGO": {
                   "_type": "gameobject",
                   "go": "fcc8d2ce-b254-492e-acf4-0b770f2c2ebe"
@@ -490,7 +490,7 @@
                 "Inertia": 3.122574,
                 "LoadRating": 6400,
                 "Mass": 20,
-                "MaxSuspensionLength": 3,
+                "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 7,
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
@@ -510,7 +510,7 @@
                 "SlowRebound": 1.6,
                 "SteerAngle": 0,
                 "SuspensionExtensionSpeed": 6,
-                "SuspensionStiffness": 20000,
+                "SuspensionStiffness": 16000,
                 "TopMeshCollider": {
                   "_type": "component",
                   "component_id": "b685a37f-a495-493e-8e52-a1cb5754245d",
@@ -632,7 +632,7 @@
                   "component_type": "ModelCollider"
                 },
                 "BumpDivisionVelocity": 0.06,
-                "BumpRate": 9000,
+                "BumpRate": 5000,
                 "ColliderGO": {
                   "_type": "gameobject",
                   "go": "2c38fe74-5b40-4aa1-ad96-388b6c646a74"
@@ -649,7 +649,7 @@
                 "Inertia": 3.122574,
                 "LoadRating": 6400,
                 "Mass": 20,
-                "MaxSuspensionLength": 3,
+                "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 7,
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
@@ -669,7 +669,7 @@
                 "SlowRebound": 1.6,
                 "SteerAngle": 0,
                 "SuspensionExtensionSpeed": 6,
-                "SuspensionStiffness": 20000,
+                "SuspensionStiffness": 16000,
                 "TopMeshCollider": {
                   "_type": "component",
                   "component_id": "79f3c9bf-153d-417c-8697-8e5a69a45f32",
@@ -790,7 +790,7 @@
                   "component_type": "ModelCollider"
                 },
                 "BumpDivisionVelocity": 0.06,
-                "BumpRate": 9000,
+                "BumpRate": 5000,
                 "ColliderGO": {
                   "_type": "gameobject",
                   "go": "dac1fc79-f655-416b-a270-4d725e9a72b4"
@@ -807,7 +807,7 @@
                 "Inertia": 3.122574,
                 "LoadRating": 6400,
                 "Mass": 20,
-                "MaxSuspensionLength": 3,
+                "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 7,
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
@@ -827,7 +827,7 @@
                 "SlowRebound": 1.6,
                 "SteerAngle": 0,
                 "SuspensionExtensionSpeed": 6,
-                "SuspensionStiffness": 20000,
+                "SuspensionStiffness": 16000,
                 "TopMeshCollider": {
                   "_type": "component",
                   "component_id": "00f3c24a-b9ce-493e-96fa-402b6a204275",
