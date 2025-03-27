@@ -564,7 +564,7 @@
       "__guid": "80e57580-c44f-4284-b005-0f4002125042",
       "Flags": 0,
       "Name": "Network",
-      "Position": "-1549.793,-2699.089,253.0504",
+      "Position": "-583.6801,1476.496,204.9808",
       "Rotation": "0,0,0.9659258,0.2588192",
       "Enabled": true,
       "Components": [
@@ -588,7 +588,7 @@
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 66,
+    "FixedUpdateFrequency": 50,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 60,
     "NetworkInterpolation": true,

@@ -1,5 +1,6 @@
 ﻿using Sandbox;
 using System;
+using System.Buffers.Text;
 
 namespace Meteor.VehicleTool.Vehicle.Powertrain;
 
@@ -14,7 +15,7 @@ public partial class Differential : PowertrainComponent
 	/// <param name="Ib">Inertia of the outputB</param>
 	/// <param name="dt">Time step</param>
 	/// <param name="biasAB">Torque bias between outputA and outputB. 0 = all torque goes to A, 1 = all torque goes to B</param>
-	/// <param name="stiffness">Stiffness of the limited slip or locked differential</param>
+	/// <param name="stiffness">Stiffness of the limited slip or locked differential 0-1</param>
 	/// <param name="powerRamp">Stiffness under power</param>
 	/// <param name="coastRamp">Stiffness under braking</param>
 	/// <param name="slipTorque">Slip torque of the limited slip differential</param>
@@ -146,24 +147,13 @@ public partial class Differential : PowertrainComponent
 	public static void LockingDiffTorqueSplit( float T, float Wa, float Wb, float Ia, float Ib, float dt, float biasAB,
 		float stiffness, float powerRamp, float coastRamp, float slipTorque, out float Ta, out float Tb )
 	{
-		float Isum = Ia + Ib;
+		Ta = T * (1f - biasAB);
+		Tb = T * biasAB;
 
-		float Wtarget = Ia / Isum * Wa + Ib / Isum * Wb;
-		float TaCorrective = (Wtarget - Wa) * Ia / dt;
-		TaCorrective *= stiffness;
-		float TbCorrective = (Wtarget - Wb) * Ib / dt;
-		TbCorrective *= stiffness;
+		float syncTorque = (Wa - Wb) * stiffness * (Ia + Ib) * 0.5f / dt;
 
-		float Tabs = T < 0 ? -T : T;
-		TbCorrective = TbCorrective > 0 ?
-			(TbCorrective > Tabs ? Tabs : TbCorrective) :
-			(TbCorrective < -Tabs ? -Tabs : TbCorrective);
-
-		float biasA = 0.5f + (Wb - Wa) * 10f * stiffness;
-		biasA = biasA < 0 ? 0 : biasA > 1f ? 1f : biasA;
-
-		Ta = T * biasA + TaCorrective;
-		Tb = T * (1f - biasA) + TbCorrective;
+		Ta -= syncTorque;
+		Tb += syncTorque;
 	}
 
 
@@ -177,17 +167,17 @@ public partial class Differential : PowertrainComponent
 			return;
 		}
 
-		//Wa and Wb are positive at this point
-		float c = T > 0 ? powerRamp : coastRamp;
-		float Wtotal = (Wa < 0 ? -Wa : Wa) + (Wb < 0 ? -Wb : Wb);
-		float slip = Wtotal == 0 ? 0 : (Wa - Wb) / Wtotal;
-		float Td = slip * stiffness * c * slipTorque;
+		// Минимальный момент трения, даже если разницы скоростей нет
+		float preloadTorque = MathF.Abs( T ) * 0.5f;
+		float speedDiff = Wa - Wb;
+		float ramp = T > 0 ? powerRamp : coastRamp;
 
-		float Tabs = Math.Abs( T );
-		Td = Math.Clamp( Td, -Tabs * 0.5f, Tabs * 0.5f );
+		// Основной момент трения LSD (зависит от разницы скоростей и preload)
+		float frictionTorque = ramp * (slipTorque * MathF.Abs( speedDiff ) + preloadTorque);
+		frictionTorque = MathF.Min( frictionTorque, MathF.Abs( T ) * 0.5f );
 
-		Ta = T * 0.5f - Td;
-		Tb = T * 0.5f + Td;
+		Ta = T * (1f - biasAB) - MathF.Sign( speedDiff ) * frictionTorque;
+		Tb = T * biasAB + MathF.Sign( speedDiff ) * frictionTorque;
 	}
 	public override float QueryAngularVelocity( float angularVelocity, float dt )
 	{

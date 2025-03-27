@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sandbox;
 namespace Meteor.VehicleTool.Vehicle.Powertrain;
 
-public class Engine : PowertrainComponent
+public class Engine : PowertrainComponent, IScenePhysicsEvents
 {
 	protected override void OnAwake()
 	{
@@ -209,44 +209,51 @@ public class Engine : PowertrainComponent
 
 	public void StartEngine()
 	{
+		if ( IsRunning ) return;
+
 		Ignition = true;
 		OnEngineStart?.Invoke();
 
 		if ( Type != EngineType.Electric )
-			if ( FlyingStartEnabled )
-				FlyingStart();
-			else if ( !StarterActive )
-				if ( Controller != null )
-					StarterCoroutine();
-	}
-	private async void StarterCoroutine()
-	{
-		if ( Type == EngineType.Electric || StarterActive )
-			return;
-
-		float startTimer = 0f;
-
-		StarterActive = true;
-
-		// Calculate starter torque from the start duration and the inertia of the engine
-		// Avoid start duration around 0 as that will apply large torque impulse.
-		if ( StartDuration < 0.1f )
-			StartDuration = 0.1f;
-
-		_starterTorque = ((_idleAngularVelocity - OutputAngularVelocity) * Inertia) / StartDuration;
-
-		// Run the starter
-		while ( startTimer <= StartDuration )
 		{
-			startTimer += 0.1f;
-			await GameTask.DelaySeconds( 0.1f );
+			if ( FlyingStartEnabled )
+			{
+				FlyingStart();
+			}
+			else if ( !StarterActive && Controller != null )
+			{
+				StarterCoroutine();
+			}
 		}
-
-		// Start finished
-		_starterTorque = 0;
-		StarterActive = false;
-		IsActive = true;
 	}
+    private async void StarterCoroutine()
+    {
+        if (Type == EngineType.Electric || StarterActive)
+            return;
+
+        try
+        {
+            float startTimer = 0f;
+            StarterActive = true;
+
+            // Ensure safe start duration
+            StartDuration = Math.Max(0.1f, StartDuration);
+
+            _starterTorque = ((_idleAngularVelocity - OutputAngularVelocity) * Inertia) / StartDuration;
+
+            while (startTimer <= StartDuration && StarterActive)
+            {
+                startTimer += 0.1f;
+                await GameTask.DelaySeconds(0.1f);
+            }
+        }
+        finally
+        {
+            _starterTorque = 0;
+            StarterActive = false;
+            IsActive = true;
+        }
+    }
 
 
 	private void FlyingStart()
@@ -281,7 +288,7 @@ public class Engine : PowertrainComponent
 		GetPeakTorque( out _peakTorque, out _peakTorqueRpm );
 	}
 
-	protected override void OnFixedUpdate()
+	void IScenePhysicsEvents.PrePhysicsStep()
 	{
 		float dt = Time.Delta;
 		// Cache values
@@ -327,9 +334,7 @@ public class Engine : PowertrainComponent
 		OutputAngularVelocity += totalTorque / inertiaSum * dt;
 
 		// Clamp the angular velocity to prevent any powertrain instabilities over the limits
-		float minAngularVelocity = 0f;
-		float maxAngularVelocity = _revLimiterAngularVelocity * 1.05f;
-		OutputAngularVelocity = Math.Clamp( OutputAngularVelocity, minAngularVelocity, maxAngularVelocity );
+		OutputAngularVelocity = Math.Clamp( OutputAngularVelocity, 0, _revLimiterAngularVelocity * 1.05f );
 
 		// Calculate cached values
 		_rpmPercent = Math.Clamp( OutputAngularVelocity / _revLimiterAngularVelocity, 0, 1 );
@@ -403,7 +408,7 @@ public class Engine : PowertrainComponent
 		else
 			generatedTorque = CalculateICEGeneratedTorqueFromPowerCurve();
 
-		float lossTorque = StarterActive ? 0f : CalculateICELossTorqueFromPowerCurve();
+		float lossTorque = (StarterActive || ThrottlePosition > 0.2f) ? 0f : CalculateICELossTorqueFromPowerCurve();
 
 		// Reduce the loss torque at rev limiter, but allow it to be >0 to prevent vehicle getting
 		// stuck at rev limiter.

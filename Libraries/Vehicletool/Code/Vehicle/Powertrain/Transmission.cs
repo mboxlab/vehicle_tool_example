@@ -499,7 +499,7 @@ public class Transmission : PowertrainComponent
 	public void ShiftInto( int targetGear, bool instant = false )
 	{
 		// Clutch is not pressed above the set threshold, exit and do not shift.
-		if ( Controller.IsClutching > ClutchInputShiftThreshold )
+		if ( Controller.IsClutching >= ClutchInputShiftThreshold )
 			return;
 
 		int currentGear = Gear;

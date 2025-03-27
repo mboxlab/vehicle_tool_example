@@ -61,13 +61,15 @@ public partial class VehicleController
 			_cameraDistance = 20f;
 		}
 
+		float dt = Time.Delta / Scene.TimeScale;
+
 		Rotation worldRotation = EyeAngles.ToRotation();
 
 		cam.WorldRotation = worldRotation;
 		Vector3 from = WorldPosition + Vector3.Up * (BodyHeight - EyeDistanceFromTop);
 		if ( IsOnGround && _eyez != 0f )
 		{
-			from.z = _eyez.LerpTo( from.z, Time.Delta * 50f );
+			from.z = _eyez.LerpTo( from.z, dt * 50f );
 		}
 
 		_eyez = from.z;
@@ -81,15 +83,15 @@ public partial class VehicleController
 
 			if ( sceneTraceResult.StartedSolid )
 			{
-				_cameraDistance = _cameraDistance.LerpTo( vector.Length, Time.Delta * 100f );
+				_cameraDistance = _cameraDistance.LerpTo( vector.Length, dt * 100f );
 			}
 			else if ( sceneTraceResult.Distance < _cameraDistance )
 			{
-				_cameraDistance = _cameraDistance.LerpTo( sceneTraceResult.Distance, Time.Delta * 200f );
+				_cameraDistance = _cameraDistance.LerpTo( sceneTraceResult.Distance, dt * 200f );
 			}
 			else
 			{
-				_cameraDistance = _cameraDistance.LerpTo( sceneTraceResult.Distance, Time.Delta * 2f );
+				_cameraDistance = _cameraDistance.LerpTo( sceneTraceResult.Distance, dt * 2f );
 			}
 
 			from += vector.Normal * _cameraDistance;

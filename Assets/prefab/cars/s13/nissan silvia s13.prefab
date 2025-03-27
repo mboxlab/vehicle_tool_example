@@ -22,7 +22,7 @@
           "6706": "prefab/cars/s13/sound/ext 6706 rpm.vsnd",
           "7269": "prefab/cars/s13/sound/ext 7269 rpm.vsnd"
         },
-        "AssistMultiplier": 0.8,
+        "AssistMultiplier": 0.7,
         "AssistStartSpeed": 5,
         "Body": {
           "_type": "component",
@@ -293,8 +293,8 @@
                   "go": "4ea01bb4-6cc8-4fe0-9bc0-16251c8b4358",
                   "component_type": "ModelCollider"
                 },
-                "BumpDivisionVelocity": 0.06,
-                "BumpRate": 3000,
+                "BumpDivisionVelocity": 0.1,
+                "BumpRate": 4200,
                 "ColliderGO": {
                   "_type": "gameobject",
                   "go": "4ea01bb4-6cc8-4fe0-9bc0-16251c8b4358"
@@ -304,7 +304,7 @@
                 "FastRebound": 0.6,
                 "IgnoredTags": "player",
                 "Inertia": 1.6516095,
-                "LoadRating": 4500,
+                "LoadRating": 5400,
                 "Mass": 20,
                 "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 6,
@@ -315,17 +315,17 @@
                 "OnComponentStart": null,
                 "OnComponentUpdate": null,
                 "Radius": 16,
-                "ReboundDivisionVelocity": 1,
-                "ReboundRate": 3000,
+                "ReboundDivisionVelocity": 0.1,
+                "ReboundRate": 4600,
                 "RendererObject": {
                   "_type": "gameobject",
                   "go": "82610ca1-5ecf-4f00-b7f1-fddba7e4ed1f"
                 },
-                "RollingResistanceTorque": 230,
+                "RollingResistanceTorque": 30,
                 "SlowBump": 1.4,
                 "SlowRebound": 1.6,
                 "SteerAngle": 0,
-                "SuspensionExtensionSpeed": 8,
+                "SuspensionExtensionSpeed": 10,
                 "SuspensionStiffness": 16000,
                 "TopMeshCollider": {
                   "_type": "component",
@@ -759,8 +759,8 @@
                   "go": "23102f8d-4a78-4be3-a53b-51232f98bcac",
                   "component_type": "ModelCollider"
                 },
-                "BumpDivisionVelocity": 0.06,
-                "BumpRate": 3000,
+                "BumpDivisionVelocity": 0.1,
+                "BumpRate": 4200,
                 "ColliderGO": {
                   "_type": "gameobject",
                   "go": "23102f8d-4a78-4be3-a53b-51232f98bcac"
@@ -770,7 +770,7 @@
                 "FastRebound": 0.6,
                 "IgnoredTags": "player",
                 "Inertia": 1.6516095,
-                "LoadRating": 4500,
+                "LoadRating": 5400,
                 "Mass": 20,
                 "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 6,
@@ -781,17 +781,17 @@
                 "OnComponentStart": null,
                 "OnComponentUpdate": null,
                 "Radius": 16,
-                "ReboundDivisionVelocity": 1,
-                "ReboundRate": 3000,
+                "ReboundDivisionVelocity": 0.1,
+                "ReboundRate": 4600,
                 "RendererObject": {
                   "_type": "gameobject",
                   "go": "27cb4fff-2bd8-4bf6-91b7-624f90fe35ab"
                 },
-                "RollingResistanceTorque": 230,
+                "RollingResistanceTorque": 30,
                 "SlowBump": 1.4,
                 "SlowRebound": 1.6,
                 "SteerAngle": 0,
-                "SuspensionExtensionSpeed": 8,
+                "SuspensionExtensionSpeed": 10,
                 "SuspensionStiffness": 16000,
                 "TopMeshCollider": {
                   "_type": "component",
@@ -1218,8 +1218,8 @@
                   "go": "a33642d4-f1b4-4ed0-8b7e-d887cbcb3102",
                   "component_type": "ModelCollider"
                 },
-                "BumpDivisionVelocity": 0.06,
-                "BumpRate": 3000,
+                "BumpDivisionVelocity": 0.1,
+                "BumpRate": 4200,
                 "ColliderGO": {
                   "_type": "gameobject",
                   "go": "a33642d4-f1b4-4ed0-8b7e-d887cbcb3102"
@@ -1229,7 +1229,7 @@
                 "FastRebound": 0.6,
                 "IgnoredTags": "player",
                 "Inertia": 1.6516095,
-                "LoadRating": 4500,
+                "LoadRating": 5400,
                 "Mass": 20,
                 "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 6,
@@ -1240,17 +1240,17 @@
                 "OnComponentStart": null,
                 "OnComponentUpdate": null,
                 "Radius": 16,
-                "ReboundDivisionVelocity": 1,
-                "ReboundRate": 3000,
+                "ReboundDivisionVelocity": 0.1,
+                "ReboundRate": 4600,
                 "RendererObject": {
                   "_type": "gameobject",
                   "go": "ef84c30c-4ec5-4161-ae56-445919030ac8"
                 },
-                "RollingResistanceTorque": 230,
+                "RollingResistanceTorque": 30,
                 "SlowBump": 1.4,
                 "SlowRebound": 1.6,
                 "SteerAngle": 0,
-                "SuspensionExtensionSpeed": 8,
+                "SuspensionExtensionSpeed": 10,
                 "SuspensionStiffness": 16000,
                 "TopMeshCollider": {
                   "_type": "component",
@@ -1261,34 +1261,6 @@
                 "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 13
-              },
-              {
-                "__type": "Meteor.VehicleTool.Vehicle.Powertrain.WheelPowertrain",
-                "__guid": "9921d3f2-693f-4ab3-8fa4-92e21111d837",
-                "Controller": {
-                  "_type": "component",
-                  "component_id": "9575fd5b-b82b-4f8a-ab86-e0e118908731",
-                  "go": "4be781c5-9523-4625-ad66-5988a96135a7",
-                  "component_type": "VehicleController"
-                },
-                "Inertia": 0.01,
-                "Input": null,
-                "InputRPM": 0,
-                "Name": null,
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "Output": null,
-                "OutputRPM": 0,
-                "Wheel": {
-                  "_type": "component",
-                  "component_id": "9417650c-2725-4efe-a007-dbfb132aff21",
-                  "go": "77d1b50b-3f8e-431d-8a17-d2b84c73911d",
-                  "component_type": "WheelCollider"
-                }
               }
             ],
             "Children": [
@@ -1714,8 +1686,8 @@
                   "go": "3692d9ed-a625-454c-a74c-0329c8ff6ff3",
                   "component_type": "ModelCollider"
                 },
-                "BumpDivisionVelocity": 0.06,
-                "BumpRate": 3000,
+                "BumpDivisionVelocity": 0.1,
+                "BumpRate": 4200,
                 "ColliderGO": {
                   "_type": "gameobject",
                   "go": "3692d9ed-a625-454c-a74c-0329c8ff6ff3"
@@ -1725,7 +1697,7 @@
                 "FastRebound": 0.6,
                 "IgnoredTags": "player",
                 "Inertia": 1.6516095,
-                "LoadRating": 4500,
+                "LoadRating": 5400,
                 "Mass": 20,
                 "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 6,
@@ -1736,17 +1708,17 @@
                 "OnComponentStart": null,
                 "OnComponentUpdate": null,
                 "Radius": 16,
-                "ReboundDivisionVelocity": 1,
-                "ReboundRate": 3000,
+                "ReboundDivisionVelocity": 0.1,
+                "ReboundRate": 4600,
                 "RendererObject": {
                   "_type": "gameobject",
                   "go": "04adb9a5-d7c0-4706-832a-2e62038ad132"
                 },
-                "RollingResistanceTorque": 230,
+                "RollingResistanceTorque": 30,
                 "SlowBump": 1.4,
                 "SlowRebound": 1.6,
                 "SteerAngle": 0,
-                "SuspensionExtensionSpeed": 8,
+                "SuspensionExtensionSpeed": 10,
                 "SuspensionStiffness": 16000,
                 "TopMeshCollider": {
                   "_type": "component",
@@ -1757,34 +1729,6 @@
                 "UseGroundVelocity": true,
                 "UseVisual": true,
                 "Width": 13
-              },
-              {
-                "__type": "Meteor.VehicleTool.Vehicle.Powertrain.WheelPowertrain",
-                "__guid": "d1338462-853f-413f-abec-6bf37d8acdfb",
-                "Controller": {
-                  "_type": "component",
-                  "component_id": "9575fd5b-b82b-4f8a-ab86-e0e118908731",
-                  "go": "4be781c5-9523-4625-ad66-5988a96135a7",
-                  "component_type": "VehicleController"
-                },
-                "Inertia": 0.01,
-                "Input": null,
-                "InputRPM": 0,
-                "Name": null,
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "Output": null,
-                "OutputRPM": 0,
-                "Wheel": {
-                  "_type": "component",
-                  "component_id": "2015300d-8a41-4fff-b0ca-be2a4650c89d",
-                  "go": "87759f8f-9052-4a69-ae2c-1bed51c0fa0a",
-                  "component_type": "WheelCollider"
-                }
               }
             ],
             "Children": [
@@ -2952,7 +2896,7 @@
                   "go": "4be781c5-9523-4625-ad66-5988a96135a7",
                   "component_type": "VehicleController"
                 },
-                "EngineLossPercent": 0.8,
+                "EngineLossPercent": 1,
                 "EstimatedPeakPower": 0,
                 "EstimatedPeakPowerRPM": 0,
                 "EstimatedPeakTorque": 0,
@@ -2965,7 +2909,7 @@
                 "InputRPM": 0,
                 "IsActive": false,
                 "IsRunning": false,
-                "MaxPower": 250,
+                "MaxPower": 150,
                 "Name": null,
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
@@ -3031,7 +2975,7 @@
                     "mode": "Mirrored"
                   }
                 ],
-                "RevLimiterCutoffDuration": 0.12,
+                "RevLimiterCutoffDuration": 0.3,
                 "RevLimiterRPM": 7700,
                 "RPMPercent": 0,
                 "StartDuration": 0.5,
@@ -3125,8 +3069,8 @@
                         },
                         "CurrentGearRatio": 0,
                         "DNRShiftType": "Auto",
-                        "DnrSpeedThreshold": 0.4,
-                        "DownshiftRPM": 1400,
+                        "DnrSpeedThreshold": 0.2,
+                        "DownshiftRPM": 2400,
                         "FinalGearRatio": 4.3,
                         "Gear": 0,
                         "GearingProfile": {
@@ -3142,7 +3086,7 @@
                           ]
                         },
                         "Gears": [],
-                        "HoldToKeepInGear": false,
+                        "HoldToKeepInGear": true,
                         "IgnorePostShiftBanInManual": true,
                         "InclineEffectCoeff": 0,
                         "Inertia": 0.01,
@@ -3170,15 +3114,15 @@
                           "component_type": "Differential"
                         },
                         "OutputRPM": 0,
-                        "PostShiftBan": 0.5,
-                        "ShiftDuration": 0.2,
+                        "PostShiftBan": 0.1,
+                        "ShiftDuration": 0.05,
                         "ShiftProgress": 0,
                         "TargetDownshiftRPM": 0,
                         "TargetUpshiftRPM": 0,
                         "TransmissionType": "Automatic",
-                        "UpshiftRPM": 2800,
+                        "UpshiftRPM": 4300,
                         "VariableShiftIntensity": 0.3,
-                        "VariableShiftPoint": true
+                        "VariableShiftPoint": false
                       }
                     ],
                     "Children": [
@@ -3229,8 +3173,8 @@
                             "OutputRPM": 0,
                             "PowerRamp": 1,
                             "SlipTorque": 400,
-                            "Stiffness": 0.5,
-                            "Type": "LimitedSlip"
+                            "Stiffness": 1,
+                            "Type": "Locked"
                           }
                         ],
                         "Children": [
@@ -3290,7 +3234,7 @@
                                   "go": "4be781c5-9523-4625-ad66-5988a96135a7",
                                   "component_type": "VehicleController"
                                 },
-                                "Inertia": 0.01,
+                                "Inertia": 0.1,
                                 "Input": {
                                   "_type": "component",
                                   "component_id": "4689be79-09b1-442e-b487-e4f2b6648c84",

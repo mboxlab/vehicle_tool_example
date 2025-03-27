@@ -12,7 +12,8 @@ public partial class VehicleController
 	private float brakes;
 	private float steerAngle;
 	private float handbrake;
-	public bool IsInputSwapped => Transmission.Gear < 0;
+	public bool CanInputSwapping { get; set; } = true;
+	public bool IsInputSwapped => CanInputSwapping && Transmission.Gear < 0;
 
 	/// <summary>
 	///     Convenience function for setting throttle/brakes as a single value.
@@ -105,7 +106,7 @@ public partial class VehicleController
 	}
 	private void UpdateInput()
 	{
-		VerticalInput = Input.AnalogMove.x;
+		VerticalInput = CurrentSpeed < 10 ? Input.AnalogMove.x * 0.5f : Input.AnalogMove.x;
 		Handbrake = Input.Down( "Jump" ) ? 1 : 0;
 
 		SteeringAngle = Input.AnalogMove.y;

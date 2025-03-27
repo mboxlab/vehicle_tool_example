@@ -1,4 +1,5 @@
 ﻿using System;
+using Sandbox;
 namespace Meteor.VehicleTool.Vehicle;
 
 public static class MathM
@@ -30,5 +31,22 @@ public static class MathM
 
 		return MathF.Cos( (1 - ((n - min) / (mid - min))) * (MathF.PI / 2) );
 	}
+
+	public static Vector3 MeterToInch( this Vector3 v ) => new( v.x.MeterToInch(), v.y.MeterToInch(), v.z.MeterToInch() );
+	public static Vector3 InchToMeter( this Vector3 v ) => new( v.x.InchToMeter(), v.y.InchToMeter(), v.z.InchToMeter() );
+	public static Vector3 InchToMillimeter( this Vector3 v ) => new( v.x.InchToMillimeter(), v.y.InchToMillimeter(), v.z.InchToMillimeter() );
+	public static Vector3 MillimeterToInch( this Vector3 v ) => new( v.x.MillimeterToInch(), v.y.MillimeterToInch(), v.z.MillimeterToInch() );
+	
+	public static float SignedAngle( this Vector3 from, Vector3 to, Vector3 axis )
+	{
+		float unsignedAngle = Vector3.GetAngle( from, to );
+
+		float cross_x = from.y * to.z - from.z * to.y;
+		float cross_y = from.z * to.x - from.x * to.z;
+		float cross_z = from.x * to.y - from.y * to.x;
+		float sign = MathF.Sign( axis.x * cross_x + axis.y * cross_y + axis.z * cross_z );
+		return unsignedAngle * sign;
+	}
+
 
 }

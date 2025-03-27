@@ -10,7 +10,7 @@ public partial class WheelCollider
 	/// Constant torque acting similar to brake torque.
 	/// Imitates rolling resistance.
 	/// </summary>
-	[Property, Range( 0, 500 ), Sync] public float RollingResistanceTorque { get; set; } = 230f;
+	[Property, Range( 0, 500 ), Sync] public float RollingResistanceTorque { get; set; } = 30f;
 
 	/// <summary>
 	/// The percentage this wheel is contributing to the total vehicle load bearing.
@@ -280,7 +280,7 @@ public partial class WheelCollider
 			float slipCircleLimit = MathF.Sqrt( forwardSlipPercent * forwardSlipPercent + sideSlipPercent * sideSlipPercent );
 			if ( slipCircleLimit > 1f )
 			{
-				float beta = MathF.Atan2( sideSlipPercent, forwardSlipPercent * 1.75f );
+				float beta = MathF.Atan2( sideSlipPercent, forwardSlipPercent * 0.9f );
 				float sinBeta = MathF.Sin( beta );
 				float cosBeta = MathF.Cos( beta );
 
@@ -289,8 +289,8 @@ public partial class WheelCollider
 				float absSideForce = SidewayFriction.Force < 0 ? -SidewayFriction.Force : SidewayFriction.Force;
 				float f = absForwardForce * cosBeta * cosBeta + absSideForce * sinBeta * sinBeta;
 
-				ForwardFriction.Force = 0.5f * ForwardFriction.Force - 1f * f * cosBeta;
-				SidewayFriction.Force = 0.5f * SidewayFriction.Force - 1f * f * sinBeta;
+				ForwardFriction.Force = 0.5f * ForwardFriction.Force - f * cosBeta;
+				SidewayFriction.Force = 0.5f * SidewayFriction.Force - f * sinBeta;
 			}
 		}
 

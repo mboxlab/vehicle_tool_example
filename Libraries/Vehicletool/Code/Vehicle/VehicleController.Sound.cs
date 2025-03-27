@@ -2,7 +2,6 @@
 using System;
 using Sandbox;
 using Sandbox.Audio;
-using static Sandbox.Services.Inventory;
 
 namespace Meteor.VehicleTool.Vehicle;
 public partial class VehicleController

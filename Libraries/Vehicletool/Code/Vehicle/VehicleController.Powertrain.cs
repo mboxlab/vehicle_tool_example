@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Meteor.VehicleTool.Vehicle.Powertrain;
 using Meteor.VehicleTool.Vehicle.Wheel;
 using Sandbox;
@@ -13,7 +14,6 @@ public partial class VehicleController
 	[Property, Feature( "Powertrain" ), Group( "Properties" )] public float MaxBrakeTorque { get; set; } = 3000;
 	[Property, Feature( "Powertrain" ), Group( "Properties" )] public float HandBrakeTorque { get; set; } = 50000;
 
-
 	[Property, Feature( "Powertrain" ), Group( "Components" )] public Engine Engine { get; set; }
 	[Property, Feature( "Powertrain" ), Group( "Components" )] public Clutch Clutch { get; set; }
 	[Property, Feature( "Powertrain" ), Group( "Components" )] public Transmission Transmission { get; set; }
@@ -24,6 +24,14 @@ public partial class VehicleController
 
 	[Property, Feature( "Powertrain" )] public List<WheelCollider> MotorWheels { get; set; }
 	[Property, Feature( "Powertrain" )] public List<WheelCollider> HandBrakeWheels { get; set; }
+	public List<WheelPowertrain> PowertrainWheels { get; private set; } = [];
+
+	[Button, Feature( "Powertrain" )]
+	internal void FindWheels()
+	{
+		PowertrainWheels = Differential.Components.GetAll<WheelPowertrain>( FindMode.InDescendants ).ToList();
+	}
+
 
 	[Button, Feature( "Powertrain" )]
 	internal void CreatePowertrain()
@@ -61,6 +69,8 @@ public partial class VehicleController
 		Differential = new TreeBuilder( Transmission, MotorWheels ).Root.Diff;
 
 		Transmission.Output = Differential;
+
+		PowertrainWheels = Differential.Components.GetAll<WheelPowertrain>( FindMode.InDescendants ).ToList();
 
 	}
 

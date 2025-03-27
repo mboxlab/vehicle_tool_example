@@ -46,8 +46,8 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 		Inertia = 0.5f * Mass * (wheelRadius.InchToMeter() * wheelRadius.InchToMeter());
 		if ( BottomMeshCollider != null )
 		{
-			float radiusUndersizing = Math.Clamp( Radius * 0.05f, 0, 0.025f );
-			float widthUndersizing = Math.Clamp( Width * 0.05f, 0, 0.025f );
+			float radiusUndersizing = Math.Clamp( Radius.InchToMeter() * 0.05f, 0, 0.025f );
+			float widthUndersizing = Math.Clamp( Width.InchToMeter() * 0.05f, 0, 0.025f );
 			BottomMeshCollider.Model = CreateWheelMesh(
 				Radius - radiusUndersizing,
 				Width - widthUndersizing, false );
@@ -56,7 +56,7 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 
 		if ( TopMeshCollider != null )
 		{
-			float oversizing = Math.Clamp( Radius * 0.1f, 0, 0.1f );
+			float oversizing = Math.Clamp( Radius.InchToMeter() * 0.1f, 0, 0.1f );
 			TopMeshCollider.Model = CreateWheelMesh(
 				Radius + oversizing,
 				Width + oversizing, true );
@@ -75,7 +75,7 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 			UpdatePhysicalProperties();
 		}
 	}
-	[Group( "Properties" ), Property, ReadOnly] public float Inertia;
+	[Group( "Properties" ), Property, ReadOnly] public float Inertia { get; set; }
 
 	[Group( "Components" ), Property] public VehicleController Controller { get; set; }
 
@@ -137,13 +137,12 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 		float thresholdVelocity = suspensionTotalLength < 1e-5f ? float.MinValue : -suspensionTotalLength / dt;
 		float relativeYVelocity = Controller.LocalVelocity.z;
 		if ( relativeYVelocity < thresholdVelocity )
-			bottomMeshColliderEnabled = true;
-
-		if ( !bottomMeshColliderEnabled )
-			UpdateSuspension( dt );
+			bottomMeshColliderEnabled = true;	
 
 		if ( BottomMeshCollider.IsValid() )
-			BottomMeshCollider.Enabled = bottomMeshColliderEnabled|| SuspensionLength == 0;
+			BottomMeshCollider.Enabled = bottomMeshColliderEnabled || SuspensionLength == 0;
+		if ( !bottomMeshColliderEnabled )
+			UpdateSuspension( dt );
 
 		UpdateSteer();
 		UpdateHitVariables();

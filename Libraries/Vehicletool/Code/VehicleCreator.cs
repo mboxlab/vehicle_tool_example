@@ -89,7 +89,6 @@ public sealed class VehicleCreator : Component
 		controller.CreatePowertrain();
 		controller.Engine.RevLimiterRPM = maxRPM;
 
-
 		Destroy();
 	}
 

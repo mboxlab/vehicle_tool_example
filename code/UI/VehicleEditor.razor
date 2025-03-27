@@ -41,6 +41,14 @@
 			<SliderControl Step=@(0.01f) Min=@(0) Max=@(3) Value:bind="@SlowRebound">Slow Rebound</SliderControl>
 			<SliderControl Step=@(0.01f) Min=@(0) Max=@(0.2f) Value:bind="@FastRebound">Fast Rebound</SliderControl>
 		</div>
+
+
+		<div class="container">
+			<title>Powertrain</title>
+			<SwitchControl Value:bind="@TransmissionType">Transmission Type Automatic</SwitchControl>
+		</div>
+
+
 	</div>
 </root>
 @code
@@ -83,6 +91,19 @@
 		reboundDivisionVelocity = wheel.ReboundDivisionVelocity;
 		slowRebound = wheel.SlowRebound;
 		fastRebound = wheel.FastRebound;
+		transmissionType = vehicleComponent.Transmission.TransmissionType == Meteor.VehicleTool.Vehicle.Powertrain.Transmission.TransmissionShiftType.Automatic ? true : false;
+	}
+
+
+	private bool transmissionType;
+	private bool TransmissionType
+	{
+		get => transmissionType; set
+		{
+			transmissionType = value;
+			vehicleComponent.Transmission.TransmissionType = value ? Meteor.VehicleTool.Vehicle.Powertrain.Transmission.TransmissionShiftType.Automatic : Meteor.VehicleTool.Vehicle.Powertrain.Transmission.TransmissionShiftType.Manual;
+			vehicleComponent.CanInputSwapping = value;
+		}
 	}
 
 	private float fastRebound;

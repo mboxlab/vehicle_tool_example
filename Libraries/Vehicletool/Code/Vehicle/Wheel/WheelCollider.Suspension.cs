@@ -123,7 +123,7 @@ public partial class WheelCollider
 	/// </summary>
 	[Property, Group( "Damper" )]
 	[Range( 0f, 0.2f )]
-	public float BumpDivisionVelocity { get; set; } = 0.06f;
+	public float BumpDivisionVelocity { get; set; } = 0.1f;
 
 	/// <summary>
 	/// Slow rebound slope for the damper, used for damper velocity below reboundDivisionVelocity.
@@ -146,7 +146,7 @@ public partial class WheelCollider
 	/// </summary>
 	[Property, Group( "Damper" )]
 	[Range( 0f, 0.2f )]
-	public float ReboundDivisionVelocity { get; set; } = 0.05f;
+	public float ReboundDivisionVelocity { get; set; } = 0.1f;
 
 
 	private float CalculateBumpForce( in float velocity )

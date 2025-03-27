@@ -15,10 +15,8 @@ public partial class WheelPowertrain : PowertrainComponent
 
 	protected override void OnStart()
 	{
-		base.OnStart();
 		_initialRollingResistance = Wheel.RollingResistanceTorque;
 		_initialWheelInertia = Wheel.Inertia;
-
 	}
 	private float _initialRollingResistance;
 	private float _initialWheelInertia;
@@ -29,20 +27,7 @@ public partial class WheelPowertrain : PowertrainComponent
 	/// </summary>
 	public void AddBrakeTorque( float torque )
 	{
-		float brakeTorque = Wheel.BrakeTorque;
-
-		if ( torque > 0 )
-		{
-			brakeTorque += torque;
-		}
-
-		brakeTorque = Math.Max( brakeTorque, Controller.MaxBrakeTorque );
-
-		if ( brakeTorque < 0 )
-		{
-			brakeTorque = 0;
-		}
-		Wheel.BrakeTorque = brakeTorque;
+		Wheel.BrakeTorque = Math.Clamp( Wheel.BrakeTorque, 0, Controller.MaxBrakeTorque ) + Math.Max( torque, 0 );
 	}
 
 

@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using Sandbox.VR;
 
 namespace Meteor.VehicleTool.Vehicle;
 
@@ -15,8 +16,6 @@ public partial class VehicleController : Component
 
 	public float CurrentSpeed { get; private set; }
 	public float BodyMass { get; set; } = 1300;
-
-
 	public Vector3 LocalVelocity { get; private set; }
 
 	private bool _showRigidBodyComponent;
@@ -65,7 +64,12 @@ public partial class VehicleController : Component
 		Transmission.OnGearUpShift += OnGearUp;
 		Transmission.OnGearDownShift += OnGearDown;
 	}
+	protected override void OnStart()
+	{
+		base.OnStart();
 
+		FindWheels();
+	}
 	protected override void OnUpdate()
 	{
 
