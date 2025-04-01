@@ -226,34 +226,34 @@ public class Engine : PowertrainComponent, IScenePhysicsEvents
 			}
 		}
 	}
-    private async void StarterCoroutine()
-    {
-        if (Type == EngineType.Electric || StarterActive)
-            return;
+	private async void StarterCoroutine()
+	{
+		if ( Type == EngineType.Electric || StarterActive )
+			return;
 
-        try
-        {
-            float startTimer = 0f;
-            StarterActive = true;
+		try
+		{
+			float startTimer = 0f;
+			StarterActive = true;
 
-            // Ensure safe start duration
-            StartDuration = Math.Max(0.1f, StartDuration);
+			// Ensure safe start duration
+			StartDuration = Math.Max( 0.1f, StartDuration );
 
-            _starterTorque = ((_idleAngularVelocity - OutputAngularVelocity) * Inertia) / StartDuration;
+			_starterTorque = ((_idleAngularVelocity - OutputAngularVelocity) * Inertia) / StartDuration;
 
-            while (startTimer <= StartDuration && StarterActive)
-            {
-                startTimer += 0.1f;
-                await GameTask.DelaySeconds(0.1f);
-            }
-        }
-        finally
-        {
-            _starterTorque = 0;
-            StarterActive = false;
-            IsActive = true;
-        }
-    }
+			while ( startTimer <= StartDuration && StarterActive )
+			{
+				startTimer += 0.1f;
+				await GameTask.DelaySeconds( 0.1f );
+			}
+		}
+		finally
+		{
+			_starterTorque = 0;
+			StarterActive = false;
+			IsActive = true;
+		}
+	}
 
 
 	private void FlyingStart()
@@ -288,9 +288,10 @@ public class Engine : PowertrainComponent, IScenePhysicsEvents
 		GetPeakTorque( out _peakTorque, out _peakTorqueRpm );
 	}
 
-	void IScenePhysicsEvents.PrePhysicsStep()
+	protected override void OnFixedUpdate()
 	{
 		float dt = Time.Delta;
+
 		// Cache values
 		_userThrottleInput = Controller.SwappedThrottle;
 		ThrottlePosition = _userThrottleInput;

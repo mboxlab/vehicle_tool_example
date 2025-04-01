@@ -58,6 +58,7 @@ public sealed class VehicleCreator : Component
 				handBrake.Add( collider );
 
 			collider.SetBoundsToVisual();
+			collider.CreateColliders();
 		}
 
 		Dictionary<int, SoundFile> acsendingSounds = [];

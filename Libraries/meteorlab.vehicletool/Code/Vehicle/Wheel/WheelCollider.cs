@@ -6,7 +6,7 @@ namespace Meteor.VehicleTool.Vehicle.Wheel;
 [Category( "Physics" )]
 [Title( "Wheel Collider" )]
 [Icon( "sports_soccer" )]
-public partial class WheelCollider : Component, IScenePhysicsEvents
+public partial class WheelCollider : Component
 {
 
 	private float wheelRadius = 14;
@@ -23,7 +23,6 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 		set
 		{
 			wheelRadius = value;
-			UpdateTotalSuspensionLength();
 			UpdatePhysicalProperties();
 		}
 	}
@@ -46,17 +45,20 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 		Inertia = 0.5f * Mass * (wheelRadius.InchToMeter() * wheelRadius.InchToMeter());
 		if ( BottomMeshCollider != null )
 		{
-			float radiusUndersizing = Math.Clamp( Radius.InchToMeter() * 0.05f, 0, 0.025f );
-			float widthUndersizing = Math.Clamp( Width.InchToMeter() * 0.05f, 0, 0.025f );
+			float radiusUndersizing = Math.Clamp( wheelRadius.InchToMeter() * 0.05f, 0, 0.025f ).MeterToInch();
+			float widthUndersizing = Math.Clamp( Width.InchToMeter() * 0.05f, 0, 0.025f ).MeterToInch();
+
 			BottomMeshCollider.Model = CreateWheelMesh(
 				Radius - radiusUndersizing,
 				Width - widthUndersizing, false );
 			BottomMeshCollider.Friction = 0;
+
+
 		}
 
 		if ( TopMeshCollider != null )
 		{
-			float oversizing = Math.Clamp( Radius.InchToMeter() * 0.1f, 0, 0.1f );
+			float oversizing = Math.Clamp( Radius.InchToMeter() * 0.1f, 0, 0.1f ).MeterToInch();
 			TopMeshCollider.Model = CreateWheelMesh(
 				Radius + oversizing,
 				Width + oversizing, true );
@@ -109,10 +111,10 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 		Controller?.UnRegister( this );
 	}
 
-	void IScenePhysicsEvents.PrePhysicsStep()
+	protected override void OnFixedUpdate()
 	{
 		if ( AutoSimulate )
-			PhysUpdate( Time.Delta * Scene.PhysicsSubSteps );
+			PhysUpdate( Time.Delta );
 	}
 
 	protected override void OnUpdate()
@@ -128,19 +130,22 @@ public partial class WheelCollider : Component, IScenePhysicsEvents
 
 		ColliderGO.WorldPosition = GetCenter();
 		ColliderGO.WorldRotation = TransformRotationSteer;
-		axleAngle = AngularVelocity.RadianToDegree() * Time.Delta;
+		axleAngle = AngularVelocity.RadianToDegree() * dt;
 
-
+		Scene.PhysicsWorld.PositionIterations = 10;
 		var bottomMeshColliderEnabled = false;
 
-		// Check for high vertical velocity and enable the collider if above one frame travel distance
+		//Check for high vertical velocity and enable the collider if above one frame travel distance
+
 		float thresholdVelocity = suspensionTotalLength < 1e-5f ? float.MinValue : -suspensionTotalLength / dt;
 		float relativeYVelocity = Controller.LocalVelocity.z;
 		if ( relativeYVelocity < thresholdVelocity )
-			bottomMeshColliderEnabled = true;	
+			bottomMeshColliderEnabled = true;
+		Scene.PhysicsWorld.PositionIterations = 100;
 
 		if ( BottomMeshCollider.IsValid() )
 			BottomMeshCollider.Enabled = bottomMeshColliderEnabled || SuspensionLength == 0;
+
 		if ( !bottomMeshColliderEnabled )
 			UpdateSuspension( dt );
 

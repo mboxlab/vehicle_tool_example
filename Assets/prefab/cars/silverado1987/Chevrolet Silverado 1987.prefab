@@ -272,7 +272,7 @@
           {
             "__type": "Sandbox.ModelCollider",
             "__guid": "9021799f-6c8d-4da1-9ae5-298b7f69bac9",
-            "Friction": null,
+            "Friction": 0.1,
             "IsTrigger": false,
             "Model": "prefab/cars/silverado1987/model/model.vmdl",
             "OnComponentDestroy": null,

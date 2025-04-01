@@ -7,7 +7,6 @@ namespace Meteor.VehicleTool.Vehicle;
 public partial class VehicleController
 {
 	private float _cameraDistance = 100f;
-	private float _eyez;
 
 	[Property]
 	[FeatureEnabled( "Camera", Icon = "videocam" )]
@@ -66,13 +65,7 @@ public partial class VehicleController
 		Rotation worldRotation = EyeAngles.ToRotation();
 
 		cam.WorldRotation = worldRotation;
-		Vector3 from = WorldPosition + Vector3.Up * (BodyHeight - EyeDistanceFromTop);
-		if ( IsOnGround && _eyez != 0f )
-		{
-			from.z = _eyez.LerpTo( from.z, dt * 50f );
-		}
-
-		_eyez = from.z;
+		Vector3 from = WorldPosition + WorldRotation.Up * (BodyHeight - EyeDistanceFromTop);
 
 		if ( ThirdPerson )
 		{

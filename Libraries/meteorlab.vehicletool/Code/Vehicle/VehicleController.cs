@@ -98,6 +98,20 @@ public partial class VehicleController : Component
 			UpdateSteerAngle();
 		if ( UsePowertrain )
 			UpdateBrakes();
+
+		if ( !IsOnGround )
+			AirControl();
+	}
+
+	[Property, Group( "Air Control" )] public float YawTorque { get; set; } = 10000;
+	[Property, Group( "Air Control" )] public float PitchTorque { get; set; } = 20000;
+
+	private void AirControl()
+	{
+		Vector3 torque = Vector3.Zero;
+		torque.y = VerticalInput * PitchTorque / Time.Delta;
+		torque.x = -SteeringAngle * YawTorque / Time.Delta;
+		Body.ApplyTorque( torque * WorldRotation );
 	}
 
 }

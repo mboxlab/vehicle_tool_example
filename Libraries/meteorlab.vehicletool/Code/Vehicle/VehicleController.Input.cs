@@ -167,10 +167,10 @@ public partial class VehicleController
 		eyeAngles.roll = 0f;
 		eyeAngles.pitch = eyeAngles.pitch.Clamp( -MinPitch, MaxPitch );
 
-		var vehAngles = WorldRotation.Angles();
+		var vehAngles = Body.Velocity.EulerAngles;
 		float decay = Math.Clamp( (CurrentSpeed - 2) * 0.03f, 0f, 1f ) * 7f * centerStrength;
 		eyeAngles.pitch = MathM.ExpDecayAngle( eyeAngles.pitch, vehAngles.pitch + (ThirdPerson ? 15f : 0f), decay, Time.Delta );
-		eyeAngles.yaw = MathM.ExpDecayAngle( eyeAngles.yaw, vehAngles.yaw + CurrentSteerAngle / 10f + (CarDirection == -1 ? 180f : 0f), decay, Time.Delta );
+		eyeAngles.yaw = MathM.ExpDecayAngle( eyeAngles.yaw, vehAngles.yaw + CurrentSteerAngle / 10f, decay, Time.Delta );
 
 		if ( MouseMovedTime > 1f )
 			centerStrength = MathM.ExpDecay( centerStrength, 1, 2, Time.Delta );
