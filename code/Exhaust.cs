@@ -109,8 +109,8 @@ public sealed class Exhaust : Component
 
 		if ( Random.Shared.Float( 0, 1 ) < PopChance )
 		{
-			var snd = Sound.Play( PopSounds );
-			snd.Position = WorldPosition;
+			var snd = Sound.Play( PopSounds, WorldPosition );
+			//snd.Position = WorldPosition; (that shiut doesnt work s&box issue or idk but he make an error and break the vehicle) Object reference not set to an instance of an object.
 		}
 
 
